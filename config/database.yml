@@ -14,8 +14,8 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  host: localhost
+  password: test
+  host: db
 
 development:
   <<: *default
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: analytics_production
-  username: analytics
-  password: <%= ENV['ANALYTICS_DATABASE_PASSWORD'] %>
+  username: root
+  password: test
