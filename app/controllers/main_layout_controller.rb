@@ -1,3 +1,3 @@
-class MainLayoutController < ApplicationController::Base
+class MainLayoutController < ApplicationController
   layout "application"
 end

@@ -2,8 +2,10 @@
 
 @import "variables/variables";
 
+//please set font-size using by rem
+//examples: 1.6rem = 10px*1.6 = 16px;
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* font-size 1em = 10px on default browser settings */
 }
 
 body {
