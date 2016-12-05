@@ -1,3 +1,3 @@
-class MailerLayoutController < ApplicationController::Base
+class MailerLayoutController < ApplicationController
   layout "mailer"
 end
