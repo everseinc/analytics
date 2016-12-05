@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(version: 20161205130013) do
     t.string   "customer_authority", null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["app_id"], name: "index_apps_customers_on_app_id", using: :btree
+    t.index ["app_id"], name: "app_id", using: :btree
     t.index ["customer_id", "app_id"], name: "index_apps_customers_on_customer_id_and_app_id", unique: true, using: :btree
-    t.index ["customer_id"], name: "index_apps_customers_on_customer_id", using: :btree
   end
 
   create_table "apps_projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -34,9 +33,8 @@ ActiveRecord::Schema.define(version: 20161205130013) do
     t.integer  "app_id",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["app_id"], name: "index_apps_projects_on_app_id", using: :btree
+    t.index ["app_id"], name: "app_id", using: :btree
     t.index ["project_id", "app_id"], name: "index_apps_projects_on_project_id_and_app_id", unique: true, using: :btree
-    t.index ["project_id"], name: "index_apps_projects_on_project_id", using: :btree
   end
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -51,8 +49,8 @@ ActiveRecord::Schema.define(version: 20161205130013) do
     t.integer  "password_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["customer_id"], name: "index_customers_passwords_on_customer_id", using: :btree
-    t.index ["password_id"], name: "index_customers_passwords_on_password_id", using: :btree
+    t.index ["customer_id"], name: "customer_id", using: :btree
+    t.index ["password_id"], name: "password_id", using: :btree
   end
 
   create_table "customers_projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,8 +60,7 @@ ActiveRecord::Schema.define(version: 20161205130013) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["customer_id", "project_id"], name: "index_customers_projects_on_customer_id_and_project_id", unique: true, using: :btree
-    t.index ["customer_id"], name: "index_customers_projects_on_customer_id", using: :btree
-    t.index ["project_id"], name: "index_customers_projects_on_project_id", using: :btree
+    t.index ["project_id"], name: "project_id", using: :btree
   end
 
   create_table "passwords", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -78,5 +75,12 @@ ActiveRecord::Schema.define(version: 20161205130013) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "apps_customers", "apps", name: "apps_customers_ibfk_2", on_delete: :cascade
+  add_foreign_key "apps_customers", "customers", name: "apps_customers_ibfk_1", on_delete: :cascade
+  add_foreign_key "apps_projects", "apps", name: "apps_projects_ibfk_1", on_delete: :cascade
+  add_foreign_key "apps_projects", "projects", name: "apps_projects_ibfk_2", on_delete: :cascade
+  add_foreign_key "customers_passwords", "customers", name: "customers_passwords_ibfk_1", on_delete: :cascade
+  add_foreign_key "customers_passwords", "passwords", name: "customers_passwords_ibfk_2", on_delete: :cascade
+  add_foreign_key "customers_projects", "customers", name: "customers_projects_ibfk_1", on_delete: :cascade
+  add_foreign_key "customers_projects", "projects", name: "customers_projects_ibfk_2", on_delete: :cascade
 end
-
