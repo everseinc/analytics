@@ -1,10 +1,11 @@
 class TestController < MainLayoutController
   def index
-  	@test = "hiiss"
+  	@test = "hello"
+
   	begin
-  		raise MajorError::Base.code(10)
+  		raise MajorError::Base.code(10000)
   	rescue MajorError::Base => e
-  		@test = "Exception handled! #{e.message}"
+  		@test = e.message
   	end
   end
 end
