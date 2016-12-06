@@ -28,6 +28,6 @@ class CustomError < StandardError
 
   def self.get_message(code)
   	yaml = YAML.load_file("#{Rails.root}/app/exceptions/error_code.yml")
-  	yaml[code] ||= "An unexpected error was occured. And could not find an error message from an error code.　Check it out"
+  	yaml[code] ||= yaml[00000]
   end
 end
