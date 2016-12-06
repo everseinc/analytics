@@ -3,6 +3,11 @@
 ##
 
 class MinorError::Validatoins::UpdateFailedError < CustomError
+	
+	###
+	## public methods
+	#
+
 	def http_status
 		:not_acceptable
 	end

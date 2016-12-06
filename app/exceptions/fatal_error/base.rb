@@ -3,6 +3,11 @@
 ##
 
 class FatalError::Base < CustomError
+	
+	###
+	## public methods
+	#
+
 	def http_status
   	:internal_server_error
 	end
