@@ -4,6 +4,13 @@
 
 class CustomError < StandardError
 
+  ###
+  ## reader properties
+  #
+
+  attr_reader :code
+
+
 	###
 	## initializer
 	#
@@ -28,6 +35,6 @@ class CustomError < StandardError
 
   def self.get_message(code)
   	yaml = YAML.load_file("#{Rails.root}/app/exceptions/error_code.yml")
-  	yaml[code]
+  	yaml[code] ||= yaml[00000]
   end
 end
