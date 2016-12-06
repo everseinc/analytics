@@ -4,6 +4,13 @@
 
 class CustomError < StandardError
 
+  ###
+  ## reader properties
+  #
+
+  attr_reader :code
+
+
 	###
 	## initializer
 	#
