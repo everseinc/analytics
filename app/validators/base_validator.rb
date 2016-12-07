@@ -9,9 +9,9 @@ class BaseValidator
 	#
 
 	# a string lentgh must be under max
-	def self.validate(&condtion)
+	def self.validate(&condition)
 		-> (value, monad) {
-			return monad.zero unless condtion.call(value)
+			return monad.zero unless condition.call(value)
 			monad.new(value)
 		}
 	end
