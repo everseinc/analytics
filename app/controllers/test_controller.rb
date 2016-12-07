@@ -3,6 +3,11 @@ class TestController < MainLayoutController
   	@test = "hello"
 
   	@test2 = square_sum [:hi, :hello, :yes, :good]
+    test
+
+    @yeah = RegularExpressionManager::array_gsub(["hi", "hallo", 10], /h/, "f")
+
+    @bool = RegularExpressionManager::no_em?("ss.435%$==~- }ddinfotest")
   end
 
 
@@ -32,5 +37,15 @@ class TestController < MainLayoutController
   	@sum1 = sum1
   	@sum2 = sum2
   	@sum3 = sum3
+  end
+
+  def test
+    f = -> (arr) { arr.first }
+    g = -> (x) { x + 1 }
+    h = -> (x) { x * 2 }
+
+    i = f >= g >= h
+
+    @hi = i.([12,23,33])
   end
 end

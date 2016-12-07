@@ -1,6 +1,6 @@
 module ComposableFunction
   def compose(g)
-    lambda{|*args| self.to_proc.call(g.to_proc.call(*args)) }
+    ->(*args) { self.to_proc.call(g.to_proc.call(*args)) }
   end
 
   def >>(g)
@@ -9,6 +9,14 @@ module ComposableFunction
 
   def self.included(klass)
     klass.send(:alias_method, :<<, :compose)
+  end
+
+  def >=(g)
+    ->(x) do
+      res = self.call(x)
+      return nil if res.nil?
+      g.call(res)
+    end
   end
 end
 
