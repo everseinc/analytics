@@ -2,7 +2,7 @@
 ## if some models fail to save records, this error will be thrown
 ##
 
-class MinorError::Validatoins::SaveFailedError < CustomError
+class MajorError::Validatoins::SaveFailedError < CustomError
 	
 	###
 	## public methods
