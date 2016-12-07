@@ -15,7 +15,9 @@ class RegularExpressionManager
 			value
 		}
 
-		array.map &f.curry.(pattern).(replacement)
+		&f.curry(3) <= array > pattern > replacement
+
+		# array.map &f.curry.(pattern).(replacement)
 	end
 
 	# does a string contain only numbers?
