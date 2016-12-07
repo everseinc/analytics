@@ -3,7 +3,7 @@ module LiftArray
     functors.map(&self)
   end
 
-    def self.included(klass)
+   def self.included(klass)
     klass.send(:alias_method, :<=, :lift)
   end
 end
