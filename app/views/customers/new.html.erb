@@ -1,2 +1,21 @@
-<h1>Customers#new</h1>
-<p>Find me in app/views/customers/new.html.erb</p>
+<h1>Add a New Account</h1>
+<h2>Setup Account</h2>
+
+<%= form_for @form, url: customers_path do |f| %>
+
+  <%= f.label :name, 'name' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email, 'email' %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, 'password' %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, 'password_confirmation' %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "add" %>
+
+<% end %>
+
