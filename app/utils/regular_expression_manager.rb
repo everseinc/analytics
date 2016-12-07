@@ -28,6 +28,26 @@ class RegularExpressionManager
 		/^[^0-9]+$/ === string
 	end
 
+	# does a string contain only lowercases?
+	def self.only_lower?(string)
+		/^[a-z]+$/ === string
+	end
+
+	# does not a string contain only lowercases?
+	def self.no_lower?(string)
+		/^[^a-z]+$/ === string
+	end
+
+	# does a string contain only uppercases?
+	def self.only_upper?(string)
+		/^[A-Z]+$/ === string
+	end
+
+	# does not a string contain any uppercases?
+	def self.no_upper?(string)
+		/^[^A-Z]+$/ === string
+	end
+
 	# does not a string contain any Em words?
 	def self.no_em?(string)
 		/^[ -~。-゜]+$/ === string
