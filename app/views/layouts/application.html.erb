@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Analytics</title>
+    <meta charset="UTF-8">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: "shared/header" %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+    <%= render partial: "shared/footer" %>
   </body>
 </html>
