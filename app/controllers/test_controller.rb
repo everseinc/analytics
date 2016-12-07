@@ -2,8 +2,17 @@ class TestController < MainLayoutController
   def index
     @test = Method.proc_curry(:+, 2) <= Maybe.new(5) > Maybe.new(10)
     @test2 = "test2"
-    half = -> (value,monad) { monad.new(value / 2) }
+    half = -> (value, monad) { monad.new(value / 2) }
     @test3 = Maybe.new(20) >> half >> half >> half
+
+    @validation1 = Maybe.new("keijinamba") >> StringValidator.not_empty >> StringValidator.only_lower
+    #=> Just keijinamba
+
+    @validation2 = Maybe.new("keijinamba") >> StringValidator.not_empty >> StringValidator.email_format
+    #=> Nothing
+
+    @validation3 = Maybe.new("keijinamba@info.com") >> StringValidator.not_empty >> StringValidator.email_format
+    #=> Just keijinamba@info.com
   end
 
   ###
