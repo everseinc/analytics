@@ -20,7 +20,7 @@ class StringValidator < BaseValidator
 		validate(&condition)
 	end
 
-	# a string lentgh must be under max
+	# a string lentgh must be above max
 	def self.length_above(min)
 		condition = -> (string) { string.lentgh <= min }
 		validate(&condition)
