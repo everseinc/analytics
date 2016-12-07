@@ -42,7 +42,7 @@ class Maybe < Monad
   ## instance methods
   #
 
-  def bind(&block)
+  def bind(block)
     return Maybe.zero if nothing?
       
     ret = block.call @value, Maybe
@@ -79,11 +79,8 @@ class Maybe < Monad
   end
 
   def inspect
-    if just?
-      "Just #{value}"
-    else
-      "Nothing"
-    end
+    return "Just #{value}" if just?
+    return "Nothing" if nothing?
   end
 
 
@@ -92,4 +89,5 @@ class Maybe < Monad
   #
 
   alias_method :>, :applicate
+  alias_method :>>, :bind
 end
