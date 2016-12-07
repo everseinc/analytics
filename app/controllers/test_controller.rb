@@ -1,13 +1,10 @@
 class TestController < MainLayoutController
   def index
-    int = Maybe.new(10)
-    plus = :+.to_proc.curry(2)
-    num = Maybe.new(5)
-    # f = -> n { n * 10 }
-    @test = plus <= num > int
+    @test = Method.proc_curry(:+, 2) <= Maybe.new(5) > Maybe.new(10)
     @test2 = "test2"
+    half = -> (value,monad) { monad.new(value / 2) }
+    @test3 = Maybe.new(20) >> half >> half >> half
   end
-
 
   ###
   ## private methods
