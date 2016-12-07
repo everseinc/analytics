@@ -38,6 +38,12 @@ class StringValidator < BaseValidator
 		validate(&condition)
 	end
 
+	# a string format must be URL
+	def self.url_format
+		condition = -> (string) { RegularExpressionManager::is_url?(string) }
+		validate(&condition)
+	end
+
 	# a string must contain only numbers
 	def self.only_number
 		condition = -> (string) { RegularExpressionManager::only_number?(string) }

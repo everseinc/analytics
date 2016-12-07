@@ -57,4 +57,9 @@ class RegularExpressionManager
 	def self.is_email?(string)
 		/\A[a-zA-Z0-9_\#!$%&`'*+\-{|}~^\/=?\.]+@[a-zA-Z0-9][a-zA-Z0-9\.-]+\z/ === string
 	end
+
+	# is a string valid for an URL?
+	def self.is_url?(string)
+		/\A#{URI::regexp(%w(http https))}\z/ === string
+	end
 end
