@@ -1,13 +1,11 @@
 class TestController < MainLayoutController
   def index
-  	@test = "hello"
-
-  	@test2 = square_sum [:hi, :hello, :yes, :good]
-    test
-
-    @yeah = RegularExpressionManager::array_gsub(["hi", "hallo", 10], /h/, "f")
-
-    @bool = RegularExpressionManager::no_em?("ss.435%$==~- }ddinfotest")
+    int = Maybe.new(10)
+    plus = :+.to_proc.curry(2)
+    num = Maybe.new(5)
+    # f = -> n { n * 10 }
+    @test = plus <= num > int
+    @test2 = "test2"
   end
 
 

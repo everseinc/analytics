@@ -1,4 +1,5 @@
 00000: "An unexpected error was occured. And could not find an error message from an error code.　Check it out"
 10000: "Fatal Error : Some fatal error was occured"
+15000: "Fatal Error : You must bind a block that return Maybe to Maybe"
 20000: "Major Error : Some major error was occured"
 30000: "Minor Error : Some minor error was occured"
