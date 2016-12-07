@@ -2,7 +2,7 @@
 ## if some values are wrong, this error will be thrown
 ##
 
-class MinorError::Validatoins::ValidationError < CustomError
+class MajorError::Validatoins::ValidationError < CustomError
 
 	###
 	## public methods
