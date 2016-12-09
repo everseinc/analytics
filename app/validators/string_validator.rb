@@ -20,7 +20,7 @@ class StringValidator < BaseValidator
 		validate(&condition)
 	end
 
-	# a string lentgh must be under max
+	# a string lentgh must be above max
 	def self.length_above(min)
 		condition = -> (string) { string.lentgh <= min }
 		validate(&condition)
@@ -35,6 +35,12 @@ class StringValidator < BaseValidator
 	# a string format must be email
 	def self.email_format
 		condition = -> (string) { RegularExpressionManager::is_email?(string) }
+		validate(&condition)
+	end
+
+	# a string format must be URL
+	def self.url_format
+		condition = -> (string) { RegularExpressionManager::is_url?(string) }
 		validate(&condition)
 	end
 
