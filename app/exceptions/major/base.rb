@@ -2,7 +2,7 @@
 ## an error for any major missing in this application
 ##
 
-class MajorError::Base < CustomError
+class Major::BaseError < CustomError
 	
 	###
 	## public methods

@@ -37,4 +37,13 @@ class CustomError < StandardError
   	yaml = YAML.load_file("#{Rails.root}/app/exceptions/error_code.yml")
   	yaml[code] ||= yaml[00000]
   end
+
+
+  ###
+  ## instance method
+  #
+
+  def http_status
+    :internal_server_error
+  end
 end
