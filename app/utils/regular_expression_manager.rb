@@ -10,12 +10,7 @@ class RegularExpressionManager
 
 	# applay replacement by a regular expression for a string array
 	def self.array_gsub(array, pattern, replacement)
-		f = -> (pattern, replacement, value) {
-			return value.to_s.gsub(pattern, replacement) if value.kind_of?(String)
-			value
-		}
-
-		array.map &f.curry.(pattern).(replacement)
+		Method.proc_curry(:gsub, 3) <= array > pattern > replacement
 	end
 
 	# does a string contain only numbers?
@@ -56,5 +51,10 @@ class RegularExpressionManager
 	# is a string valid for an email address?
 	def self.is_email?(string)
 		/\A[a-zA-Z0-9_\#!$%&`'*+\-{|}~^\/=?\.]+@[a-zA-Z0-9][a-zA-Z0-9\.-]+\z/ === string
+	end
+
+	# is a string valid for an URL?
+	def self.is_url?(string)
+		/\A#{URI::regexp(%w(http https))}\z/ === string
 	end
 end
