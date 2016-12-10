@@ -2,7 +2,14 @@
 ## a class for Maybe
 ##
 
-class Maybe < Monad
+class Maybe
+
+  ###
+  ## Mix-in
+  #
+
+  include Fanctor, Applicative, Monad
+
 
   ###
   ## reader properties
@@ -28,46 +35,36 @@ class Maybe < Monad
     Maybe.new(nil)
   end
 
-  def self.map(&block)
-    -> (r) {
-      case
-      when r.just? then new block.call(r.value)
-      when r.nothing? then zero
-      end
-    }
-  end
-
 
   ###
   ## instance methods
   #
 
-  def bind(block)
-    return Maybe.zero if nothing?
-      
-    ret = block.call @value, Maybe
-    raise FatalError::Maybe::MustBindMaybeError.code(15000) unless ret.is_a?(Maybe)
-    ret
-  end
-
-  def map(&block)
+  # override a method in Fanctor module
+  def map(block)
     return zero if nothing?
     return Maybe.new block.call(value) if just?
   end
 
+  # override a method in Applicate module
   def applicate(functors)
+    raise Fatal::InvalidArgumentError.code(13000) unless functors.is_a?(Maybe)
+
     return zero if nothing?
     return zero if functors.nothing?
 
     Maybe.new value.call(functors.value)
   end
 
-  def +(n)
-    if n.just?
-      n
-    else
-      self
-    end
+  # override a method in Monad module
+  def bind(block)
+    return zero if nothing?
+      
+    ret = block.call(@value, Maybe)
+
+    raise Fatal::MustBindMaybeError.code(15000) unless ret.is_a?(Maybe)
+
+    ret
   end
 
   def nothing?
@@ -82,12 +79,4 @@ class Maybe < Monad
     return "Just #{value}" if just?
     return "Nothing" if nothing?
   end
-
-
-  ###
-  ## alias
-  #
-
-  alias_method :>, :applicate
-  alias_method :>>, :bind
 end

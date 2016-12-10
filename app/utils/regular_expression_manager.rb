@@ -28,6 +28,11 @@ class RegularExpressionManager
 		/^[a-z]+$/ === string
 	end
 
+  # does a string contain not only blank?
+	def self.not_only_blank?(string)
+		/^[^\s]+$/ === string
+	end
+
 	# does not a string contain only lowercases?
 	def self.no_lower?(string)
 		/^[^a-z]+$/ === string

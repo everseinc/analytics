@@ -1,12 +1,16 @@
 require 'test_helper'
 
 class CustomerTest < ActiveSupport::TestCase
- 
+
   def setup
-    @customer = Customer.new(email: "user@example.com")
+    @customer = Customer.new(name: "Example User",email: "user@example.com")
   end
 
-  test "should be valid" do
-    assert @customer.valid?
+
+  test "name should be present" do
+    @customer.name = "     "
+
+    assert_not @customer.valid?
   end
+
 end
