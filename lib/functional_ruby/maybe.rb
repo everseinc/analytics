@@ -8,7 +8,7 @@ class Maybe
   ## Mix-in
   #
 
-  include Fanctor, Applicative, Monad
+  include Functor, Applicative, Monad
 
 
   ###
@@ -40,7 +40,7 @@ class Maybe
   ## instance methods
   #
 
-  # override a method in Fanctor module
+  # override a method in Functor module
   def map(block)
     return zero if nothing?
     return Maybe.new block.call(value) if just?

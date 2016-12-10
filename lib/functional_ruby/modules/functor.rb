@@ -1,8 +1,8 @@
 ##
-## a module for fanctor
+## a module for functor
 ##
 
-module Fanctor
+module Functor
 
 	###
 	## instance methods
