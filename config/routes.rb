@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => 'test#index'
+  root :to => 'customers#new'
 
 
   resources :customers, :only => [:new, :create]
