@@ -5,13 +5,13 @@ class TestController < MainLayoutController
     half = -> (value, monad) { monad.new(value / 2) }
     @test3 = Maybe.new(20) >> half >> half >> half
 
-    @validation1 = Maybe.new("keijinamba") >> StringValidator.not_empty >> StringValidator.only_lower
-    #=> Just keijinamba
+    # @validation1 = Maybe.new("keijinamba") >> StringValidator.not_empty >> StringValidator.only_lower
+    # #=> Just keijinamba
 
-    @validation2 = Maybe.new("keijinamba") >> StringValidator.not_empty >> StringValidator.email_format
-    #=> Nothing
+    # @validation2 = Maybe.new("keijinamba") >> StringValidator.not_empty >> StringValidator.email_format
+    # #=> Nothing
 
-    @validation3 = Maybe.new("keijinamba@info.com") >> StringValidator.not_empty >> StringValidator.email_format
+    # @validation3 = Maybe.new("keijinamba@info.com") >> StringValidator.not_empty >> StringValidator.email_format
     #=> Just keijinamba@info.com
 
     flash[:notice] = "hihi"
