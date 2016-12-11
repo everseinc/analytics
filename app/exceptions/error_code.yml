@@ -7,4 +7,6 @@
 15051: "Fatal Error : You must override the `applicate` method when a class includes the Applicative module"
 15052: "Fatal Error : You must override the `map` method when a class includes the Fanctor module"
 20000: "Major Error : Some major error was occured"
+21000: "Major Error (- Validation Error) : Some validation error was occured"
+21001: "Major Error (- Validation Error) : A given string must not be empty."
 30000: "Minor Error : Some minor error was occured"
