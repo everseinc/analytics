@@ -1,3 +1,3 @@
 class Customer < ApplicationRecord
-  before_validation CustomerCallback.new
+  # before_validation CustomerCallbacks.new()
 end
