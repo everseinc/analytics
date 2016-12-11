@@ -1,0 +1,33 @@
+@mixin sizing($header-height, $footer-height) {
+
+  & header {
+    height: $header-height;
+  }
+
+  .wrapper {
+
+    section {
+      width: grid-width(6);
+
+      @include max-media($desktop) {
+        width: grid-width(4);
+      }
+
+      @include max-media($desktop-sm) {
+        width: grid-width(2);
+      }
+
+      @include max-media($mobile) {
+        width: 100%;
+      }
+    }
+  }
+
+  & footer {
+  	height: $footer-height;
+  }
+}
+
+body {
+  @include sizing($header-height, $footer-height);
+}
