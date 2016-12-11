@@ -2,7 +2,7 @@
 ## if some values are wrong, this error will be thrown
 ##
 
-class MajorError::ValidationError < Major::BaseError
+class Major::ValidationError < Major::BaseError
 
 	###
 	## public methods
