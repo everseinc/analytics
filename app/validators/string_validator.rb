@@ -68,9 +68,9 @@ class StringValidator < BaseValidator
 		validate(&condition)
 	end
 
-	# a string must not contain any lowercases
-	def self.not_only_blank
-		condition = -> (string) { RegularExpressionManager::not_only_blank?(string) }
+	# a string must not be blank
+	def self.no_blank
+		condition = -> (string) { RegularExpressionManager::no_blank?(string) }
 		validate(&condition)
 	end
 

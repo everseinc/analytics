@@ -29,7 +29,7 @@ class RegularExpressionManager
 	end
 
   # does a string contain not only blank?
-	def self.not_only_blank?(string)
+	def self.no_blank?(string)
 		/^[^\s]+$/ === string
 	end
 
