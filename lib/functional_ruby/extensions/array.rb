@@ -17,11 +17,11 @@ class Array
 	## instance methods
 	#
 
-	def applicate(functors)
+  def applicate(functors)
     self.flat_map { |f| functors.map(&f) }
   end
 
-  
+
   ###
   ## alias methods
   #
