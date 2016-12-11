@@ -8,7 +8,16 @@ class BaseValidator
 	## class methods
 	#
 
-	def self.validate(&condition)
+	# for Either class
+	def self.either_validate(&condition, code)
+		-> (value, monad) {
+			return monad.left Major::ValidationError.code(code) unless condition.call(value)
+			monad.right(value)
+		}
+	end
+
+	# for Maybe class
+	def self.maybe_validate(&condition)
 		-> (value, monad) {
 			return monad.zero unless condition.call(value)
 			monad.new(value)
