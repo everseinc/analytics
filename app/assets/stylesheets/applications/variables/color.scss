@@ -1,4 +1,231 @@
 //color file
 //imported by variables 
 
-$black: #333;
+$white: #fff;
+$black: #212121; //rgb(33, 33, 33);
+$medium-grey: #757575; //rgb(117,117,117);
+$table-header-background: #FAFAFA;
+$table-inner-border: #EEEEEE;
+$table-outer-border: #E5E5E5;
+$button-hover-background: #EEEEEE;
+$button-color: #4285f4;
+
+
+//material design color codes
+$material_red_50: #FFEBEE;
+$material_red_100: #FFCDD2;
+$material_red_200: #EF9A9A;
+$material_red_300: #E57373;
+$material_red_400: #EF5350;
+$material_red_500: #F44336;
+$material_red_600: #E53935;
+$material_red_700: #D32F2F;
+$material_red_800: #C62828;
+$material_red_900: #B71C1C;
+
+$material_pink_50: #FCE4EC;
+$material_pink_100: #F8BBD0;
+$material_pink_200: #F48FB1;
+$material_pink_300: #F06292;
+$material_pink_400: #EC407A;
+$material_pink_500: #E91E63;
+$material_pink_600: #D81B60;
+$material_pink_700: #C2185B;
+$material_pink_800: #AD1457;
+$material_pink_900: #880E4F;
+
+$material_purple_50: #F3E5F5;
+$material_purple_100: #E1BEE7;
+$material_purple_200: #CE93D8;
+$material_purple_300: #BA68C8;
+$material_purple_400: #AB47BC;
+$material_purple_500: #9C27B0;
+$material_purple_600: #8E24AA;
+$material_purple_700: #7B1FA2;
+$material_purple_800: #6A1B9A;
+$material_purple_900: #4A148C;
+
+$material_deep_purple_50: #EDE7F6;
+$material_deep_purple_100: #D1C4E9;
+$material_deep_purple_200: #B39DDB;
+$material_deep_purple_300: #9575CD;
+$material_deep_purple_400: #7E57C2;
+$material_deep_purple_500: #673AB7;
+$material_deep_purple_600: #5E35B1;
+$material_deep_purple_700: #512DA8;
+$material_deep_purple_800: #4527A0;
+$material_deep_purple_900: #311B92;
+
+$material_indigo_50: #E8EAF6;
+$material_indigo_100: #C5CAE9;
+$material_indigo_200: #9FA8DA;
+$material_indigo_300: #7986CB;
+$material_indigo_400: #5C6BC0;
+$material_indigo_500: #3F51B5;
+$material_indigo_600: #3949AB;
+$material_indigo_700: #303F9F;
+$material_indigo_800: #283593;
+$material_indigo_900: #1A237E;
+
+$material_blue_50: #E3F2FD;
+$material_blue_100: #BBDEFB;
+$material_blue_200: #90CAF9;
+$material_blue_300: #64B5F6;
+$material_blue_400: #42A5F5;
+$material_blue_500: #2196F3;
+$material_blue_600: #1E88E5;
+$material_blue_700: #1976D2;
+$material_blue_800: #1565C0;
+$material_blue_900: #0D47A1;
+
+$material_light_blue_50: #E1F5FE;
+$material_light_blue_100: #B3E5FC;
+$material_light_blue_200: #81D4FA;
+$material_light_blue_300: #4FC3F7;
+$material_light_blue_400: #29B6F6;
+$material_light_blue_500: #03A9F4;
+$material_light_blue_600: #039BE5;
+$material_light_blue_700: #0288D1;
+$material_light_blue_800: #0277BD;
+$material_light_blue_900: #01579B;
+
+$material_cyan_50: #E0F7FA;
+$material_cyan_100: #B2EBF2;
+$material_cyan_200: #80DEEA;
+$material_cyan_300: #4DD0E1;
+$material_cyan_400: #26C6DA;
+$material_cyan_500: #00BCD4;
+$material_cyan_600: #00ACC1;
+$material_cyan_700: #0097A7;
+$material_cyan_800: #00838F;
+$material_cyan_900: #006064;
+
+$material_teal_50: #E0F2F1;
+$material_teal_100: #B2DFDB;
+$material_teal_200: #80CBC4;
+$material_teal_300: #4DB6AC;
+$material_teal_400: #26A69A;
+$material_teal_500: #009688;
+$material_teal_600: #00897B;
+$material_teal_700: #00796B;
+$material_teal_800: #00695C;
+$material_teal_900: #004D40;
+
+$material_green_50: #E8F5E9;
+$material_green_100: #C8E6C9;
+$material_green_200: #A5D6A7;
+$material_green_300: #81C784;
+$material_green_400: #66BB6A;
+$material_green_500: #4CAF50;
+$material_green_600: #43A047;
+$material_green_700: #388E3C;
+$material_green_800: #2E7D32;
+$material_green_900: #1B5E20;
+
+$material_light_green_50: #F1F8E9;
+$material_light_green_100: #DCEDC8;
+$material_light_green_200: #C5E1A5;
+$material_light_green_300: #AED581;
+$material_light_green_400: #9CCC65;
+$material_light_green_500: #8BC34A;
+$material_light_green_600: #7CB342;
+$material_light_green_700: #689F38;
+$material_light_green_800: #558B2F;
+$material_light_green_900: #33691E;
+
+$material_lime_50: #F9FBE7;
+$material_lime_100: #F0F4C3;
+$material_lime_200: #E6EE9C;
+$material_lime_300: #DCE775;
+$material_lime_400: #D4E157;
+$material_lime_500: #CDDC39;
+$material_lime_600: #C0CA33;
+$material_lime_700: #AFB42B;
+$material_lime_800: #9E9D24;
+$material_lime_900: #827717;
+
+$material_yellow_50: #FFFDE7;
+$material_yellow_100: #FFF9C4;
+$material_yellow_200: #FFF59D;
+$material_yellow_300: #FFF176;
+$material_yellow_400: #FFEE58;
+$material_yellow_500: #FFEB3B;
+$material_yellow_600: #FDD835;
+$material_yellow_700: #FBC02D;
+$material_yellow_800: #F9A825;
+$material_yellow_900: #F57F17;
+
+$material_amber_50: #FFF8E1;
+$material_amber_100: #FFECB3;
+$material_amber_200: #FFE082;
+$material_amber_300: #FFD54F;
+$material_amber_400: #FFCA28;
+$material_amber_500: #FFC107;
+$material_amber_600: #FFB300;
+$material_amber_700: #FFA000;
+$material_amber_800: #FF8F00;
+$material_amber_900: #FF6F00;
+
+$material_orange_50: #FFF3E0;
+$material_orange_100: #FFE0B2;
+$material_orange_200: #FFCC80;
+$material_orange_300: #FFB74D;
+$material_orange_400: #FFA726;
+$material_orange_500: #FF9800;
+$material_orange_600: #FB8C00;
+$material_orange_700: #F57C00;
+$material_orange_800: #EF6C00;
+$material_orange_900: #E65100;
+
+$material_deep_orange_50: #FBE9E7;
+$material_deep_orange_100: #FFCCBC;
+$material_deep_orange_200: #FFAB91;
+$material_deep_orange_300: #FF8A65;
+$material_deep_orange_400: #FF7043;
+$material_deep_orange_500: #FF5722;
+$material_deep_orange_600: #F4511E;
+$material_deep_orange_700: #E64A19;
+$material_deep_orange_800: #D84315;
+$material_deep_orange_900: #BF360C;
+
+$material_brown_50: #EFEBE9;
+$material_brown_100: #D7CCC8;
+$material_brown_200: #BCAAA4;
+$material_brown_300: #A1887F;
+$material_brown_400: #8D6E63;
+$material_brown_500: #795548;
+$material_brown_600: #6D4C41;
+$material_brown_700: #5D4037;
+$material_brown_800: #4E342E;
+$material_brown_900: #3E2723;
+
+$material_grey_50: #FAFAFA;
+$material_grey_100: #F5F5F5;
+$material_grey_200: #EEEEEE;
+$material_grey_300: #E0E0E0;
+$material_grey_400: #BDBDBD;
+$material_grey_500: #9E9E9E;
+$material_grey_600: #757575;
+$material_grey_700: #616161;
+$material_grey_800: #424242;
+$material_grey_900: #212121;
+
+$material_blue_grey_50: #ECEFF1;
+$material_blue_grey_100: #CFD8DC;
+$material_blue_grey_200: #B0BEC5;
+$material_blue_grey_300: #90A4AE;
+$material_blue_grey_400: #78909C;
+$material_blue_grey_500: #607D8B;
+$material_blue_grey_600: #546E7A;
+$material_blue_grey_700: #455A64;
+$material_blue_grey_800: #37474F;
+$material_blue_grey_900: #263238;
+
+
+
+
+
+
+
+
+

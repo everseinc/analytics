@@ -1,0 +1,15 @@
+@function grid-width($n) {
+  @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+@mixin max-media($size) {
+  @media screen and (max-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin min-media($size) {
+  @media screen and (min-width: #{$size}) {
+    @content;
+  }
+}

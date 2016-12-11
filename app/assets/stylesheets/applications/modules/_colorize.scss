@@ -1,0 +1,62 @@
+@mixin colorize($background, $title) {
+
+  & header {
+    background-color: $background;
+  }
+
+  .wrapper {
+
+  	.form-title {
+  		color: $title;
+  	}
+  }
+
+  & footer {
+  	background-color: $background;
+  }
+
+  & title {
+  	color: $title;
+  }
+
+}
+
+body {
+  @include colorize($material_teal_600, $material_teal_600);
+}
+
+.color-blue-grey {
+  @include colorize($material_blue_grey_800, $material_blue_grey_800);
+}
+
+.color-cyan {
+  @include colorize($material_cyan_500, $material_cyan_500);
+}
+
+.color-default {
+  @include colorize($material_light_blue_600, $material_light_blue_600);
+}
+
+.color-indigo {
+  @include colorize($material_indigo_600, $material_indigo_600);
+}
+
+.color-light-blue {
+  @include colorize($material_light_blue_600, $material_light_blue_600);
+}
+
+.color-orange {
+  @include colorize($material_orange_600, $material_orange_600);
+}
+
+.color-pink {
+  @include colorize($material_pink_800, $material_pink_800);
+}
+
+.color-purple {
+  @include colorize($material_purple_600, $material_purple_600);
+}
+
+.color-teal {
+  @include colorize($material_teal_600, $material_teal_600);
+}

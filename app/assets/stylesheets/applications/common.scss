@@ -19,7 +19,14 @@ body {
   }
 
   .wrapper {
+    padding-top: $header-height;
+    padding-bottom: 100px;
     width: 100%;
+
+    section {
+      margin: auto;
+      padding-top: 80px;
+    }
   }
 
   .footer {
