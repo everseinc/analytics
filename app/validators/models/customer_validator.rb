@@ -1,10 +1,10 @@
 class Models::CustomerValidator < ActiveModel::Validator
   def validate(customer)
-    condition = Maybe.new(customer.name)
+    condition = Either.right(customer.name)
                   >> StringValidator.not_empty
                   >> StringValidator.no_blank
 
-    customer.errors[:name] << 'name is invalid' if condition.nothing?
+    customer.errors[:name] << 'name is invalid' if condition.left?
   end
 
 
