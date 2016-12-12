@@ -68,6 +68,12 @@ class StringValidator < BaseValidator
 		either_validate(&condition, 21001)
 	end
 
+	# a string must not be blank
+	def self.no_blank
+		condition = -> (string) { RegularExpressionManager::no_blank?(string) }
+		validate(&condition)
+	end
+
 	# a string must contain only uppercases
 	def self.only_upper
 		condition = -> (string) { RegularExpressionManager::only_upper?(string) }
@@ -79,7 +85,7 @@ class StringValidator < BaseValidator
 		condition = -> (string) { RegularExpressionManager::no_upper?(string) }
 		either_validate(&condition, 21001)
 	end
-	
+
 	# a string must not contain any Em words?
 	def self.no_em
 		condition = -> (string) { RegularExpressionManager::no_em?(string) }

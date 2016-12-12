@@ -1,0 +1,11 @@
+@mixin layering($shadow) {
+	box-shadow: $shadow;
+}
+
+header {
+	@include layering($header-shadow);
+}
+
+.layer1 {
+	@include layering($shadow1);
+}

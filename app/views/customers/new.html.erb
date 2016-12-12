@@ -1,20 +1,51 @@
-<h1>Add a New Account</h1>
-<h2>Setup Account</h2>
+<section>
+	<div class="form-group">
+		<h1 class="form-title">Add a New Account</h1>
 
-<%= form_for @form, url: customers_path do |f| %>
-
-  <%= f.label :name, 'name' %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email, 'email' %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password, 'password' %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation, 'password_confirmation' %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "add" %>
-
-<% end %>
+		<%= form_for @form, url: customers_path do |f| %>
+			<table class="layer1">
+				<tbody>
+					<tr>
+						<td class="input-label">
+							<%= f.label :name, '姓名' %>
+						</td>
+						<td class="input-body">
+							<%= f.text_field :name, :placeholder => "山田 太郎" %>
+						</td>
+					</tr>
+					<tr>
+						<td class="input-label">
+							<%= f.label :email, 'メールアドレス' %>
+						</td>
+						<td class="input-body">
+							<%= f.text_field :email, :placeholder => "hello@example.com" %>
+						</td>
+					</tr>
+					<tr>
+						<td class="input-label">
+							<%= f.label :password, 'パスワード' %>
+						</td>
+						<td class="input-body">
+							<%= f.password_field :password, :placeholder => "pass" %>
+						</td>
+					</tr>
+					<tr>
+						<td class="input-label">
+							<%= f.label :password_confirmation, 'パスワードの確認' %>
+						</td>
+						<td class="input-body">
+							<%= f.password_field :password_confirmation, :placeholder => "pass" %>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="form-submit" colspan="2">
+							<%= f.submit "ADD" %>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		<% end %>
+	</div>
+</section>
