@@ -16,6 +16,8 @@ module Analytics
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
 
+    config.browserify_rails.commandline_options = '-t babelify'
+
 
   	###
   	## auto load settings
