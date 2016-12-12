@@ -1,0 +1,52 @@
+table {
+	width: 100%;
+	font-size: 13px;
+	margin-bottom: 40px;
+	background-color: $white;
+	border-collapse: collapse;
+  border-spacing: 0;
+
+  tbody {
+
+  	tr {
+
+	  	&.table-header {
+	  		background-color: $table-header-background;
+	  	}
+
+	  	td {
+	  		color: $black;
+	  		line-height: 24px;
+	  		vertical-align: middle;
+	  		padding: 12px 12px 12px 24px;
+		    border: 1px solid $table-inner-border;
+	  	}
+	  }
+  }
+
+  tfoot {
+
+  	tr td.form-submit {
+
+  		input[type="submit"] {
+  			float: right;
+  			background-color: transparent;
+  			border-color: transparent;
+  			border-radius: 3px;
+  			cursor: pointer;
+  			font-size: 14px;
+  			line-height: 20px;
+  			font-weight: 500;
+  			padding: 0px 8px;
+  			margin: 10px 16px;
+  			min-height: 36px;
+  			min-width: 56px;
+  			color: $button-color;
+
+  			&:hover {
+  				background-color: $button-hover-background;
+  			}
+  		}
+  	}
+  }
+}

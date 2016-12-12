@@ -10,8 +10,10 @@
 @import 'applications/modules/mixin';
 @import 'applications/modules/colorize';
 @import 'applications/modules/sizing';
+@import 'applications/modules/layering';
 
 /* Parcials */
 @import 'applications/parcials/header';
 @import 'applications/parcials/footer';
 @import 'applications/parcials/form';
+@import 'applications/parcials/table';
