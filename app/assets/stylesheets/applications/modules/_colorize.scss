@@ -1,7 +1,11 @@
-@mixin colorize($background, $title) {
+@mixin colorize($background, $title, $against-color) {
 
   & header {
     background-color: $background;
+
+    .header-title {
+      color: $against-color;
+    }
   }
 
   .wrapper {
@@ -13,6 +17,10 @@
 
   & footer {
   	background-color: $background;
+
+    .credit {
+      color: $against-color;
+    }
   }
 
   & title {
@@ -22,41 +30,41 @@
 }
 
 body {
-  @include colorize($material_teal_600, $material_teal_600);
+  @include colorize($material_teal_600, $material_teal_600, $white);
 }
 
 .color-blue-grey {
-  @include colorize($material_blue_grey_800, $material_blue_grey_800);
+  @include colorize($material_blue_grey_800, $material_blue_grey_800, $white);
 }
 
 .color-cyan {
-  @include colorize($material_cyan_500, $material_cyan_500);
+  @include colorize($material_cyan_500, $material_cyan_500, $white);
 }
 
 .color-default {
-  @include colorize($material_light_blue_600, $material_light_blue_600);
+  @include colorize($material_light_blue_600, $material_light_blue_600, $white);
 }
 
 .color-indigo {
-  @include colorize($material_indigo_600, $material_indigo_600);
+  @include colorize($material_indigo_600, $material_indigo_600, $white);
 }
 
 .color-light-blue {
-  @include colorize($material_light_blue_600, $material_light_blue_600);
+  @include colorize($material_light_blue_600, $material_light_blue_600, $white);
 }
 
 .color-orange {
-  @include colorize($material_orange_600, $material_orange_600);
+  @include colorize($material_orange_600, $material_orange_600, $white);
 }
 
 .color-pink {
-  @include colorize($material_pink_800, $material_pink_800);
+  @include colorize($material_pink_800, $material_pink_800, $white);
 }
 
 .color-purple {
-  @include colorize($material_purple_600, $material_purple_600);
+  @include colorize($material_purple_600, $material_purple_600, $white);
 }
 
 .color-teal {
-  @include colorize($material_teal_600, $material_teal_600);
+  @include colorize($material_teal_600, $material_teal_600, $white);
 }
