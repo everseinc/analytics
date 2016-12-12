@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  # before_validation Callbacks::CustomerCallbacks.new()
+  before_validation ::Callbacks::CustomerCallbacks
   validates_with  Models::CustomerValidator
 
 end

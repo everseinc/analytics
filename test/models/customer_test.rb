@@ -44,11 +44,17 @@ class CustomerTest < ActiveSupport::TestCase
 
   end
 
+  test "email must be lowercase" do
+    customer = Customer.new( name: "kazukiwatanabe", email: "KAZUki@gmail.com" )
+    assert customer.valid?
+    assert_equal("kazuki@gmail.com", customer.email)
+  end
+
   test "email addresses should be unique" do
     customer = Customer.new( name: "kazukiwatanabe", email: "kazuki@gmail.com" )
     duplicate_customer = customer.dup
     customer.save
-    # duplicate_customer.email = customer.email.upcase
+    duplicate_customer.email = customer.email.upcase
     assert_not duplicate_customer.valid?
     assert_equal("[21005] - Major Error (- Validation Error) : A given string must be unique.", duplicate_customer.errors[:email].first)
   end
