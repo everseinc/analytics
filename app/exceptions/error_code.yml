@@ -11,4 +11,5 @@
 21000: "Major Error (- Validation Error) : Some validation error was occured"
 21001: "Major Error (- Validation Error) : A given string must not be empty."
 21002: "Major Error (- Validation Error) : A given string must not be blank."
+21003: "Major Error (- Validation Error) : A given string should not be too long."
 30000: "Minor Error : Some minor error was occured"
