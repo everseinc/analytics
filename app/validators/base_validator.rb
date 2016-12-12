@@ -11,7 +11,7 @@ class BaseValidator
 	# for Either class
 	def self.either_validate(code, &condition)
 		-> (value, monad) {
-			return monad.left Major::BaseError.code(code) unless condition.call(value)
+			return monad.left Major::ValidationError.code(code) unless condition.call(value)
 			monad.right(value)
 		}
 	end

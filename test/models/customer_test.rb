@@ -2,19 +2,17 @@ require 'test_helper'
 
 class CustomerTest < ActiveSupport::TestCase
 
-  def setup
-    @customer = Customer.new(name: "Example User",email: "user@example.com")
-  end
-
 
   test "name should be present" do
-    @customer.name = "     "
-    assert_raises(Major::BaseError) do
-      condition = Either.right(@customer.name) >> StringValidator.not_empty >> StringValidator.no_blank
-      raise condition.left if condition.left?
-    end
+    customer = Customer.new(name: "   ",email: "user@example.com")
+    assert_not customer.valid?
+    assert_equal("[21002] - Major Error (- Validation Error) : A given string must not be blank.",customer.errors[:name].first)
+  end
 
-    assert_not @customer.valid?
+  test "email should be present" do
+    customer = Customer.new(name: "kazukiwatanabe",email: "   ")
+    assert_not customer.valid?
+    assert_equal("[21002] - Major Error (- Validation Error) : A given string must not be blank.",customer.errors[:email].first)
   end
 
 
