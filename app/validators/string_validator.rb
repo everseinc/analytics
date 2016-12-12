@@ -35,7 +35,7 @@ class StringValidator < BaseValidator
 	# a string format must be email
 	def self.email_format
 		condition = -> (string) { RegularExpressionManager::is_email?(string) }
-		either_validate(21001, &condition)
+		either_validate(21004, &condition)
 	end
 
 	# a string format must be URL

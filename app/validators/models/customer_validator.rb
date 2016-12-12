@@ -11,7 +11,11 @@ class Models::CustomerValidator < Models::ModelValidator
     condition = Either.right(customer.email) >>
                   StringValidator.not_empty >>
                   StringValidator.no_blank >>
-                  StringValidator.length_under(255)
+                  StringValidator.length_under(255) >>
+                  StringValidator.email_format >>
+                  Models::ModelValidator.unique(customer.id, Customer, "email")
+
+
 
     investigate_from(condition, :email, customer)
 

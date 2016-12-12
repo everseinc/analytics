@@ -55,7 +55,7 @@ class RegularExpressionManager
 
 	# is a string valid for an email address?
 	def self.is_email?(string)
-		/\A[a-zA-Z0-9_\#!$%&`'*+\-{|}~^\/=?\.]+@[a-zA-Z0-9][a-zA-Z0-9\.-]+\z/ === string
+		/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i === string
 	end
 
 	# is a string valid for an URL?
