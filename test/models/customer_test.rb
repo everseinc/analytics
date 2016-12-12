@@ -9,7 +9,7 @@ class CustomerTest < ActiveSupport::TestCase
 
   test "name should be present" do
     @customer.name = "     "
-    assert_raises(Major::BaseError) do
+    assert_raises(Major::ValidationError) do
       condition = Either.right(@customer.name) >> StringValidator.not_empty >> StringValidator.no_blank
       raise condition.left if condition.left?
     end

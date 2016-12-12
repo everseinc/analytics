@@ -4,8 +4,8 @@ class Models::CustomerValidator < ActiveModel::Validator
     begin
       condition = Either.right(customer.name) >> StringValidator.not_empty >> StringValidator.no_blank
       raise condition.left if condition.left?
-    rescue => e
-      customer.errors[:name] << e.message
+    rescue Major::ValidationError => e
+      customer.errors.add(:name, e.message)
     end
 
   end
