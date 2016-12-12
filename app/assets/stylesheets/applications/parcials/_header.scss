@@ -4,4 +4,15 @@ header {
   left: 0;
   right: 0;
   box-sizing: border-box;
+
+  .header-title {
+  	width: 80px;
+  	height: $header-height;
+  	line-height: $header-height;
+  	font-size: 16px;
+  	font-weight: 600;
+  	margin-left: 36px;
+  	text-align: center;
+  	float: left;
+  }
 }
