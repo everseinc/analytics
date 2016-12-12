@@ -1,12 +1,16 @@
-class Models::CustomerValidator < ActiveModel::Validator
+class Models::CustomerValidator < Models::ModelValidator
   def validate(customer)
+    condition = Either.right(customer.name) >>
+                  StringValidator.not_empty >>
+                  StringValidator.no_blank
 
-    begin
-      condition = Either.right(customer.name) >> StringValidator.not_empty >> StringValidator.no_blank
-      raise condition.left if condition.left?
-    rescue Major::ValidationError => e
-      customer.errors.add(:name, e.message)
-    end
+    investigate_from(condition, :name, customer)
+
+    condition = Either.right(customer.email) >>
+                  StringValidator.not_empty >>
+                  StringValidator.no_blank
+
+    investigate_from(condition, :email, customer)
 
   end
 
