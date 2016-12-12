@@ -14,15 +14,15 @@ class StringValidator < BaseValidator
 		either_validate(21001, &condition)
 	end
 
-	# a string lentgh must be under max
+	# a string length must be under max
 	def self.length_under(max)
-		condition = -> (string) { string.lentgh >= max }
-		either_validate(21001, &condition)
+		condition = -> (string) { string.length <= max }
+		either_validate(21003, &condition)
 	end
 
-	# a string lentgh must be above max
+	# a string length must be above min
 	def self.length_above(min)
-		condition = -> (string) { string.lentgh <= min }
+		condition = -> (string) { string.length >= min }
 		either_validate(21001, &condition)
 	end
 
