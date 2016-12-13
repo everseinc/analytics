@@ -6,6 +6,10 @@
     .header-title {
       color: $against-color;
     }
+
+    .header-right-button .setting-button {
+      color: $against-color;
+    }
   }
 
   .wrapper {
@@ -30,7 +34,7 @@
 }
 
 body {
-  @include colorize($material_teal_600, $material_teal_600, $white);
+  @include colorize($material_orange_800, $material_orange_800, $white);
 }
 
 .color-blue-grey {
