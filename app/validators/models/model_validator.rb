@@ -11,13 +11,15 @@ class Models::ModelValidator < ActiveModel::Validator
   end
 
   def self.unique(record_id, model, attr)
-    condition = -> (string){
-      if model.exists?(["#{attr} = ?", string])
-        record_id == model.find_by(email: string).id
+    condition = -> (string) {
+      if record_id
+        is_exist = model.where(["#{attr} = ?", string]).where(["id != ?", record_id]).exists?
       else
-        return true
+        is_exist = model.where(["#{attr} = ?", string]).exists?
       end
+      !is_exist
     }
+
     BaseValidator.either_validate(21005, &condition)
   end
 

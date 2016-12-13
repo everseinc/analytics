@@ -13,7 +13,7 @@ class Models::CustomerValidator < Models::ModelValidator
                   StringValidator.no_blank >>
                   StringValidator.length_under(255) >>
                   StringValidator.email_format >>
-                  Models::ModelValidator.unique(customer.id, Customer, "email")
+                  self.class.unique(customer.id, Customer, "email")
 
 
 
