@@ -23,7 +23,7 @@ class StringValidator < BaseValidator
 	# a string length must be above min
 	def self.length_above(min)
 		condition = -> (string) { string.length >= min }
-		either_validate(21001, &condition)
+		either_validate(21006, &condition)
 	end
 
 	# a string must be equal to given string
