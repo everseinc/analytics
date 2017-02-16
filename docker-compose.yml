@@ -11,5 +11,6 @@ services:
       - .:/analytics
     ports:
       - "3000:3000"
+    stdin_open: true
     depends_on:
       - db
