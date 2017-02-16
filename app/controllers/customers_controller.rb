@@ -1,4 +1,4 @@
-class CustomersController < ApplicationController
+class CustomersController < MainLayoutController
   def new
     @form = CustomerForm.new
   end
@@ -9,12 +9,15 @@ class CustomersController < ApplicationController
 
 
   def create
-    @customerForm = CustomerForm.new(params[:customerForm])    # Not the final implementation!
-    if @customerForm.save
-      redirect_to @customerForm.customer
-    else
-      render 'new'
-    end
+    binding.pry
+    customer = postConnectTo(klass: CustomerForm, func: "save", args: params)
+    # redirect_to customer_path(customer)
+    # @customerForm = CustomerForm.new(params[:customerForm])    # Not the final implementation!
+    # if @customerForm.save
+    #   redirect_to @customerForm.customer
+    # else
+    #   render 'new'
+    # end
   end
 
 
@@ -24,7 +27,7 @@ class CustomersController < ApplicationController
   private
 
   def customer_form_params
-    params.require(:customerForm).permit(:name, :email, :password,
+    params[:customer_form].permit(:name, :email, :password,
                                  :password_confirmation)
   end
 end
