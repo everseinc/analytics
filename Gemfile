@@ -40,6 +40,9 @@ gem 'nokogiri'
 ###自動でベンダープレフィックスを付与
 gem 'autoprefixer-rails'
 
+# Chart.js
+gem 'chart-js-rails'
+
 # Use Unicorn as the app server
 gem 'unicorn'
 gem "unicorn-worker-killer"
