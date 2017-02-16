@@ -14,12 +14,7 @@ module Analytics
     #
 
     config.time_zone = 'Tokyo'
-    I18n.enforce_available_locales = true
-    Rails.application.config.i18n.available_locales = [:en, :ja]
     Rails.application.config.i18n.default_locale = :ja
-
-    config.browserify_rails.commandline_options = '-t babelify'
-
 
   	###
   	## auto load settings
