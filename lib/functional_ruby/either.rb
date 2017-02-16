@@ -64,7 +64,7 @@ class Either
   # override a method in Monad module
   def bind(block)
     return self if left?
-    
+
     begin
       ret = block.call(right, Either)
     rescue StandardError => e

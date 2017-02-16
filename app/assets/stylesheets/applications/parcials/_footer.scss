@@ -1,5 +1,14 @@
 footer {
   height: $footer-height;
   position: relative;
+  text-align: center;
   box-sizing: border-box;
+
+  .credit {
+  	display: inline-block;
+  	height: $footer-height;
+  	line-height: $footer-height;
+  	font-size: 12px;
+  	font-weight: 700;
+  }
 }

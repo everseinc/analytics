@@ -8,14 +8,13 @@ Bundler.require(*Rails.groups)
 
 module Analytics
   class Application < Rails::Application
-    
+
     ###
     ## environment settings
     #
 
     config.time_zone = 'Tokyo'
-    config.i18n.default_locale = :ja
-
+    Rails.application.config.i18n.default_locale = :ja
 
   	###
   	## auto load settings
@@ -24,6 +23,9 @@ module Analytics
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   	config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-  	config.autoload_paths += %W(#{config.root}/app/exceptions)
+  	config.autoload_paths += %W(#{config.root}/app/exceptions/)
+
+
+
   end
 end
