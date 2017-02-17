@@ -1,0 +1,2 @@
+class EmoBlock < ApplicationRecord
+end
