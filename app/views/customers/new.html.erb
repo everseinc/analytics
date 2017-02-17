@@ -2,7 +2,20 @@
 	<div class="form-group">
 		<h1 class="form-title">Add a New Account</h1>
 
-		<%= form_for @form, url: customers_path do |f| %>
+		<% if @er_messages.present?  %>
+  		<div id="error_explanation">
+    	<h2><%= @er_messages.count %>件のエラーがあります。</h2>
+
+    	<ul>
+    		<% @er_messages.each do |msg| %>
+      		<li><%= msg %></li>
+    		<% end %>
+    	</ul>
+  		</div>
+		<% end %>
+
+
+		<%= form_for @customer_form, url: customers_path do |f| %>
 			<table class="layer1">
 				<tbody>
 					<tr>

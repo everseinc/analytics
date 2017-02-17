@@ -2,14 +2,22 @@ class CustomerDetails
   extend DigestManager
   attr_accessor :name, :email, :password, :password_confirmation
   class << self
-    def save(param)
-      customer = Customer.new(name: param[:name], email: param[:email])
-      password = Password.new(password: param[:password], password_confirmation: param[:password_confirmation])
-
-      if customer.save && password.save
-        CustomersPassword.create(customer_id: customer.id, password_id: password.id)
+    def save(new_customer)
+      # binding.pry
+      customer = Customer.new(name: new_customer[:name], email: new_customer[:email])
+      password = Password.new(password: new_customer[:password], password_confirmation: new_customer[:password_confirmation])
+      if customer.valid? && password.valid?
+        ActiveRecord::Base.transaction do
+          customer.save!
+          password.save!
+          CustomersPassword.create(customer_id: customer.id, password_id: password.id)
+        end
       else
-        raise Major::SaveFailedError.code(21007)
+        er_messages = []
+        er_messages << customer.errors.full_messages
+        er_messages << password.errors.full_messages
+        er_messages.delete([])
+        return er_messages
       end
 
       customer
