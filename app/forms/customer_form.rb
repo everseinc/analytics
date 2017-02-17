@@ -1,5 +1,9 @@
 class CustomerForm < CustomerDetails
   include ActiveModel::Model
-  
-  attr_accessor :password, :password_confirmation
+
+  # def customer
+  #   customer = Customer.find_by(id: self.id) || Customer.new(name: self.name, email: self.email)
+  # end
+
+
 end

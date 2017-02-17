@@ -1,5 +1,5 @@
 module DigestManager
-  include ActiveModel::Model
+  include ActiveModel::SecurePassword
 
   def digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

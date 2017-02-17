@@ -1,5 +1,5 @@
 FROM ruby:2.3.3
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev vim
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev vim nodejs
 RUN mkdir /analytics
 WORKDIR /analytics
 ADD Gemfile /analytics/Gemfile

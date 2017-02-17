@@ -1,0 +1,3 @@
+class CustomersPassword < ApplicationRecord
+
+end
