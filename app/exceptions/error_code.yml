@@ -15,4 +15,5 @@
 21004: "Major Error (- Validation Error) : A given string must be a email_format"
 21005: "Major Error (- Validation Error) : A given string must be unique."
 21006: "Major Error (- Validation Error) : A given string should not be too short."
+21007: "Major Error (- Save Error) : Save is failed."
 30000: "Minor Error : Some minor error was occured"
