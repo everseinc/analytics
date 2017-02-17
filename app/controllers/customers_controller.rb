@@ -9,15 +9,8 @@ class CustomersController < MainLayoutController
 
 
   def create
-    binding.pry
-    customer = postConnectTo(klass: CustomerForm, func: "save", args: params)
-    # redirect_to customer_path(customer)
-    # @customerForm = CustomerForm.new(params[:customerForm])    # Not the final implementation!
-    # if @customerForm.save
-    #   redirect_to @customerForm.customer
-    # else
-    #   render 'new'
-    # end
+    customer = postConnectTo(klass: CustomerForm, func: "save", args: customer_form_params)
+    redirect_to customer_path(customer)
   end
 
 

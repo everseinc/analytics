@@ -1,6 +1,5 @@
 class CustomerDetails
   attr_accessor :name, :email, :password, :password_confirmation
-
   class << self
     def save(param)
       customer = Customer.new(name: param[:name], email: param[:email])
