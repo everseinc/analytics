@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207145351) do
+ActiveRecord::Schema.define(version: 20170217062118) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_name",   null: false
@@ -64,6 +64,38 @@ ActiveRecord::Schema.define(version: 20161207145351) do
     t.index ["project_id"], name: "project_id", using: :btree
   end
 
+  create_table "dimensions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "project_id", null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emo_blocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "project_id",   null: false
+    t.integer  "dimension_id"
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["project_id"], name: "project_id", using: :btree
+  end
+
+  create_table "emo_records", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "emo_block_id", null: false
+    t.integer  "emotion_id",   null: false
+    t.integer  "value",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["emo_block_id"], name: "emo_block_id", using: :btree
+  end
+
+  create_table "emotions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "passwords", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
@@ -84,4 +116,6 @@ ActiveRecord::Schema.define(version: 20161207145351) do
   add_foreign_key "customers_passwords", "passwords", name: "customers_passwords_ibfk_2", on_delete: :cascade
   add_foreign_key "customers_projects", "customers", name: "customers_projects_ibfk_1", on_delete: :cascade
   add_foreign_key "customers_projects", "projects", name: "customers_projects_ibfk_2", on_delete: :cascade
+  add_foreign_key "emo_blocks", "projects", name: "emo_blocks_ibfk_1", on_delete: :cascade
+  add_foreign_key "emo_records", "emo_blocks", name: "emo_records_ibfk_1", on_delete: :cascade
 end
