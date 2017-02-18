@@ -1,0 +1,19 @@
+
+
+/* Base */
+@import 'reset';
+@import 'applications/variables/variables';
+
+/* Modules */
+@import 'applications/modules/mixin';
+@import 'applications/modules/colorize';
+@import 'applications/modules/sizing';
+@import 'applications/modules/layering';
+
+/* Parcials */
+@import 'applications/parcials/header';
+@import 'applications/parcials/footer';
+@import 'applications/parcials/menu';
+@import "applications/parcials/report_container";
+@import "applications/parcials/report_main";
+@import "applications/parcials/report_sub_nav";
