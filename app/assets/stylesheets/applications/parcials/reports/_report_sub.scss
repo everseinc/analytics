@@ -1,7 +1,7 @@
 #report_sub {
-  width: 20%;
+  width: $reports-sub-nav-width;
 
-  background-color: $material_grey_100
+  background-color: $material_grey_100;
 }
 
 #report_sub_nav {
@@ -10,7 +10,7 @@
 
 	h1 {
 		padding: 15px 15px;
-		font-size: 15px;
+		font-size: 2.0rem;
 		font-weight: normal;
 		border-top: 1px solid #bbb;
 	}
@@ -31,6 +31,7 @@
 		padding-bottom: 10px;
 		
 		li {
+			font-size: 1.5rem;
 			padding: 5px 20px;
 		}
 
