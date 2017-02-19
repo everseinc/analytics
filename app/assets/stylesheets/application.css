@@ -12,6 +12,7 @@
  *
  *= require reset.css
  *= require customers
+ *= require reports
  *= require_directory ./applications
  *= require_self
  */
