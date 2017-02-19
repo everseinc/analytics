@@ -16,4 +16,8 @@
 21005: "Major Error (- Validation Error) : A given string must be unique."
 21006: "Major Error (- Validation Error) : A given string should not be too short."
 21007: "Major Error (- Save Error) : Save is failed."
+21010: "Major Error (- Login Error) : Missing email"
+21011: "Major Error (- Login Error) : Wrong email was entered"
+21012: "Major Error (- Login Error) : Wrong password was entered"
+21013: "Major Error (- Login Error) : Can't login. Something Wrong"
 30000: "Minor Error : Some minor error was occured"
