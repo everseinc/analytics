@@ -1,13 +1,18 @@
 <div id= "report_main_header">
   <div id ="report_project_name"><%= @project[:project_name] %></div>
-  <select>
-    <% @emo_blocks.each do |e| %>
-      <option><%= e[:started_at]%></option>
-    <% end %>
-   </select>
-   <select>
-     <% @emo_blocks.each do |e| %>
-       <option><%= e[:ended_at]%></option>
-     <% end %>
+
+  <div id="report_selects">
+    <select>
+      <% @emo_blocks.each do |e| %>
+        <option><%= e[:started_at]%></option>
+      <% end %>
     </select>
+     
+    <select>
+      <% @emo_blocks.each do |e| %>
+        <option><%= e[:ended_at]%></option>
+      <% end %>
+    </select>
+  </div>
+  
 </div>
