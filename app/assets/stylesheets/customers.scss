@@ -2,19 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Base */
-@import 'reset';
-@import 'applications/variables/variables';
-
-/* Modules */
-@import 'applications/modules/mixin';
-@import 'applications/modules/colorize';
-@import 'applications/modules/sizing';
-@import 'applications/modules/layering';
-
-/* Parcials */
-@import 'applications/parcials/header';
-@import 'applications/parcials/footer';
 @import 'applications/parcials/form';
 @import 'applications/parcials/table';
 @import 'applications/parcials/menu';
