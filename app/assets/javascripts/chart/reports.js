@@ -1,5 +1,5 @@
 var ctx = document.getElementById("report_main_graph");
-ctx.height = 100;
+// ctx.clientHeight = 100;
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -7,20 +7,14 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: '感情1の推移',
             data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
             borderColor: [
                 'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
             ],
+            fill: false,
             borderWidth: 1
         }]
     },
+
     options: {
         scales: {
             yAxes: [{
@@ -28,6 +22,12 @@ var myChart = new Chart(ctx, {
                     beginAtZero:true
                 }
             }]
+        },
+        responsive: false,
+        legend: {
+          labels: {
+            boxWidth: 40
+          }
         }
     }
 });
