@@ -18,7 +18,7 @@ class SessionsController < MainLayoutController
 
   def destroy
     res = postConnectTo(klass: self, func: "logout", args: nil)
-    redirect_to '/' and return
+    redirect_to '/'
   end
 
 
