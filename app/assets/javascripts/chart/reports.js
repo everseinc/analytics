@@ -1,5 +1,5 @@
 var ctx = document.getElementById("report_main_graph");
-ctx.height = 100;
+// ctx.clientHeight = 100;
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -23,6 +23,7 @@ var myChart = new Chart(ctx, {
                 }
             }]
         },
+        responsive: false,
         legend: {
           labels: {
             boxWidth: 40
