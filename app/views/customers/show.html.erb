@@ -1,2 +1,5 @@
-<p><%= @customer.name %></p>
-<p><%= @customer.email %></p>
+<h1><%= @customer.name %></h1>
+<h2><%= @customer.email %></h2>
+
+<p><%= link_to "アプリケーションを作成", :controller => "apps", :action => "new" %></p>
+<p><%= link_to "プロジェクトを作成", :controller => "projects", :action => "new" %></p>

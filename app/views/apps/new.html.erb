@@ -1,0 +1,39 @@
+<section>
+	<div class="form-group">
+		<h1 class="form-title">Add a New Account</h1>
+
+		<% flash.each do |key, value| %>
+		  <%= content_tag(:div, value, class: "#{key}") %>
+		<% end %>
+
+		<%= form_for @app_form, url: apps_path do |f| %>
+			<table class="layer1">
+				<tbody>
+					<tr>
+						<td class="input-label">
+							<%= f.label :app_name, 'アプリケーション名' %>
+						</td>
+						<td class="input-body">
+							<%= f.text_field :app_name, :placeholder => "アプリケーション名" %>
+						</td>
+					</tr>
+					<tr>
+						<td class="input-label">
+							<%= f.label :customer_authority, '管理者名' %>
+						</td>
+						<td class="input-body">
+							<%= f.text_field :customer_authority, :placeholder => "山田　太郎" %>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="form-submit" colspan="2">
+							<%= f.submit "ADD" %>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		<% end %>
+	</div>
+</section>
