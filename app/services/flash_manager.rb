@@ -29,4 +29,8 @@ class FlashManager
 	def set_flash(hash)
 		@flash = :merge.to_proc.curry(2) <= @flash > Maybe.new(hash)
 	end
+
+	def get_flash()
+		@flash.value
+	end
 end

@@ -5,11 +5,11 @@ module SessionManager
   end
 
   def current_customer
-    @current_customer ||= Maybe.new(Customer.find_by(id: session[:customer_id]))
+    @current_customer ||= Customer.find_by(id: session[:customer_id])
   end
 
   def logged_in?
-    current_customer.just?
+    !current_customer.nil?
   end
 
   def is_logged_in?
@@ -18,7 +18,7 @@ module SessionManager
 
   def logout
     session.delete(:customer_id)
-    @current_customer = Maybe.new(nil)
+    @current_customer = nil
   end
 
   alias_method :session_manager_login, :login

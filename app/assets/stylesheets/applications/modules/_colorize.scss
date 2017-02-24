@@ -3,12 +3,15 @@
   & header {
     background-color: $background;
 
-    .header-title {
+    .header-title, .header-menu-button {
       color: $against-color;
     }
   }
 
   .wrapper {
+    .section-title {
+      color: $background;
+    }
 
   	.form-title {
   		color: $title;
