@@ -1,0 +1,40 @@
+<section>
+	<div class="form-group">
+		<h1 class="form-title">Add a New Account</h1>
+
+		<% flash.each do |key, value| %>
+		  <%= content_tag(:div, value, class: "#{key}") %>
+		<% end %>
+
+		<%= form_for @project_form, url: projects_path do |f| %>
+			<table class="layer1">
+				<tbody>
+					<tr>
+						<td class="input-label">
+							<%= f.label :app_id, 'アプリケーション' %>
+						</td>
+						<td class="input-body">
+						<% #binding.pry %>
+							<%= f.select :app_id, current_customer.apps.map{|app| [app.app_name, app.id]} %>
+						</td>
+					</tr>
+					<tr>
+						<td class="input-label">
+							<%= f.label :project_name, 'プロジェクト名' %>
+						</td>
+						<td class="input-body">
+							<%= f.text_field :project_name, :placeholder => "プロジェクト名" %>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="form-submit" colspan="2">
+							<%= f.submit "ADD" %>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		<% end %>
+	</div>
+</section>
