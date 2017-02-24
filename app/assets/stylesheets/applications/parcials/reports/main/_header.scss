@@ -2,18 +2,8 @@
 	height: $reports-main-header-hight;
 	padding: 0;
 	margin: 0;
-
-	display: -webkit-flexbox;
-	display: -moz-flexbox;
-	display: -ms-flexbox;
-	display: -o-flexbox;
 	display: flex;
-
-	-webkit-align-items: 	center;
-	-moz-align-items: 		center;
-	-ms-align-items: 		center;
-	-o-align-items: 		center;
-	align-items: 			center;
+	align-items: center;
 
 	border-bottom: 1px solid $material_grey_500;
 

@@ -1,0 +1,5 @@
+<div id= "report_tips">
+  <% @tips.each do |t| %>
+    <%= render partial: "reports/main/report_tip" , locals: { tip: t }%>
+  <% end %>
+</div>
