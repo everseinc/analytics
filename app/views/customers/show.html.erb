@@ -1,5 +1,45 @@
-<h1><%= @customer.name %></h1>
-<h2><%= @customer.email %></h2>
-
-<p><%= link_to "アプリケーションを作成", :controller => "apps", :action => "new" %></p>
-<p><%= link_to "プロジェクトを作成", :controller => "projects", :action => "new" %></p>
+<section>
+	<h1 class='section-title'>プロフィール</h1>
+	<table class="layer1">
+		<tbody>
+			<tr>
+				<td class="input-label">
+					ユーザー名
+				</td>
+				<td class="input-body">
+					<%= @customer.name %>
+				</td>
+			</tr>
+			<tr>
+				<td class="input-label">
+					メールアドレス
+				</td>
+				<td class="input-body">
+					<%= @customer.email %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<section>
+	<h1 class='section-title'>プロジェクト</h1>
+	<table class="layer1">
+		<tbody>
+			<tr>
+				<td class="input-body">
+					<%= link_to "アプリケーション一覧", :controller => "apps", :action => "index" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="input-body">
+					<%= link_to "アプリケーションを作成", :controller => "apps", :action => "new" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="input-body">
+					<%= link_to "プロジェクトを作成", :controller => "projects", :action => "new" %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
