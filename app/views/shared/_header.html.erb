@@ -1,10 +1,16 @@
 <header class="header">
 	<div class="header-title">Everse</div>
+	<button class="header-menu-button" onclick="header_menu_button_click()">
+    <i class="material-icons">view_headline</i>
+  </button>
 </header>
-<div class="menu">
+<div id='header-menu' class="menu" style="display: none;">
 	<ul>
 		<li><%= link_to  "新規ユーザー登録", new_customer_path %></li>
 		<% if logged_in? %>
+		<li><%= link_to "マイページ", customer_path(current_customer.id) %></li>
+		<li><%= link_to "アプリケーションを作成", :controller => "apps", :action => "new" %></li>
+		<li><%= link_to "プロジェクトを作成", :controller => "projects", :action => "new" %></li>
 		<li><%= link_to "Log out", logout_path, method: "delete" %></li>
 		<% else %>
 		<li><%= link_to "Log in", login_path %></li>
