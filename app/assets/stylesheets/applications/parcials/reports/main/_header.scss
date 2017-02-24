@@ -1,0 +1,23 @@
+#report_main_header {
+	height: $reports-main-header-hight;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+
+	border-bottom: 1px solid $material_grey_500;
+
+	#report_project_name {
+		font-size: 2.5rem;
+		margin-right: auto;
+		padding: 0 10px;
+	}
+
+	#report_selects {
+		select {
+			font-size: 2.0rem;
+			margin-right: 10px;
+		}
+	}
+
+}

@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+CSV.foreach('db/csv/emotions.csv') do |row|
+  Emotion.create(:name => row[1])
+end
+
+CSV.foreach('db/csv/dimensions.csv') do |row|
+  Dimension.create(:project_id => row[1], :name => row[2])
+end
+
+CSV.foreach('db/csv/emo_blocks.csv') do |row|
+  EmoBlock.create(:project_id => row[1], :dimension_id => row[2], :started_at => row[3], :ended_at => row[4])
+end
+
+CSV.foreach('db/csv/emo_records.csv') do |row|
+  EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
+end
