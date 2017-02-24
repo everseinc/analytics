@@ -9,7 +9,6 @@ class AppDetails
   class << self
 
     def save(new_app)
-    	session = Thread.current[:request].session
     	app = App.new(app_name: new_app[:app_name])
     	customer = Customer.find(session[:customer_id])
       if app.valid? && customer.valid?
