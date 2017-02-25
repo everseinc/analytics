@@ -1,5 +1,7 @@
 class AppsController < MainLayoutController
 
+  include Concerns::Filters::AuthAction
+
 	###
 	## resources actions
 	#
