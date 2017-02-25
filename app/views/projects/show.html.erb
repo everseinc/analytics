@@ -1,1 +1,13 @@
-<p><%= @project.project_name %></p>
+<section>
+	<h1 class='section-title'><%= @project.project_name %></h1>
+	<table class="layer1">
+		<tbody>
+			<tr>
+				<td>
+					<%= link_to "レポート", :controller => "reports", :action => "main", project_id: @project.id %>
+				</td>
+			</tr>
+			<tr>
+		</tbody>
+	</table>
+</section>

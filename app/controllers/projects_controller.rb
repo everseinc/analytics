@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  include Concerns::Filters::AuthAction
+
 	###
 	## resources actions
 	#

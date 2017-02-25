@@ -1,4 +1,8 @@
 class CustomersController < MainLayoutController
+
+  include Concerns::Filters::AuthAction
+
+  
   def new
     @customer_form = CustomerForm.new
   end
