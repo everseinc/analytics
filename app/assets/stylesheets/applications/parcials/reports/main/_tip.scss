@@ -1,0 +1,15 @@
+.report_tip {
+  width: $report-main-tips-tip-width;
+  height: $report-main-tips-tip-height;
+  border-right: 1px solid $material_grey_400;
+  padding: 10px;
+}
+
+.report_tip_title {
+  font-size: 1.5rem;
+  padding: 5px 0;
+}
+
+.report_tip_value {
+  font-size: 2.5rem;
+}

@@ -1,0 +1,54 @@
+#report_sub {
+  width: $reports-sub-nav-width;
+
+  background-color: $material_grey_100;
+}
+
+#report_sub_nav {
+	margin: 0;
+	padding: 0;
+
+	h1 {
+		padding: 15px 15px;
+		font-size: 2.0rem;
+		font-weight: normal;
+		border-top: 1px solid #bbb;
+
+    a {
+      font-size: 100%;
+    }
+	}
+
+	h1:first-child {
+		border-top: 0px;
+	}
+
+	h1.selected {
+		color: $material_orange_500;
+
+		a{
+			color: $material_orange_500;
+		}
+	}
+
+	ul {
+		padding-bottom: 10px;
+
+		li {
+			font-size: 1.5rem;
+			padding: 5px 20px;
+		}
+
+		li.selected {
+			color: $material_orange_500;
+
+			a{
+				color: $material_orange_500;
+			}
+		}
+	}
+
+	a {
+		color: $black;
+	}
+}

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root :to => 'customers#new'
 
-  get "reports/test", to: "reports#main"
+  get "reports/main/:project_id", to: "reports#main"
 
 
   resources :customers, :only => [:new, :create, :show]

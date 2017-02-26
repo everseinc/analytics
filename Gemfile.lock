@@ -160,6 +160,8 @@ GEM
       redis (>= 2.2)
     ref (2.0.0)
     sass (3.4.22)
+    sass-globbing (1.1.5)
+      sass (>= 3.1)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
@@ -231,6 +233,7 @@ DEPENDENCIES
   redis
   redis-namespace
   redis-rails
+  sass-globbing
   sass-rails (= 5.0.6)
   spring
   spring-watcher-listen (~> 2.0.0)
