@@ -1,0 +1,41 @@
+<section>
+	<div class="form-group">
+		<h1 class="form-title">Edit Account</h1>
+
+		<% if @er_messages.present?  %>
+  		<div id="error_explanation">
+    	<h2><%= @er_messages.count %>件のエラーがあります。</h2>
+
+    	<ul>
+    		<% @er_messages.each do |msg| %>
+      		<li><%= msg %></li>
+    		<% end %>
+    	</ul>
+  		</div>
+		<% end %>
+
+
+		<%= form_for @customer do |f| %>
+			<%= f.hidden_field :id, :value => @customer.id %>
+			<table class="layer1">
+				<tbody>
+					<tr>
+						<td class="input-label">
+							<%= f.label :name, '姓名' %>
+						</td>
+						<td class="input-body">
+							<%= f.text_field :name, :placeholder => "山田 太郎" %>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="form-submit" colspan="2">
+							<%= f.submit "SAVE" %>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		<% end %>
+	</div>
+</section>

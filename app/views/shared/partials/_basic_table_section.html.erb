@@ -1,5 +1,12 @@
 <section>
 	<h1 class='section-title'><%= table_section[:title] %></h1>
+	<% if table_section.has_key?(:edit) %>
+		<%= link_to table_section[:edit] do %>
+			<button class="icon-button section-icon" id="section-icon">
+		    <i class="material-icons">settings</i>
+		  </button>
+	  <% end %>
+  <% end %>
 	<table class="layer1">
 		<tbody>
 			<% table_section[:value].each do |row| %>

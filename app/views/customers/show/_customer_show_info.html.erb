@@ -1,6 +1,7 @@
 <%=
 customer_info = {
 	title: 'プロフィール',
+	edit: edit_customer_path(@customer),
 	value: [
 		['ユーザー名',  @customer.name],
 		['メールアドレス',  @customer.email]
