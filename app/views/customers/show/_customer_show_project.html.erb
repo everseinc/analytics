@@ -1,0 +1,12 @@
+<%=
+projects = {
+	title: 'プロジェクト',
+	value: [
+		[ link_to("アプリケーション一覧", :controller => "apps", :action => "index") ],
+		[ link_to("アプリケーションを作成", :controller => "apps", :action => "new") ],
+		[ link_to("プロジェクトを作成", :controller => "projects", :action => "new") ]
+	]
+}
+
+render partial: "shared/partials/basic_table_section", locals: { table_section: projects }
+%>
