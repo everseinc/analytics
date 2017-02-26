@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root :to => 'customers#new'
 
-  get "reports/:project_id", to: "reports#show"
+  get "reports/main/:project_id", to: "reports#main"
 
 
 
