@@ -9,7 +9,6 @@ class ProjectDetails
   class << self
 
     def save(new_project)
-    	session = Thread.current[:request].session
     	project = Project.new(project_name: new_project[:project_name])
     	app = App.find(new_project[:app_id])
       if project.valid? && app.valid?
