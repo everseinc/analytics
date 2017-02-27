@@ -2,7 +2,10 @@ class CustomersController < MainLayoutController
 
   include Concerns::Filters::AuthAction
 
-  
+  ###
+  ## GET
+  #
+
   def new
     @customer_form = CustomerForm.new
   end
@@ -11,6 +14,14 @@ class CustomersController < MainLayoutController
     @customer = Customer.find(params[:id])
   end
 
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
+
+  ###
+  ## POST
+  #
 
   def create
     customer_or_er_messages = postConnectTo(klass: CustomerForm, func: "save", args: customer_form_params)
@@ -23,6 +34,16 @@ class CustomersController < MainLayoutController
     end
   end
 
+  def update
+    res = postConnectTo(klass: Customer, func: "update_name", args: customer_params)
+    if res
+      redirect_to customer_path(res)
+    else
+      @customer = Customer.new
+      render :action => 'edit'
+    end
+  end
+
 
 
 
@@ -32,5 +53,9 @@ class CustomersController < MainLayoutController
   def customer_form_params
     params[:customer_form].permit(:name, :email, :password,
                                  :password_confirmation)
+  end
+
+  def customer_params
+    params[:customer].permit(:id, :name)
   end
 end
