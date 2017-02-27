@@ -15,6 +15,7 @@ class CustomersController < MainLayoutController
   end
 
   def edit
+    @password = CustomersPassword.find_by(customer_id: params[:id]).password
     @customer = Customer.find(params[:id])
   end
 
@@ -39,8 +40,20 @@ class CustomersController < MainLayoutController
     if res
       redirect_to customer_path(res)
     else
-      @customer = Customer.new
-      render :action => 'edit'
+      @password = CustomersPassword.find_by(customer_id: params[:id]).password
+      @customer = Customer.find(params[:id])
+      redirect_to :action => 'edit'
+    end
+  end
+
+  def update_passwd
+    res = postConnectTo(klass: Password, func: "update_passwd", args: password_params)
+    if res
+      redirect_to customer_path(res)
+    else
+      @password = CustomersPassword.find_by(customer_id: params[:id]).password
+      @customer = Customer.find(params[:id])
+      redirect_to :action => 'edit'
     end
   end
 
@@ -57,5 +70,9 @@ class CustomersController < MainLayoutController
 
   def customer_params
     params[:customer].permit(:id, :name)
+  end
+
+  def password_params
+    params[:password].permit(:id, :old_password, :password, :password_confirmation)
   end
 end
