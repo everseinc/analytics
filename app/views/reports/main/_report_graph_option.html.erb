@@ -2,8 +2,8 @@
   <div id="emotion_option">
     <label class="indicater-optin-label">感情の選択</label>
     <% @emo_kinds.each do |ek| %>
-      <input class="graph-option-check" type="checkbox" name="任意" value="<%=ek%>" id="emo_<%= ek %>_option" />
-      <label for="emo_<%= ek %>_option" class="graph-option-label"><%=ek%></label>
+      <input class="graph-option-check" type="checkbox" name="任意" value="<%=ek[:name]%>" id="emo_<%= ek[:name] %>_option" />
+      <label for="emo_<%= ek[:name] %>_option" class="graph-option-label"><%=ek[:name]%></label>
     <% end %>
   </div>
 
@@ -11,8 +11,8 @@
   <div id="dimension_option">
     <label class="indicater-optin-label">要素の選択</label>
     <% @dimensions.each do |d| %>
-    <input class="graph-option-check" type="checkbox" name="任意" value="<%= d %>" id="dimension_<%= d %>_option" />
-    <label for="dimension_<%= d %>_option" class="graph-option-label"><%= d %></label>
+    <input class="graph-option-check" type="checkbox" name="任意" value="<%= d[:name] %>" id="dimension_<%= d[:name] %>_option" />
+    <label for="dimension_<%= d[:name] %>_option" class="graph-option-label"><%= d[:name] %></label>
     <% end %>
 
   </div>

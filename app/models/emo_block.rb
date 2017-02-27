@@ -10,7 +10,7 @@ class EmoBlock < ApplicationRecord
       if dimension_id.nothing?
         emo_blocks = EmoBlock.where(["project_id = ? and started_at >= ? and ended_at <= ?", project_id, started_at, ended_at]).pluck(:id, :dimension_id)
       else
-        emo_blocks = EmoBlock.where(["project_id = ? and started_at >= ? and ended_at <= ? and dimension_id", project_id, started_at, ended_at, dimension_id.value]).pluck(:id, :dimension_id)
+        emo_blocks = EmoBlock.where(["project_id = ? and started_at >= ? and ended_at <= ? and dimension_id = ?", project_id, started_at, ended_at, dimension_id.value]).pluck(:id, :dimension_id)
       end
     end
 

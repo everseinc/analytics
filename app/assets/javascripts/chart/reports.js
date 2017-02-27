@@ -1,5 +1,8 @@
 var ctx = document.getElementById("report_main_graph");
 // ctx.clientHeight = 100;
+var report_main_graph = document.getElementById("report_json_data");
+report_json = report_json_data.getAttribute('data-json')
+console.log(report_json)
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
