@@ -1,4 +1,4 @@
-nclass ReportsController < MainLayoutController
+class ReportsController < MainLayoutController
 
   include Concerns::Filters::AuthAction
 
