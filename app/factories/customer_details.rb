@@ -1,9 +1,13 @@
 class CustomerDetails
   extend DigestManager
   attr_accessor :name, :email, :password, :password_confirmation
+
+  ###
+  ## class methods
+  #
+
   class << self
     def save(new_customer)
-      # binding.pry
       customer = Customer.new(name: new_customer[:name], email: new_customer[:email])
       password = Password.new(password: new_customer[:password], password_confirmation: new_customer[:password_confirmation])
       if customer.valid? && password.valid?

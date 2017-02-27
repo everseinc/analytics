@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "reports/main/:project_id", to: "reports#main"
 
 
+
   resources :customers, :only => [:new, :create, :show]
   resources :apps, :only => [:new, :create, :index, :show]
   resources :projects, :only => [:new, :create, :index, :show]
