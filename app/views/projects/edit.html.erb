@@ -1,6 +1,6 @@
 <section>
 	<div class="form-group">
-		<h1 class="form-title">Edit Account</h1>
+		<h1 class="form-title">Edit Project</h1>
 
 		<% if @er_messages.present?  %>
   		<div id="error_explanation">
@@ -14,7 +14,7 @@
   		</div>
 		<% end %>
 
-
+		<h2 class="form-sub-title">プロジェクト名を変更</h2>
 		<%= form_for @project do |f| %>
 			<%= f.hidden_field :id, :value => @project.id %>
 			<table class="layer1">

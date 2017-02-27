@@ -1,21 +1,3 @@
-<section>
-	<h1 class='section-title'>アプリケーション一覧</h1>
-	<% current_customer.apps.each do |app| %>
-	<table class="layer1">
-		<tbody>
-			<tr>
-				<td>
-					<%= link_to app.app_name, app_path(app.id) %>	
-				</td>
-			</tr>
-			<% app.projects.each do |project| %>
-			<tr>
-				<td>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to project.project_name, project_path(project.id) %>
-				</td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
-	<% end %>
-</section>
+<div class='grey-field'>
+<%= render partial: "apps/index/app_index_collection" %>
+</div>

@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
 
 
-  resources :customers, :only => [:new, :create, :edit, :update, :show]
+  resources :customers, :only => [:new, :create, :edit, :update, :show] do
+  	member do
+  		patch 'update_passwd'
+  	end
+  end
+
   resources :apps, :only => [:new, :create, :index, :show]
   resources :projects, :only => [:new, :create, :index, :edit, :update, :show]
 
