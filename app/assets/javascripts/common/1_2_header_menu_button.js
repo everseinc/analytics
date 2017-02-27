@@ -1,9 +1,10 @@
 var headerMenuButton = {
 	element: document.getElementById('header-menu-button'),
-	toggleMenu: function() {
-		headerMenu.toggleMenu();
+	toggleMenu: function(e) {
+		headerMenu.toggleMenu(e);
 	},
 	onClick: function() {
-		this.element.addEventListener('click', this.toggleMenu, false);
+		headerMenu.setTrigger(this.element);
+		this.element.addEventListener('click', this.toggleMenu, true);
 	}
 }

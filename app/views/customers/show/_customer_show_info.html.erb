@@ -1,0 +1,12 @@
+<%=
+customer_info = {
+	title: 'プロフィール',
+	edit: edit_customer_path(@customer),
+	value: [
+		['ユーザー名',  @customer.name],
+		['メールアドレス',  @customer.email]
+	]
+}
+
+render partial: "shared/partials/basic_table_section", locals: { table_section: customer_info }
+%>
