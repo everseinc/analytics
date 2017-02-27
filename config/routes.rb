@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :customers, :only => [:new, :create, :edit, :update, :show]
   resources :apps, :only => [:new, :create, :index, :show]
-  resources :projects, :only => [:new, :create, :index, :show]
+  resources :projects, :only => [:new, :create, :index, :edit, :update, :show]
 
 
   # login logout

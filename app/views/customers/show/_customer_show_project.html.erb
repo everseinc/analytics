@@ -1,12 +1,17 @@
 <%=
-projects = {
+projects = @customer.apps.flat_map do |app|
+	app.projects.flat_map do |project|
+		{
+			cell_title: project.project_name,
+			cell_link: project_path(project.id),
+			cell_discription: 'application : ' + app.app_name
+		}
+	end
+end
+collection_section = {
 	title: 'プロジェクト',
-	value: [
-		[ link_to("アプリケーション一覧", :controller => "apps", :action => "index") ],
-		[ link_to("アプリケーションを作成", :controller => "apps", :action => "new") ],
-		[ link_to("プロジェクトを作成", :controller => "projects", :action => "new") ]
-	]
+	value: projects
 }
 
-render partial: "shared/partials/basic_table_section", locals: { table_section: projects }
+render partial: "shared/partials/basic_collection_section", locals: { collection_section: collection_section }
 %>

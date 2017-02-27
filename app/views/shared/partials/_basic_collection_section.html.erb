@@ -1,0 +1,37 @@
+<section>
+	<h1 class='section-title'><%= collection_section[:title] %></h1>
+	<% if collection_section.has_key?(:edit) %>
+		<%= link_to table_section[:edit] do %>
+			<button class="icon-button section-icon" id="section-icon">
+		    <i class="material-icons">settings</i>
+		  </button>
+	  <% end %>
+  <% end %>
+  <% collection_section[:value].each do |cell| %>
+  <div class="collection-cell layer-cell layer-cell-hov">
+  	<%= link_to cell[:cell_link] do %>
+      <div class="cell-wrapper">
+
+      	<!-- cell title -->
+        <h2 class="cell-title"><%= cell[:cell_title] %></h2>
+
+        <!-- cell image -->
+        <div class="cell-image">
+        	<% if cell.has_key?(:cell_image) %>
+        	<%= image_tag(cell[:cell_image]) %>
+	        <% end %>
+	      </div>
+
+        <!-- cell discription -->
+        <% if cell.has_key?(:cell_discription) %>
+        <div class="cell-discription">
+       	 	<p><%= cell[:cell_discription] %></p>
+        </div>
+        <% end %>
+
+        <p>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+</section>
