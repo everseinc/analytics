@@ -44,6 +44,17 @@ class EmoDetails
       emo_details
     end
 
+    def get_kind_of_emos(emo_details: )
+      kind = []
+      keys = emo_details[:dimensions].keys
+      keys.each do |k|
+        emo_details[:dimensions][k].each do |en|
+          kind << en[:name] if !kind.include?(en[:name])
+        end
+      end
+      kind
+    end
+
     private
 
       def get_emo_and_record_by(emo_block_id:)
