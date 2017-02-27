@@ -27,5 +27,11 @@ class Project < ApplicationRecord
         raise Major::UpdateFailedError.code(21008)
       end
     end
+
+    def get_related_projects(project_id:, limit: 5)
+      app_id = AppsProject.find_by(project_id: project_id).app_id
+      project_ids = AppsProject.where(app_id: app_id).pluck(:project_id)
+      projects =Project.where(id: project_ids).limit(limit)
+    end
   end
 end
