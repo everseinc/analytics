@@ -7,31 +7,33 @@
 		  </button>
 	  <% end %>
   <% end %>
-  <% collection_section[:value].each do |cell| %>
-  <div class="collection-cell layer-cell layer-cell-hov">
-  	<%= link_to cell[:cell_link] do %>
-      <div class="cell-wrapper">
+  <div class='collection-row'>
+    <% collection_section[:value].each do |cell| %>
+    <div class="collection-cell layer-cell layer-cell-hov">
+    	<%= link_to cell[:cell_link] do %>
+        <div class="cell-wrapper">
 
-      	<!-- cell title -->
-        <h2 class="cell-title"><%= cell[:cell_title] %></h2>
+        	<!-- cell title -->
+          <h2 class="cell-title"><%= cell[:cell_title] %></h2>
 
-        <!-- cell image -->
-        <div class="cell-image">
-        	<% if cell.has_key?(:cell_image) %>
-        	<%= image_tag(cell[:cell_image]) %>
-	        <% end %>
-	      </div>
+          <!-- cell image -->
+          <div class="cell-image">
+          	<% if cell.has_key?(:cell_image) %>
+          	<%= image_tag(cell[:cell_image]) %>
+  	        <% end %>
+  	      </div>
 
-        <!-- cell discription -->
-        <% if cell.has_key?(:cell_discription) %>
-        <div class="cell-discription">
-       	 	<p><%= cell[:cell_discription] %></p>
+          <!-- cell discription -->
+          <% if cell.has_key?(:cell_discription) %>
+          <div class="cell-discription">
+         	 	<p><%= cell[:cell_discription] %></p>
+          </div>
+          <% end %>
+
+          <p>
         </div>
-        <% end %>
-
-        <p>
-      </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
-  <% end %>
 </section>

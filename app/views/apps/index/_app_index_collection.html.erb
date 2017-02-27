@@ -1,0 +1,23 @@
+<section>
+	<h1 class='section-title'>プロジェクト一覧</h1>
+	<% current_customer.apps.each do |app| %>
+	<div class='app-index-wrapper'>
+	  <h2 class="app-index-name"><%= app.app_name %></h2>
+		<%= 
+		projects = app.projects.flat_map do |project|
+			{
+				cell_title: project.project_name,
+				cell_link: project_path(project.id),
+				cell_discription: 'application : ' + app.app_name
+			}
+		end
+		collection = {
+			value: projects
+		}
+
+		render partial: "shared/partials/basic_collection", locals: { collection: collection }
+		%>
+	</div>
+	<% end %>
+</section>
+<div class='border'></div>
