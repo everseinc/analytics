@@ -1,0 +1,13 @@
+<table class="layer1">
+	<tbody>
+		<% table[:value].each do |row| %>
+		<tr>
+			<% row.each do |column| %>
+			<td>
+				<%= column %>
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

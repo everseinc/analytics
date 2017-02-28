@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217062118) do
+ActiveRecord::Schema.define(version: 20170228211213) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_name",   null: false
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20170217062118) do
   end
 
   create_table "apps_customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "app_id",             null: false
-    t.integer  "customer_id",        null: false
-    t.string   "customer_authority", null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "app_id",       null: false
+    t.integer  "customer_id",  null: false
+    t.integer  "authority_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["app_id"], name: "app_id", using: :btree
     t.index ["customer_id", "app_id"], name: "index_apps_customers_on_customer_id_and_app_id", unique: true, using: :btree
   end
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20170217062118) do
     t.datetime "updated_at", null: false
     t.index ["app_id"], name: "app_id", using: :btree
     t.index ["project_id", "app_id"], name: "index_apps_projects_on_project_id_and_app_id", unique: true, using: :btree
+  end
+
+  create_table "authorities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

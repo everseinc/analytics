@@ -14,6 +14,7 @@ class AppsController < MainLayoutController
   end
 
   def show
+    @apps_customer = AppDetails.find_by_ids(params[:id], session[:customer_id])
     @app = App.find(params[:id])
   end
 

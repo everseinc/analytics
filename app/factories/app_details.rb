@@ -8,6 +8,17 @@ class AppDetails
 
   class << self
 
+    def find_by_ids(app_id, customer_id)
+      app = App.find(app_id)
+      customer = Customer.find(customer_id)
+      apps_customer = AppsCustomer.find_by(app_id: app_id, customer_id: customer_id)
+      result = {
+        app: app.attributes,
+        customer: customer.attributes,
+        authority: apps_customer.authority.attributes
+      }
+    end
+
     def save(new_app)
       session = Thread.current[:request].session
     	app = App.new(app_name: new_app[:app_name])
