@@ -14,9 +14,12 @@
 	}
 
 	#report_selects {
-		select {
+		margin-right: 10px;
+		input {
 			font-size: 2.0rem;
-			margin-right: 10px;
+		}
+		button {
+			font-size: 2.0rem;
 		}
 	}
 

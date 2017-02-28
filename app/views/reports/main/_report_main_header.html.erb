@@ -2,17 +2,8 @@
   <div id ="report_project_name"><%= @project[:project_name] %></div>
 
   <div id="report_selects">
-    <select>
-      <% @emo_blocks.each do |e| %>
-        <option><%= e[:started_at]%></option>
-      <% end %>
-    </select>
-     
-    <select>
-      <% @emo_blocks.each do |e| %>
-        <option><%= e[:ended_at]%></option>
-      <% end %>
-    </select>
+    <input type="text" class="auto-kal" data-kal="format: 'YYYY/MM/DD', months: 2, mode: 'range', direction: 'past', side: 'bottom right'">
+    <button>Apply</button>
   </div>
   
 </div>
