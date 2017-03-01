@@ -15,14 +15,18 @@ class EmoDetails
       Jbuilder.encode do |json|
         json.emo_details do
           dimensions.each do |d|
-            emo_blocks = EmoBlock.get_emo_blocks_by(started_at: start_time, ended_at: end_time, project_id: project_id, dimension_id: Maybe.new(d[0]))
+
             json.set! d[1] do
-              json.array!(emo_blocks) do |eb|
-                emo_name, emo_value, emo_started_at, emo_ended_at = get_emo_and_record_by(emo_block_id: eb[0])
-                json.name = emo_name
-                json.value = emo_value
-                json.started_at = emo_started_at
-                json.ended_at = emo_ended_at
+              json.array!(Emotion.all) do |e|
+                json.set! e.name do
+                  emo_blocks = EmoBlock.get_emo_blocks_by(started_at: start_time, ended_at: end_time, project_id: project_id, dimension_id: Maybe.new(d[0]), emo_name: e.name)
+                  json.array!(emo_blocks) do |eb|
+                    emo_value, emo_started_at, emo_ended_at = get_emo_and_record_by(emo_block_id: eb.id)
+                    json.value = emo_value
+                    json.started_at = emo_started_at
+                    json.ended_at = emo_ended_at
+                  end
+                end
               end
             end
           end
@@ -30,14 +34,13 @@ class EmoDetails
       end
     end
 
-
     private
 
       def get_emo_and_record_by(emo_block_id:)
-        emo_started_at, emo_ended_at = EmoBlock.where(id: emo_block_id).pluck(:started_at, :ended_at)
+        emo_block = EmoBlock.where(id: emo_block_id).select(:started_at, :ended_at).first
+        emo_started_at, emo_ended_at = emo_block.started_at, emo_block.ended_at
         emo_rec = EmoRecord.find_by(emo_block_id: emo_block_id)
-        emo = Emotion.find_by(id: emo_rec.emotion_id)
-        [emo.name, emo_rec.value, emo_started_at, emo_ended_at]
+        [emo_rec.value, emo_started_at, emo_ended_at]
       end
 
 
