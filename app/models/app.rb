@@ -10,4 +10,25 @@ class App < ApplicationRecord
   has_many :apps_projects, dependent: :destroy
   has_many :projects, through: :apps_projects
 
+
+  ###
+  ## class methods
+  #
+
+  class << self
+
+
+    ###
+    ## update
+    #
+
+    def update_name(app_params)
+      app = self.find(app_params[:id])
+      if app.update(app_name: app_params[:app_name])
+        return app
+      else
+        raise Major::UpdateFailedError.code(21008)
+      end
+    end
+  end
 end

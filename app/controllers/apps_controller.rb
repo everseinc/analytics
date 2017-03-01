@@ -2,9 +2,9 @@ class AppsController < MainLayoutController
 
   include Concerns::Filters::AuthAction
 
-	###
-	## resources actions
-	#
+  ###
+  ## GET
+  #
 
 	def index
   end
@@ -18,6 +18,15 @@ class AppsController < MainLayoutController
     @app = App.find(params[:id])
   end
 
+  def edit
+    @app = App.find(params[:id])
+  end
+
+
+  ###
+  ## POST
+  #
+
   def create
   	res = postConnectTo(klass: AppForm, func: "save", args: app_form_params)
     if res
@@ -25,6 +34,16 @@ class AppsController < MainLayoutController
     else
     	@app_form = AppForm.new
       render :action => 'new'
+    end
+  end
+
+  def update
+    res = postConnectTo(klass: App, func: "update_name", args: app_params)
+    if res
+      redirect_to app_path(res)
+    else
+      @app = App.find(params[:id])
+      redirect_to :action => 'edit'
     end
   end
 
@@ -38,4 +57,8 @@ class AppsController < MainLayoutController
 	def app_form_params
 		params[:app_form].permit(:app_name, :customer_authority)
 	end
+
+  def app_params
+    params[:app].permit(:id, :app_name)
+  end
 end

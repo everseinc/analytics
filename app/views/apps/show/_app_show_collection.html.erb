@@ -1,5 +1,10 @@
 <section>
 	<h1 class='section-title'><%= @app.app_name %></h1>
+	<%= link_to edit_app_path(@app) do %>
+		<button class="icon-button section-icon" id="section-icon">
+	    <i class="material-icons">settings</i>
+	  </button>
+	<% end %>
 	<div class='app-index-wrapper'>
 	  <h2 class="app-index-name">Info</h2>
 	  <%=

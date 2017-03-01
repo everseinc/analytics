@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   	end
   end
 
-  resources :apps, :only => [:new, :create, :index, :show]
+  resources :apps, :only => [:new, :create, :edit, :update, :index, :show]
   resources :projects, :only => [:new, :create, :index, :edit, :update, :show]
 
 
