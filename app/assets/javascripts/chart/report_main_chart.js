@@ -1,7 +1,6 @@
 (function () {
   var report_main_graph = document.getElementById("report_main_graph");
-  var emo_details = new emoDetails(getJsonFromServer("data-json", "report_json_data"));
-
+  var emo_details = new EmoDetails(getJsonFromServer("data-json", "report_json_data"));
   var report_main_chart = new Chart(report_main_graph , {
       type: 'line',
       data: {
