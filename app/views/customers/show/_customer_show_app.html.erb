@@ -1,5 +1,5 @@
 <%=
-apps = @customer.apps.map.map do |app|
+apps = @customer.apps.flat_map do |app|
 	[link_to(app.app_name, app_path(app.id))]
 end
 
@@ -8,5 +8,5 @@ new_somethings = {
 	value: apps
 }
 
-render partial: "shared/partials/basic_table_section", locals: { table_section: new_somethings }
+render partial: "shared/partials/basic_list_section", locals: { list_section: new_somethings }
 %>
