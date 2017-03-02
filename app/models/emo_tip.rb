@@ -1,0 +1,3 @@
+class EmoTip < ApplicationRecord
+
+end
