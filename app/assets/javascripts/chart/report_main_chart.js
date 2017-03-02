@@ -1,9 +1,9 @@
-var ctx = document.getElementById("report_main_graph");
-// ctx.clientHeight = 100;
-var report_main_graph = document.getElementById("report_json_data");
-report_json = report_json_data.getAttribute('data-json')
-console.log(report_json)
-var myChart = new Chart(ctx, {
+
+var report_main_graph = document.getElementById("report_main_graph");
+var emo_details_data = JSON.parse(report_json_data.getAttribute('data-json'));
+console.log(emo_details_data);
+
+var myChart = new Chart(report_main_graph , {
     type: 'line',
     data: {
         labels: ["2/17", "2/18", "2/19", "2/20"],
