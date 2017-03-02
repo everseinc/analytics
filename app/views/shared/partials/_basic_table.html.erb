@@ -10,4 +10,13 @@
 		</tr>
 		<% end %>
 	</tbody>
+	<% if table.has_key?(:foot) %>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<%= table[:foot] %>
+			</td>
+		</tr>
+	</tfoot>
+	<% end %>
 </table>

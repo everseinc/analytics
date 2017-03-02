@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   	member do
   		patch 'update_passwd'
   	end
+
+    collection do
+      post 'invite'
+    end
   end
 
   resources :apps, :only => [:new, :create, :edit, :update, :index, :show]

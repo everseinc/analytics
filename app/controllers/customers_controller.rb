@@ -57,11 +57,25 @@ class CustomersController < MainLayoutController
     end
   end
 
+  def invite
+    # binding.pry
+    res = postConnectTo(klass: self, func: 'invite_member', args: invitation_params)
+    if res
+      redirect_to request.referer
+    else
+      redirect_to 'new'
+    end
+  end
+
 
 
 
 
   private
+
+  ###
+  ## Strong parameters
+  #
 
   def customer_form_params
     params[:customer_form].permit(:name, :email, :password,
@@ -75,4 +89,18 @@ class CustomersController < MainLayoutController
   def password_params
     params[:password].permit(:id, :old_password, :password, :password_confirmation)
   end
+
+  def invitation_params
+    params.require(:customer).permit(:app_id, :email)
+  end
+
+
+  ###
+  ## connected methods
+  #
+
+  def invite_member(params)
+    CustomersMailer.invite(params).deliver_now
+  end
+
 end

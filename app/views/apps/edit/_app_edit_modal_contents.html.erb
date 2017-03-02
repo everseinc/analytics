@@ -1,0 +1,15 @@
+<%= form_tag("/customers/invite", method: "post") do %>
+<%= hidden_field :app, :id, :name => "customer[app_id]" %>
+<div class='modal-header'>
+	<h2>Invite People to this Application</h2>
+</div>
+<div class='modal-contents'>
+	<div class='modal-contents-email'>
+ 	  <%= text_field(:customer, :email, :placeholder => 'Email', :class => 'modal-contents-email-input') %>
+	</div>
+</div>
+<div class='modal-footer'>
+	<%= submit_tag("INVITE", :class => 'simple-button') %>
+	<%= simple_button('CANCEL', 'invite-cancel-button') %>
+</div>
+<% end %>

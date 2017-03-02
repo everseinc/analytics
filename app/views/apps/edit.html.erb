@@ -1,6 +1,6 @@
 <section>
 	<div class="form-group">
-		<h1 class="form-title">Edit Profile</h1>
+		<h1 class="form-title">Edit Application</h1>
 
 		<% if @er_messages.present?  %>
   		<div id="error_explanation">
@@ -44,9 +44,26 @@
 			[customer.name, find_by_ids(@app.id, customer.id)[:authority]['name']]
 		end
 	  table = {
-	  	value: customers
+	  	value: customers,
+	  	foot: simple_button('ADD USER', 'invite-customer-button')
 	  }
 	  render partial: "shared/partials/basic_table", locals: { table: table }
 	  %>
 	</div>
 </section>
+<%=
+contents = <<-'EOS'
+<input>
+EOS
+modal = {
+	wrapper: {
+		id: 'invite-modal-wrapper',
+		parcial: 'apps/edit/app_edit_modal_contents',
+	},
+	mask: {
+		id: 'invite-modal-mask'
+	}
+}
+render partial: "shared/partials/basic_modal", locals: { modal: modal }
+%>
+
