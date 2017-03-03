@@ -1,1 +1,0 @@
-headerMenuButton.onClick();
