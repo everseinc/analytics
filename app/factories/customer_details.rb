@@ -19,8 +19,8 @@ class CustomerDetails
         end
       else
         flash = FlashManager.new({})
-        flash.set_flash(customer.errors.full_messages)
-        flash.set_flash(password.errors.full_messages)
+        flash.set_flash({customer_error: customer.errors.full_messages})
+        flash.set_flash({password_error: password.errors.full_messages})
         return flash
       end
 

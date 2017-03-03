@@ -41,7 +41,7 @@ class Maybe
   #
 
   # override a method in Functor module
-  def map(block)
+  def map(&block)
     return zero if nothing?
     return Maybe.new block.call(value) if just?
   end
