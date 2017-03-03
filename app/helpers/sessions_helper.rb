@@ -18,7 +18,7 @@ module SessionsHelper
 
   def dynamic_login_path_for_joinning
     if params.has_key?(:key) && params.has_key?(:app_id)
-      return new_customer_path(:key => params[:key], :app_id => params[:app_id])
+      return url_for [:login, :key => params[:key], :app_id => params[:app_id]]
     end
     new_customer_path
   end
