@@ -17,10 +17,9 @@ class ProjectDetails
           AppsProject.create(app_id: app.id, project_id: project.id)
         end
       else
-        er_messages = []
-        er_messages << project.errors.full_messages
-        er_messages.delete([])
-        return er_messages
+        flash = FlashManager.new({})
+        flash.set_flash(project.errors.full_messages)
+        return flash
       end
 
       project
