@@ -19,9 +19,8 @@ class AuthManager
 		end
 
 		def authenticate_by_app_id(id)
-			customer = Customer.find(session[:customer_id])
-			app = App.find(id)
-			if app.customers[0].id == customer.id
+			apps_customer = AppsCustomer.find_by(app_id: id, customer_id: session[:customer_id])
+			if apps_customer
 				return true
 			else
 				return false

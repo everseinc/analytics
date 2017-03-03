@@ -1,4 +1,5 @@
 class CustomerDetails
+  include ActiveModel::Model
   extend DigestManager
   attr_accessor :name, :email, :password, :password_confirmation
 

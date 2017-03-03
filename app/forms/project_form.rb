@@ -1,5 +1,4 @@
 class ProjectForm < ProjectDetails
-  include ActiveModel::Model
 
 	###
 	## class method

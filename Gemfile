@@ -44,6 +44,9 @@ gem 'autoprefixer-rails'
 # Chart.js
 gem 'chart-js-rails'
 
+# setting
+gem 'settingslogic'
+
 # Use Unicorn as the app server
 gem 'unicorn'
 gem "unicorn-worker-killer"

@@ -26,9 +26,9 @@ table {
 
   tfoot {
 
-  	tr td.form-submit {
+  	tr td {
 
-  		input[type="submit"] {
+  		input[type="submit"], button {
   			float: right;
   			background-color: transparent;
   			border-color: transparent;

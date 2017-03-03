@@ -9,10 +9,16 @@ class SessionsController < MainLayoutController
 
   def create
   	res = postConnectTo(klass: self, func: "login", args: params[:session])
-    if res
-      redirect_to '/apps/' and return
-    else
-      render 'new' and return
+    
+    render 'new' and return if !res
+    dynamic_redirect_to '/apps/' do
+      if params.has_key?(:key) && params.has_key?(:app_id)
+        redirect_to join_apps_path(:key => params[:key], :app_id => params[:app_id]) and return
+      end
+
+      if params[:goto] == '/customers/show'
+        redirect_to customer_path(res[:id]) and return
+      end
     end
   end
 
