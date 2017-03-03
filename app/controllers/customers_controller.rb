@@ -35,7 +35,7 @@ class CustomersController < MainLayoutController
       end
     else
       @customer_form = CustomerForm.new
-      render :action => "new"
+      redirect_to :action => "new"
     end
   end
 
