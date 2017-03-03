@@ -31,7 +31,7 @@ class AppDetails
         end
       else
         flash = FlashManager.new({})
-        flash.set_flash(app.errors.full_messages)
+        flash.set_flash({app_error: app.errors.full_messages})
         return flash
       end
 
