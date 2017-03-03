@@ -1,5 +1,4 @@
-class EmoDetails
-  include ActiveModel::Model
+class EmoDetails < ApplicationDetails
   attr_accessor :project_name, :app_id
 
   ###
