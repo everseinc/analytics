@@ -43,12 +43,13 @@ class ApplicationController < ActionController::Base
   ## goto (of params) : You can change redirecting url dynamically by giving :goto param in posted url
   ## You can give a block because you want to use some parameters of a reciever
   def dynamic_redirect_to(default)
-    if !params[:goto]
-      redirect_to default and return
-    end
-
+    
     if block_given?
       yield
+    end
+
+    if !params[:goto]
+      redirect_to default and return
     end
 
     redirect_to params[:goto] and return

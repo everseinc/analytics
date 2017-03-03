@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :apps, :only => [:new, :create, :edit, :update, :index, :show]
+  resources :apps, :only => [:new, :create, :edit, :update, :index, :show] do
+    collection do
+      get 'join'
+    end
+  end
+
   resources :projects, :only => [:new, :create, :index, :edit, :update, :show]
 
 

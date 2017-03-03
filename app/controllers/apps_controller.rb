@@ -22,6 +22,18 @@ class AppsController < MainLayoutController
     @app = App.find(params[:id])
   end
 
+  def join
+    goto = "#{Settings.hostname}/apps/#{params[:app_id]}"
+
+    if logged_in? && Invitation.check(current_customer[:email], params[:key], params[:app_id])
+      AppsCustomer.create_writer(params)
+      redirect_to goto and return
+    else
+
+    redirect_to login_path(:key => params[:key], :app_id => params[:app_id]) and return
+    end
+  end
+
 
   ###
   ## POST

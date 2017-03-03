@@ -25,11 +25,14 @@ class CustomersController < MainLayoutController
   #
 
   def create
-    customer_or_er_messages = postConnectTo(klass: CustomerForm, func: "save", args: customer_form_params)
-    if !!customer_or_er_messages.respond_to?(:id)
-      redirect_to customer_path(customer_or_er_messages)
+    res = postConnectTo(klass: CustomerForm, func: "save", args: customer_form_params)
+    if res
+      dynamic_redirect_to customer_path(res) do
+        if params.has_key?(:key) && params.has_key?(:app_id)
+          redirect_to join_apps_path(:key => params[:key], :app_id => params[:app_id]) and return
+        end
+      end
     else
-      @er_messages = customer_or_er_messages
       @customer_form = CustomerForm.new
       render :action => "new"
     end
@@ -58,7 +61,6 @@ class CustomersController < MainLayoutController
   end
 
   def invite
-    # binding.pry
     res = postConnectTo(klass: self, func: 'invite_member', args: invitation_params)
     if res
       redirect_to request.referer
@@ -100,7 +102,8 @@ class CustomersController < MainLayoutController
   #
 
   def invite_member(params)
-    CustomersMailer.invite(params).deliver_now
+    invitation = Invitation.invite(params[:email], params[:app_id])
+    CustomersMailer.invite(invitation).deliver_now
   end
 
 end

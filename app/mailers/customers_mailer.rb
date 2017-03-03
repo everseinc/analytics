@@ -1,7 +1,7 @@
 class CustomersMailer < ApplicationMailer
-  def invite(invitation_params)
-    @link = 'http://test.jp/customers/new?goto=/app/' + invitation_params[:app_id]
-    mail to: invitation_params[:email],
+  def invite(invitation)
+  	@link = "#{Settings.hostname}/apps/join?key=#{invitation[:uuid]}&app_id=#{invitation[:app_id]}"
+    mail to: invitation[:email],
     		 subject: 'test送信'
   end
 end
