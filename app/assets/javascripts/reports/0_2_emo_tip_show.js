@@ -7,6 +7,8 @@ EmoTipShow.prototype.tipShow = function(){
   document.getElementById("tip-" + this.name + "-value").value(this.score);
 }
 
+
+
 EmoTipShow.prototype.getNames = function(){
   var tip_elements = document.getElementsByClassName("report_tip_title");
   var names = [];
