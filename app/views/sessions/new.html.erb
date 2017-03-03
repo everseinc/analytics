@@ -14,8 +14,7 @@
       </div>
     <% end %>
 
-
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for(:session, url: dynamic_login_path_for_joinning) do |f| %>
       <table class="layer1">
         <tbody>
           <tr>
@@ -44,6 +43,6 @@
         </tfoot>
       </table>
     <% end %>
-    <p>New user? <%= link_to "Sign up now!", '/' %></p>
+    <h3>New user? <%= link_to "Sign up now!", dynamic_login_path_for_joinning %></h3>
   </div>
 </section>

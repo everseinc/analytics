@@ -1,0 +1,2 @@
+editInvitationButton.onClick();
+editInvitationCancel.onClick();
