@@ -30,7 +30,7 @@ class Invitation < ApplicationRecord
 			now = Time.current
 			return false if !invitation
 			return false if invitation[:uuid] != uuid
-			return false if invitation[:app_id] != app_id
+			return false if invitation[:app_id] != app_id.to_i
 			return false if invitation[:limited_at] < now
 			true
 		end

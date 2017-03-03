@@ -26,7 +26,7 @@ class AppsController < MainLayoutController
     goto = "#{Settings.hostname}/apps/#{params[:app_id]}"
 
     if logged_in? && Invitation.check(current_customer[:email], params[:key], params[:app_id])
-      AppsCustomer.create_writer(params)
+      AppsCustomer.create_writer(params[:app_id], current_customer.id)
       redirect_to goto and return
     else
 

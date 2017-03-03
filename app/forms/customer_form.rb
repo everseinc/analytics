@@ -13,10 +13,7 @@ class CustomerForm < CustomerDetails
 		#
 
 		def save(new_customer)
-			customer = CustomerDetails.save(new_customer)
-			if customer.valid?
-				login(customer)
-			end
+			CustomerDetails.save(new_customer)
 		end
 	end
 

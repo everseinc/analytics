@@ -27,6 +27,7 @@ class CustomersController < MainLayoutController
   def create
     res = postConnectTo(klass: CustomerForm, func: "save", args: customer_form_params)
     if res
+      login(res)
       dynamic_redirect_to customer_path(res) do
         if params.has_key?(:key) && params.has_key?(:app_id)
           redirect_to join_apps_path(:key => params[:key], :app_id => params[:app_id]) and return

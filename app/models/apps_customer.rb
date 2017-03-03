@@ -20,13 +20,9 @@ class AppsCustomer < ApplicationRecord
     ## update
     #
 
-    def create_writer(params)
-    	app_id = params[:app_id]
-    	customer_id = params[:customer_id]
-    	writer_auth_id = Authority.find(name: 'Write').id
-
-    	binding.pry
-
+    def create_writer(app_id, customer_id)
+    	writer_auth_id = Authority.find_by(name: 'Write').id
+      
     	self.create(app_id: app_id, customer_id: customer_id, authority_id: writer_auth_id)
     end
   end
