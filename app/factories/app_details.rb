@@ -30,10 +30,9 @@ class AppDetails
           AppsCustomer.create(app_id: app.id, customer_id: customer.id, authority_id: admin_auth_id)
         end
       else
-        er_messages = []
-        er_messages << app.errors.full_messages
-        er_messages.delete([])
-        return er_messages
+        flash = FlashManager.new({})
+        flash.set_flash(app.errors.full_messages)
+        return flash
       end
 
       app

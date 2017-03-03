@@ -18,11 +18,10 @@ class CustomerDetails
           CustomersPassword.create(customer_id: customer.id, password_id: password.id)
         end
       else
-        er_messages = []
-        er_messages << customer.errors.full_messages
-        er_messages << password.errors.full_messages
-        er_messages.delete([])
-        return er_messages
+        flash = FlashManager.new({})
+        flash.set_flash(customer.errors.full_messages)
+        flash.set_flash(password.errors.full_messages)
+        return flash
       end
 
       customer
