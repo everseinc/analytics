@@ -1,9 +1,20 @@
 class CustomerForm < CustomerDetails
-  include ActiveModel::Model
 
-  # def customer
-  #   customer = Customer.find_by(id: self.id) || Customer.new(name: self.name, email: self.email)
-  # end
+	extend SessionManager
 
+	###
+	## class method
+	#
+
+  class << self
+
+  	###
+		## login
+		#
+
+		def save(new_customer)
+			CustomerDetails.save(new_customer)
+		end
+	end
 
 end

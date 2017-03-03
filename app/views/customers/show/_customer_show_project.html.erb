@@ -1,0 +1,17 @@
+<%=
+projects = @customer.apps.flat_map do |app|
+	app.projects.flat_map do |project|
+		{
+			cell_title: project.project_name,
+			cell_link: project_path(project.id),
+			cell_discription: 'application : ' + app.app_name
+		}
+	end
+end
+collection_section = {
+	title: 'プロジェクト',
+	value: projects
+}
+
+render partial: "shared/partials/basic_collection_section", locals: { collection_section: collection_section }
+%>

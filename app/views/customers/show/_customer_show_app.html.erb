@@ -1,0 +1,12 @@
+<%=
+apps = @customer.apps.flat_map do |app|
+	[link_to(app.app_name, app_path(app.id))]
+end
+
+new_somethings = {
+	title: 'アプリケーション',
+	value: apps
+}
+
+render partial: "shared/partials/basic_list_section", locals: { list_section: new_somethings }
+%>

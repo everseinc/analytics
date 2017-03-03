@@ -3,19 +3,23 @@
   & header {
     background-color: $background;
 
-    .header-title, .header-menu-button {
+    .header-title, .header-button {
       color: $against-color;
     }
   }
 
   .wrapper {
-    .section-title {
+    .section-title, .section-icon {
       color: $background;
     }
 
   	.form-title {
   		color: $title;
   	}
+
+    .base-color {
+      color: $title;
+    }
   }
 
   & footer {

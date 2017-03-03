@@ -1,0 +1,17 @@
+<section>
+	<h1 class='section-title'><%= list_section[:title] %></h1>
+	<% if list_section.has_key?(:edit) %>
+		<%= link_to table_section[:edit] do %>
+			<button class="icon-button section-icon" id="section-icon">
+		    <i class="material-icons">settings</i>
+		  </button>
+	  <% end %>
+  <% end %>
+	<div class='list layer1'>
+		<ul>
+			<% list_section[:value].each do |row| %>
+			<li><%= row %></li>
+			<% end %>
+		</ul>
+	</div>
+</section>

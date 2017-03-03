@@ -10,4 +10,16 @@ module SessionsHelper
   def is_logged_in?
     !session[:customer_id].nil?
   end
+
+  def dynamic_login_path
+  	return login_path(goto: params[:goto]) if params.has_key?(:goto)
+  	login_path
+  end
+
+  def dynamic_login_path_for_joinning
+    if params.has_key?(:key) && params.has_key?(:app_id)
+      return url_for [:login, :key => params[:key], :app_id => params[:app_id]]
+    end
+    new_customer_path
+  end
 end

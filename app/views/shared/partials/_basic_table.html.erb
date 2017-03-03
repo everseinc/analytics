@@ -1,0 +1,22 @@
+<table class="layer1">
+	<tbody>
+		<% table[:value].each do |row| %>
+		<tr>
+			<% row.each do |column| %>
+			<td>
+				<%= column %>
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+	<% if table.has_key?(:foot) %>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<%= table[:foot] %>
+			</td>
+		</tr>
+	</tfoot>
+	<% end %>
+</table>

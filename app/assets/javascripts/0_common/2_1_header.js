@@ -1,0 +1,2 @@
+headerMenuButton.onClick();
+headerCustomerMenuButton.onClick();

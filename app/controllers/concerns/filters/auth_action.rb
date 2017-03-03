@@ -26,8 +26,8 @@ module Concerns::Filters::AuthAction
 		## add before filters
 		#
 
-    before_filter -> (controller) { before(controller, params[:id]) }, only: [:show]
-    before_filter -> (controller) { before(controller, params[:project_id]) }, only: [:main]
+    before_action -> (controller) { before(controller, params[:id]) }, only: [:show]
+    before_action -> (controller) { before(controller, params[:project_id]) }, only: [:main]
 
 
     ###

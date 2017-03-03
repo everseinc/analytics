@@ -1,0 +1,41 @@
+.collection-row {
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.collection-cell {
+  width: 296px;
+  margin: 16px 12px;
+  background-color: $white;
+
+  .cell-wrapper {
+    cursor: pointer;
+    height: 204px;
+    padding: 16px 16px 16px 12px;
+
+    .cell-title {
+      color: $black;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 28px;
+      word-wrap: break-word;
+      padding-left: 8px;
+    }
+
+    .cell-image {
+      min-height: 128px;
+    }
+
+    .cell-discription {
+
+      p {
+        color: $medium-grey;
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+  }
+}

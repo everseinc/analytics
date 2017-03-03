@@ -1,0 +1,13 @@
+.list {
+	background-color: $white;
+
+	ul {
+		padding: 12px 42px;
+
+		li {
+			list-style-type: disc;
+			margin: 24px 0;
+			font-size: 18px;
+		}
+	}
+}
