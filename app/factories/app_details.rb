@@ -23,10 +23,11 @@ class AppDetails
       session = Thread.current[:request].session
     	app = App.new(app_name: new_app[:app_name])
     	customer = Customer.find(session[:customer_id])
+      admin_auth_id = Authority.find_by(name: 'Admin').id
       if app.valid? && customer.valid?
         ActiveRecord::Base.transaction do
           app.save!
-          AppsCustomer.create(app_id: app.id, customer_id: customer.id, customer_authority: new_app[:customer_authority])
+          AppsCustomer.create(app_id: app.id, customer_id: customer.id, authority_id: admin_auth_id)
         end
       else
         er_messages = []
