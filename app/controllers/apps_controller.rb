@@ -67,7 +67,7 @@ class AppsController < MainLayoutController
 	private
 
 	def app_form_params
-		params[:app_form].permit(:app_name, :customer_authority)
+		params[:app_form].permit(:app_name)
 	end
 
   def app_params
