@@ -27,3 +27,8 @@ end
 EmoTip.create(name: "平均値")
 EmoTip.create(name: "最大値")
 EmoTip.create(name: "最小値")
+
+# Authority.create(name: 'Admin')
+# Authority.create(name: 'Write')
+# Authority.create(name: 'Read')
+

@@ -4,8 +4,9 @@ class Emotion < ApplicationRecord
   class << self
     def convert_to_json(emotions)
       Jbuilder.encode  do |json|
-        emotions.each do |e|
-          json.set! e.id, e.name
+        json.array! emotions do |e|
+          json.id e.id
+          json.name e.name
         end
       end
     end

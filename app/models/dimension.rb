@@ -11,9 +11,10 @@ class Dimension < ApplicationRecord
     end
 
     def convert_to_json(dimensions)
-      Jbuilder.encode  do |json|
-        dimensions.each do |e|
-          json.set! e.id, e.name
+      Jbuilder.encode do |json|
+        json.array! dimensions do |d|
+          json.id d.id
+          json.name d.name
         end
       end
     end

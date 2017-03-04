@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-# ActiveRecord::Schema.define(version: 20170302133458) do
-
 ActiveRecord::Schema.define(version: 20170302133747) do
-
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_name",   null: false
@@ -98,6 +94,12 @@ ActiveRecord::Schema.define(version: 20170302133747) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["emo_block_id"], name: "emo_block_id", using: :btree
+  end
+
+  create_table "emo_tios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "emo_tips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

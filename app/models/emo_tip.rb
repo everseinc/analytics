@@ -4,9 +4,10 @@ class EmoTip < ApplicationRecord
 
 
     def convert_to_json(emo_tips)
-      Jbuilder.encode  do |json|
-        emo_tips.each do |et|
-          json.set! et.id, et.name
+      Jbuilder.encode do |json|
+        json.array! emo_tips do |et|
+          json.id et.id
+          json.name et.name
         end
       end
     end
