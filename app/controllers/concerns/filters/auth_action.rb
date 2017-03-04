@@ -1,4 +1,5 @@
 module Concerns::Filters::AuthAction
+	
 	extend ActiveSupport::Concern
 
 	###

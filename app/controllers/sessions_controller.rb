@@ -1,6 +1,6 @@
 class SessionsController < MainLayoutController
 
-  include Concerns::Gateways::SessionsGateway
+  include Concerns::Gateways::SessionsGateways
 
 	###
 	## resources actions

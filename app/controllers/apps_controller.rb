@@ -1,26 +1,12 @@
 class AppsController < MainLayoutController
 
+  include Concerns::Resources::AppsResources
+  include Concerns::Filters::AppsSetters
   include Concerns::Filters::AuthAction
 
   ###
   ## GET
   #
-
-	def index
-  end
-
-  def new
-    @app_form = AppForm.new
-  end
-
-  def show
-    @apps_customer = AppDetails.find_by_ids(params[:id], session[:customer_id])
-    @app = App.find(params[:id])
-  end
-
-  def edit
-    @app = App.find(params[:id])
-  end
 
   def join
     goto = "#{Settings.hostname}/apps/#{params[:app_id]}"

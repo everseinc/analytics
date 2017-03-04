@@ -1,4 +1,5 @@
-module Concerns::Gateways::CustomersGateway
+module Concerns::Gateways::CustomersGateways
+	
 	extend ActiveSupport::Concern
 
 

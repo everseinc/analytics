@@ -1,26 +1,8 @@
 class ProjectsController < ApplicationController
 
+  include Concerns::Resources::ProjectsResources
+  include Concerns::Filters::ProjectsSetters
   include Concerns::Filters::AuthAction
-
-  ###
-  ## GET
-  #
-
-	def index
-  end
-
-  def new
-    @project_form = ProjectForm.new
-  end
-
-  def show
-    @project = Project.find(params[:id])
-  end
-
-  def edit
-    @project = Project.find(params[:id])
-  end
-
 
   ###
   ## POST

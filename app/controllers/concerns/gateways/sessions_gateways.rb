@@ -1,4 +1,5 @@
-module Concerns::Gateways::SessionsGateway
+module Concerns::Gateways::SessionsGateways
+  
 	extend ActiveSupport::Concern
 
 	###

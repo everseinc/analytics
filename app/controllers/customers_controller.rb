@@ -1,25 +1,9 @@
 class CustomersController < MainLayoutController
 
+  include Concerns::Resources::CustomersResources
+  include Concerns::Filters::CustomersSetters
   include Concerns::Filters::AuthAction
-  include Concerns::Gateways::CustomersGateway
-
-  ###
-  ## GET
-  #
-
-  def new
-    @customer_form = CustomerForm.new
-  end
-
-  def show
-    @customer = Customer.find(params[:id])
-  end
-
-  def edit
-    @password = CustomersPassword.find_by(customer_id: params[:id]).password
-    @customer = Customer.find(params[:id])
-  end
-
+  include Concerns::Gateways::CustomersGateways
 
   ###
   ## POST

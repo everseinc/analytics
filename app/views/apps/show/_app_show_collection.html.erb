@@ -12,7 +12,7 @@
 	  	value: [
 	  		['アプリケーション名', @app.app_name],
 	  		['プロジェクト数', @app.projects.count],
-	  		['権限', @apps_customer[:authority]['name']]
+	  		['権限', @app_details[:authority]['name']]
 	  	]
 	  }
 	  render partial: "shared/partials/basic_table", locals: { table: table }
