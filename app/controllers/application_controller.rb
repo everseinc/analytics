@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     end
 
     return res
-  rescue StandardError => ex
+  rescue Major::BaseError => ex
   	flash[:danger] = ex.message
   	return false
   end
