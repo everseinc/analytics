@@ -44,8 +44,7 @@ class AppsController < MainLayoutController
     if res
       redirect_to app_path(res)
     else
-    	@app_form = AppForm.new
-      render :action => 'new'
+      redirect_to :action => 'new'
     end
   end
 
@@ -54,7 +53,6 @@ class AppsController < MainLayoutController
     if res
       redirect_to app_path(res)
     else
-      @app = App.find(params[:id])
       redirect_to :action => 'edit'
     end
   end

@@ -35,7 +35,6 @@ class CustomersController < MainLayoutController
         end
       end
     else
-      @customer_form = CustomerForm.new
       redirect_to :action => "new"
     end
   end
@@ -45,8 +44,6 @@ class CustomersController < MainLayoutController
     if res
       redirect_to customer_path(res)
     else
-      @password = CustomersPassword.find_by(customer_id: params[:id]).password
-      @customer = Customer.find(params[:id])
       redirect_to :action => 'edit'
     end
   end
@@ -56,8 +53,6 @@ class CustomersController < MainLayoutController
     if res
       redirect_to customer_path(res)
     else
-      @password = CustomersPassword.find_by(customer_id: params[:id]).password
-      @customer = Customer.find(params[:id])
       redirect_to :action => 'edit'
     end
   end

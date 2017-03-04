@@ -1,4 +1,4 @@
-module Concerns::Gateways::CustomersGateway
+module Concerns::Gateways::SessionsGateway
 	extend ActiveSupport::Concern
 
 	###

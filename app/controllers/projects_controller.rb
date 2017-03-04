@@ -31,8 +31,7 @@ class ProjectsController < ApplicationController
     if res
       redirect_to project_path(res)
     else
-    	@project_form = ProjectForm.new
-      render :action => 'new'
+      redirect_to :action => 'new'
     end
   end
 
@@ -41,8 +40,7 @@ class ProjectsController < ApplicationController
     if res
       redirect_to project_path(res)
     else
-      @project = Project.new
-      render :action => 'edit'
+      redirect_to :action => 'edit'
     end
   end
 
