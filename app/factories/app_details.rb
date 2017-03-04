@@ -1,5 +1,4 @@
-class AppDetails
-  include ActiveModel::Model
+class AppDetails < ApplicationDetails
   attr_accessor :app_name, :customer_authority
 
   ###

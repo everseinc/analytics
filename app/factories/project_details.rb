@@ -1,5 +1,4 @@
-class ProjectDetails
-  include ActiveModel::Model
+class ProjectDetails < ApplicationDetails
   attr_accessor :project_name, :app_id
 
   ###
