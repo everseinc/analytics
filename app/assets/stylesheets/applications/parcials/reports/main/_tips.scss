@@ -1,5 +1,15 @@
-#report_tips {
+.report_tips {
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+
+  .tip_emo_kind_box{
+    width: 50px;
+    padding-left: 5px;
+    padding-top: 15px;
+    padding-right: 5px;
+    border-right: 1px solid $material_grey_400;
+    vertical-align: middle;
+    text-align: center;
+  }
 }

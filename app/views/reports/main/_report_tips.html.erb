@@ -1,5 +1,10 @@
-<div id= "report_tips">
-  <% @tips.each do |t| %>
-    <%= render partial: "reports/main/report_tip" , locals: { tip: t }%>
-  <% end %>
-</div>
+<% @emotions.each do |e| %>
+  <div class="report_tips">
+    <div class="tip_emo_kind_box">
+      <span><%= e.name %></span>
+    </div>
+    <% @tips.each do |t| %>
+      <%= render partial: "reports/main/report_tip" , locals: { tip: t }%>
+    <% end %>
+  </div>
+<% end %>
