@@ -26,12 +26,13 @@ class ApplicationController < ActionController::Base
     	return false
     end
     return res
-    
+
   rescue Major::BaseError => ex
   	flash[:danger] = ex.message
   	return false
   end
 
+  ## ** Not Recommended **
   ## You can use session in Model and Other Classes on the same thread
   def set_request_filter
 	  Thread.current[:request] = request

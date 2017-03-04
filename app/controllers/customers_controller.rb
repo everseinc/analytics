@@ -1,6 +1,7 @@
 class CustomersController < MainLayoutController
 
   include Concerns::Filters::AuthAction
+  include Concerns::Gateways::CustomersGateway
 
   ###
   ## GET
@@ -96,15 +97,4 @@ class CustomersController < MainLayoutController
   def invitation_params
     params.require(:customer).permit(:app_id, :email)
   end
-
-
-  ###
-  ## connected methods
-  #
-
-  def invite_member(params)
-    invitation = Invitation.invite(params[:email], params[:app_id])
-    CustomersMailer.invite(invitation).deliver_now
-  end
-
 end
