@@ -18,7 +18,7 @@ class ProjectDetails
         end
       else
         flash = FlashManager.new({})
-        flash.set_flash(project.errors.full_messages)
+        flash.set_flash({project_error: project.errors.full_messages})
         return flash
       end
 

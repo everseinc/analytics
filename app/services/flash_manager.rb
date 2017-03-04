@@ -30,7 +30,13 @@ class FlashManager
 		@flash = :merge.to_proc.curry(2) <= @flash > Maybe.new(hash)
 	end
 
-	def get_flash()
+	def get_flash
+		clear
 		@flash.value
+	end
+
+	def clear
+		cleared = @flash.value.select { |key, value| not value.empty? }
+		@flash = Maybe.new(cleared)
 	end
 end
