@@ -25,8 +25,8 @@ class ApplicationController < ActionController::Base
     	flash.merge!(res.get_flash)
     	return false
     end
-
     return res
+    
   rescue Major::BaseError => ex
   	flash[:danger] = ex.message
   	return false
