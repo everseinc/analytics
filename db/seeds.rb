@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "csv"
 
+
 CSV.foreach('db/csv/emotions.csv') do |row|
   Emotion.create(:name => row[1])
 end
@@ -22,3 +23,12 @@ end
 CSV.foreach('db/csv/emo_records.csv') do |row|
   EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
 end
+
+EmoTip.create(name: "平均値")
+EmoTip.create(name: "最大値")
+EmoTip.create(name: "最小値")
+
+# Authority.create(name: 'Admin')
+# Authority.create(name: 'Write')
+# Authority.create(name: 'Read')
+

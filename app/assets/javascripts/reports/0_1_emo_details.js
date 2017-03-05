@@ -13,9 +13,9 @@ function EmoBlock(block) {
 }
 
 function EmoRecord(record) {
-  this.value = record.value;
-  this.dimension_id = record.dimension_id;
-  this.emotion_id = record.emotion_id;
+  this.value = record.value,
+  this.dimension_id = record.dimension_id,
+  this.emotion_id = record.emotion_id
 }
 
 
