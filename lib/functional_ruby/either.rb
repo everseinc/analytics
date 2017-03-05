@@ -68,7 +68,7 @@ class Either
     begin
       ret = block.call(right, Either)
     rescue StandardError => e
-      self.class.left e
+      return self.class.left e
     end
 
     raise Fatal::MustBindMaybeError.code(15000) unless ret.is_a?(Either)

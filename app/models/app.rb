@@ -27,6 +27,7 @@ class App < ApplicationRecord
       if app.update(app_name: app_params[:app_name])
         return app
       else
+        MissionFlow.instance.status = 0
         raise Major::UpdateFailedError.code(21008)
       end
     end

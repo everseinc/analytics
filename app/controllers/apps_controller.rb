@@ -1,26 +1,13 @@
 class AppsController < MainLayoutController
 
+  include Concerns::Resources::AppsResources
+  include Concerns::Filters::AppsSetters
   include Concerns::Filters::AuthAction
+  include Concerns::Gateways::AppsGateways
 
   ###
   ## GET
   #
-
-	def index
-  end
-
-  def new
-    @app_form = AppForm.new
-  end
-
-  def show
-    @apps_customer = AppDetails.find_by_ids(params[:id], session[:customer_id])
-    @app = App.find(params[:id])
-  end
-
-  def edit
-    @app = App.find(params[:id])
-  end
 
   def join
     goto = "#{Settings.hostname}/apps/#{params[:app_id]}"
@@ -40,21 +27,19 @@ class AppsController < MainLayoutController
   #
 
   def create
-  	res = postConnectTo(klass: AppForm, func: "save", args: app_form_params)
+  	res = postConnectTo(klass: self, func: "create_gateway", args: app_form_params)
     if res
       redirect_to app_path(res)
     else
-    	@app_form = AppForm.new
-      render :action => 'new'
+      redirect_to :action => 'new'
     end
   end
 
   def update
-    res = postConnectTo(klass: App, func: "update_name", args: app_params)
+    res = postConnectTo(klass: self, func: "update_gateway", args: app_params)
     if res
       redirect_to app_path(res)
     else
-      @app = App.find(params[:id])
       redirect_to :action => 'edit'
     end
   end

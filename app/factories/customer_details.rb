@@ -17,10 +17,9 @@ class CustomerDetails < ApplicationDetails
           CustomersPassword.create(customer_id: customer.id, password_id: password.id)
         end
       else
-        flash = FlashManager.new({})
-        flash.set_flash({customer_error: customer.errors.full_messages})
-        flash.set_flash({password_error: password.errors.full_messages})
-        return flash
+        MissionFlow.instance.status = 0
+        MissionFlow.instance << {customer_error: customer.errors.full_messages}
+        MissionFlow.instance << {password_error: password.errors.full_messages}
       end
 
       customer

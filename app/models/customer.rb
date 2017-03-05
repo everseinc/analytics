@@ -34,6 +34,7 @@ class Customer < ApplicationRecord
       if customer.update(name: customer_params[:name])
         return customer
       else
+        MissionFlow.instance.status = 0
         raise Major::UpdateFailedError.code(21008)
       end
     end

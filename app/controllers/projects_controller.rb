@@ -1,48 +1,29 @@
 class ProjectsController < ApplicationController
 
+  include Concerns::Resources::ProjectsResources
+  include Concerns::Filters::ProjectsSetters
   include Concerns::Filters::AuthAction
-
-  ###
-  ## GET
-  #
-
-	def index
-  end
-
-  def new
-    @project_form = ProjectForm.new
-  end
-
-  def show
-    @project = Project.find(params[:id])
-  end
-
-  def edit
-    @project = Project.find(params[:id])
-  end
-
+  include Concerns::Gateways::ProjectsGateways
 
   ###
   ## POST
   #
 
   def create
-  	res = postConnectTo(klass: ProjectForm, func: "save", args: project_form_params)
+  	res = postConnectTo(klass: self, func: "create_gateway", args: project_form_params)
     if res
       redirect_to project_path(res)
     else
-    	@project_form = ProjectForm.new
-      render :action => 'new'
+      redirect_to :action => 'new'
     end
   end
 
   def update
-    res = postConnectTo(klass: Project, func: "update_name", args: project_params)
+    res = postConnectTo(klass: self, func: "update_gateway", args: project_params)
     if res
       redirect_to project_path(res)
     else
-      @project = Project.new
-      render :action => 'edit'
+      redirect_to :action => 'edit'
     end
   end
 

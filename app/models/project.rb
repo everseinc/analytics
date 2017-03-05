@@ -24,6 +24,7 @@ class Project < ApplicationRecord
       if project.update(project_name: project_params[:project_name])
         return project
       else
+        MissionFlow.instance.status = 0
         raise Major::UpdateFailedError.code(21008)
       end
     end
