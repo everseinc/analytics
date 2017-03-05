@@ -1,15 +1,52 @@
 #report_sub {
   width: $reports-sub-nav-width;
-
-  background-color: $material_grey_100;
+	position: relative;
+  z-index: 1;
+  background-color: $white;
 }
 
 #report_sub_nav {
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-	h1 {
-		padding: 15px 15px;
+	dl {
+
+		dt:hover, div a:hover {
+			background-color: $material-grey-100;
+		}
+
+		dt {
+			border-left: 2px solid transparent;
+	    color: #212121;
+	    font-size: 14px;
+	    font-weight: 700;
+	    margin-top: 0;
+   		padding: 15px 0 15px 22px;
+   		cursor: pointer;
+		}
+
+		div {
+			overflow: hidden;
+			max-height: 0;
+			transition: max-height 0.2s ease-out;
+
+			a {
+				display: block;
+				padding: 10px 10px 10px 46px;
+		    text-overflow: ellipsis;
+			}
+		}
+	}
+
+	h2 {
+		padding: 12px 0 11px 24px;
 		font-size: 2.0rem;
 		font-weight: normal;
 		border-top: 1px solid #bbb;

@@ -14,6 +14,14 @@ header {
 	@include layering($shadow10);
 }
 
+.layer-side {
+	@include layering($shadow-side);
+}
+
+.layer-lg-card {
+	@include layering($shadow-lg-card);
+}
+
 .layer-cell {
 	@include layering($shadow-cell);
 }
