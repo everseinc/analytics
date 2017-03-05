@@ -29,9 +29,8 @@ class AppDetails < ApplicationDetails
           AppsCustomer.create(app_id: app.id, customer_id: customer.id, authority_id: admin_auth_id)
         end
       else
-        flash = FlashManager.new({})
-        flash.set_flash({app_error: app.errors.full_messages})
-        return flash
+        MissionFlow.instance.status = 0
+        MissionFlow.instance << {app_error: app.errors.full_messages}
       end
 
       app

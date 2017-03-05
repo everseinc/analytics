@@ -1,6 +1,7 @@
 module Concerns::Gateways::SessionsGateways
   
 	extend ActiveSupport::Concern
+  include Concerns::Gateways::ApplicationGateways
 
 	###
   ## private methods
@@ -13,7 +14,7 @@ module Concerns::Gateways::SessionsGateways
   ## sessions#create
   #
 
-  def login(session_params)
+  def create_gateway(session_params)
 
     customer = Either.right(session_params) >>
                         email_not_empty >>
@@ -30,7 +31,7 @@ module Concerns::Gateways::SessionsGateways
   ## sessions#destroy
   #
 
-  def logout
+  def destroy_gateway
     session_manager_logout
   end
 end

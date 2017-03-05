@@ -3,6 +3,7 @@ class AppsController < MainLayoutController
   include Concerns::Resources::AppsResources
   include Concerns::Filters::AppsSetters
   include Concerns::Filters::AuthAction
+  include Concerns::Gateways::AppsGateways
 
   ###
   ## GET
@@ -26,7 +27,7 @@ class AppsController < MainLayoutController
   #
 
   def create
-  	res = postConnectTo(klass: AppForm, func: "save", args: app_form_params)
+  	res = postConnectTo(klass: self, func: "create_gateway", args: app_form_params)
     if res
       redirect_to app_path(res)
     else
@@ -35,7 +36,7 @@ class AppsController < MainLayoutController
   end
 
   def update
-    res = postConnectTo(klass: App, func: "update_name", args: app_params)
+    res = postConnectTo(klass: self, func: "update_gateway", args: app_params)
     if res
       redirect_to app_path(res)
     else

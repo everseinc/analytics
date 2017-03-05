@@ -10,9 +10,8 @@ class CustomersController < MainLayoutController
   #
 
   def create
-    res = postConnectTo(klass: CustomerForm, func: "save", args: customer_form_params)
+    res = postConnectTo(klass: self, func: "create_gateway", args: customer_form_params)
     if res
-      login(res)
       dynamic_redirect_to customer_path(res) do
         if params.has_key?(:key) && params.has_key?(:app_id)
           redirect_to join_apps_path(:key => params[:key], :app_id => params[:app_id]) and return
@@ -24,7 +23,7 @@ class CustomersController < MainLayoutController
   end
 
   def update
-    res = postConnectTo(klass: Customer, func: "update_name", args: customer_params)
+    res = postConnectTo(klass: self, func: "update_gateway", args: customer_params)
     if res
       redirect_to customer_path(res)
     else
@@ -33,16 +32,16 @@ class CustomersController < MainLayoutController
   end
 
   def update_passwd
-    res = postConnectTo(klass: Password, func: "update_passwd", args: password_params)
+    res = postConnectTo(klass: self, func: "update_passwd_gateway", args: password_params)
     if res
-      redirect_to customer_path(res)
+      redirect_to customer_path(current_customer.id)
     else
       redirect_to :action => 'edit'
     end
   end
 
   def invite
-    res = postConnectTo(klass: self, func: 'invite_member', args: invitation_params)
+    res = postConnectTo(klass: self, func: 'invite_gateway', args: invitation_params)
     if res
       redirect_to request.referer
     else

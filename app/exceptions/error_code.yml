@@ -2,6 +2,7 @@
 10000: "Fatal Error : Some fatal error was occured"
 13000: "Fatal Error : The argument at applicate() in Maybe must be a Maybe class"
 13001: "Fatal Error : The argument at applicate() in Either must be a Either class"
+13002: "Fatal Error : The argument at status= in MissionFlow must be 0 or 1"
 15000: "Fatal Error : You must bind a block that return Maybe to Maybe"
 15050: "Fatal Error : You must override the `bind` method when a class includes the Monad module"
 15051: "Fatal Error : You must override the `applicate` method when a class includes the Applicative module"

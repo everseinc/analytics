@@ -10,7 +10,7 @@ class SessionsController < MainLayoutController
   end
 
   def create
-  	res = postConnectTo(klass: self, func: "login", args: params[:session])
+  	res = postConnectTo(klass: self, func: "create_gateway", args: params[:session])
     
     render 'new' and return if !res
     dynamic_redirect_to '/apps/' do
@@ -25,7 +25,7 @@ class SessionsController < MainLayoutController
   end
 
   def destroy
-    res = postConnectTo(klass: self, func: "logout", args: nil)
+    res = postConnectTo(klass: self, func: "destroy_gateway", args: nil)
     redirect_to '/'
   end
 end

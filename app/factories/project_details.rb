@@ -16,9 +16,8 @@ class ProjectDetails < ApplicationDetails
           AppsProject.create(app_id: app.id, project_id: project.id)
         end
       else
-        flash = FlashManager.new({})
-        flash.set_flash({project_error: project.errors.full_messages})
-        return flash
+        MissionFlow.instance.status = 0
+        MissionFlow.instance << {project_error: project.errors.full_messages}
       end
 
       project
