@@ -16,4 +16,30 @@ EmoTipAsset.prototype.functor = function(func){
   });
 }
 
+EmoTipAsset.prototype.setScore = function(){
+  var that = this;
+  var emo_details = new EmoDetails(getJsonFromServer("data-json", "json_emo_details"));
+  return this.tips.map(function(tip){
+    switch (tip.name){
+      case "平均値":
+        return emo_details.getAve(emo_id = that.emo_id, dim_id = that.dim_id, started_at = that.started_at, ended_at = that.ended_at);
+      case "最大値":
+        return emo_details.getMax(emo_id = that.emo_id, dim_id = that.dim_id, started_at = that.started_at, ended_at = that.ended_at);
+      case "最小値":
+        return emo_details.getMin(emo_id = that.emo_id, dim_id = that.dim_id, started_at = that.started_at, ended_at = that.ended_at);
+    }
+  });
+
+}
+
+EmoTipAsset.prototype.showScore = function(){
+  var that = this;
+  this.tips.map(function(tip){
+    var element = document.getElementById("emo-" + that.emo_id + "-tip-" + tip.id + "-value");
+    element.textContent = tip.score;
+  })
+}
+
+
+
 
