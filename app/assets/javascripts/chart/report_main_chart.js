@@ -1,4 +1,4 @@
-(function () {
+var render_main_chart = function () {
   var report_main_graph = document.getElementById("report_main_graph");
   var report_main_chart = new Chart(report_main_graph , {
       type: 'line',
@@ -31,4 +31,8 @@
           }
       }
   });
+};
+
+(function() {
+  render_main_chart();
 }());
