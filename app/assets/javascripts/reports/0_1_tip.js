@@ -1,6 +1,7 @@
 function Tip(tip){
   this.id = tip.id,
-  this.name = tip.name
+  this.name = tip.name,
+  this.score = null
 }
 
 Tip.prototype.getScore = function(){

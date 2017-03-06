@@ -16,5 +16,21 @@
     });
   });
 
+  emo_tip_asset.map(function(asset){
+    var setScore =  asset.setScore();
+    asset.functor(function(tip){
+      tip.score = setScore[tip.id - 1];
+    });
+    asset
+    return asset;
+  });
+
+  emo_tip_asset.map(function(asset){
+    asset.showScore();
+  });
+
+
+
+
 
 }());
