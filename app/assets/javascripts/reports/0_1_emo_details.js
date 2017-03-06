@@ -72,9 +72,9 @@ EmoDetails.prototype.getMin = function(emo_id = null, dim_id = null, started_at 
   }, 100000)
 }
 
-EmoDetails.prototype.getBlocksAve = function() {
+EmoDetails.prototype.getBlocksAve = function(emo_id = null) {
   return this.blocks.map(function(block) {
-    return block.getAve();
+    return block.getAve(emo_id);
   });
 }
 
@@ -84,9 +84,13 @@ EmoDetails.prototype.getBlocksDate = function() {
   });
 }
 
-EmoBlock.prototype.getAve = function() {
+EmoBlock.prototype.getAve = function(emo_id = null) {
   return this.records.reduce(function(sum, record) {
-    return sum + record.value;
+    if (emo_id == record.emotion_id || emo_id == null) {
+      return sum + record.value;
+    } else {
+      return sum;
+    }
   }, 0);
 }
 
