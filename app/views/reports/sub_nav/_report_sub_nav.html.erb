@@ -6,8 +6,8 @@
 		<dt class="report_side_nav_group">標準分析</dt>
 		<div class="report_side_nav_contents">
 			<dd>
-				<a href="#">時間軸分析</a>
-				<a href="#">ディメンション</a>
+				<%= link_to "時間軸分析", :i1 => "default", :i2 => "time_analyze", :remote => true %>
+				<%= link_to "ディメンション分析", :i1 => "default", :i2 => "dimension_analyze", :remote => true %>
 			</dd>
 		</div>
 	</dl>
@@ -15,8 +15,8 @@
 		<dt class="report_side_nav_group">カスタム分析</dt>
 		<div class="report_side_nav_contents">
 			<dd>
-				<a href="#">時間軸分析</a>
-				<a href="#">ディメンション</a>
+				<%= link_to "時間軸分析", :i1 => "custom", :i2 => "time_analyze", :remote => true %>
+				<%= link_to "ディメンション分析", :i1 => "custom", :i2 => "dimension_analyze", :remote => true %>
 			</dd>
 		</div>
 	</dl>
@@ -24,12 +24,7 @@
 		<dt class="report_side_nav_group">設定</dt>
 		<div class="report_side_nav_contents">
 			<dd>
-				<a href="#">カスタムディメンション設定</a>
-				<a href="#">内容2</a>
-				<a href="#">内容3</a>
-				<a href="#">内容4</a>
-				<a href="#">内容5</a>
-				<a href="#">内容6</a>
+				<%= link_to "カスタムディメンション設定", :i1 => "setting", :i2 => "custom_dimension", :remote => true %>
 			</dd>
 		</div>
 	</dl>

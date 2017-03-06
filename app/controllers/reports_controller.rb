@@ -1,6 +1,7 @@
 class ReportsController < MainLayoutController
 
   include Concerns::Filters::AuthAction
+  include Concerns::Filters::ReportsSetters
 
   def main
     #later, move this code to factories/report_details.rb
@@ -11,11 +12,24 @@ class ReportsController < MainLayoutController
     @emotions = Emotion.all.select(:id ,:name)
     @tips = EmoTip.all.select(:id, :name)
 
+    if request.xhr?
+      @page_partial = "#{params[:i1]}/#{params[:i2]}"
+      render 'load'
+    end
+
    # json
 
     @emo_details =  EmoDetails.get_all_emo_detail_by(project_id: @project.id, arg_start_time: Maybe.zero, arg_end_time: Maybe.zero)
     @json_emotions = Emotion.convert_to_json(@emotions)
     @json_dimensions = Dimension.convert_to_json(@dimensions)
     @json_emo_tips = EmoTip.convert_to_json(@tips)
+  end
+
+
+  ###
+  ## Ajax
+  #
+
+  def load
   end
 end

@@ -1,5 +1,5 @@
 #report_sub {
-  width: $reports-sub-nav-width;
+  min-width: $reports-sub-nav-width;
 	position: relative;
   z-index: 1;
   background-color: $white;

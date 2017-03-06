@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :to => 'customers#new'
 
   get "reports/main/:project_id", to: "reports#main"
+  get "reports/load", to: "reports#load"
 
 
 
