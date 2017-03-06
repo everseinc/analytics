@@ -16,8 +16,5 @@
     });
   });
 
-  console.log(emo_tip_asset);
-
-
 
 }());
