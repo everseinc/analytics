@@ -3,7 +3,6 @@ function chartRenderer(report) {
   this.type = "line";
   this.labels = report.emo_details.getBlocksDate();
   this.datasets = report.emotions.emotions.map(function(emotion) {
-    console.log(emotion.id)
     return {
       label: emotion.name,
       data: report.emo_details.getBlocksAve(emotion.id),
@@ -13,15 +12,6 @@ function chartRenderer(report) {
       borderWidth: 1
     };
   });
-  // this.datasets = [{
-  //   label: '感情1の推移',
-  //   data: report.emo_details.getBlocksAve(),
-  //   borderColor: [
-  //       'rgba(255,99,132,1)',
-  //   ],
-  //   fill: false,
-  //   borderWidth: 1
-  // }];
   this.option = {
     scales: {
       yAxes: [{
@@ -40,7 +30,7 @@ function chartRenderer(report) {
 }
 
 chartRenderer.prototype.reload = function() {
-  var render = new Chart(this.canvas, {
+  return new Chart(this.canvas, {
     type: this.type,
     data: {
       labels: this.labels,

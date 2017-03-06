@@ -13,7 +13,7 @@ function viewChanger(element) {
   proto.setHtml = function(html) {
 		this.html = html;
 		_changeView.call(this);
-		render_main_chart();
+		setDefaultChart();
 	}
 
 }(viewChanger.prototype));
