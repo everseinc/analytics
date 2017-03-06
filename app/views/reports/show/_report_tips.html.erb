@@ -4,7 +4,7 @@
       <span><%= e.name %></span>
     </div>
     <% @tips.each do |t| %>
-      <%= render partial: "reports/main/report_tip" , locals: { tip: t }%>
+      <%= render partial: "reports/show/report_tip" , locals: { tip: t }%>
     <% end %>
   </div>
 <% end %>

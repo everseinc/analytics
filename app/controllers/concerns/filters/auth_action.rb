@@ -17,9 +17,7 @@ module Concerns::Filters::AuthAction
 				'customers' => 'customer_id',
 				'apps' => 'app_id',
 				'projects' => 'project_id',
-			},
-			'main' => {
-				'reports' => 'project_id'
+				'reports' => 'project_id',
 			}
 		}.freeze
 
@@ -27,8 +25,15 @@ module Concerns::Filters::AuthAction
 		## add before filters
 		#
 
-    before_action -> (controller) { before(controller, params[:id]) }, only: [:show]
-    before_action -> (controller) { before(controller, params[:project_id]) }, only: [:main]
+    before_action -> (controller) {
+
+    	if controller.controller_name == "reports"
+    		before(controller, params[:project_id])
+    	else
+    		before(controller, params[:id])
+    	end
+
+    }, only: [:show]
 
 
     ###

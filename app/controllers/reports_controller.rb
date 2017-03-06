@@ -3,7 +3,7 @@ class ReportsController < MainLayoutController
   include Concerns::Filters::AuthAction
   include Concerns::Filters::ReportsSetters
 
-  def main
+  def show
     #later, move this code to factories/report_details.rb
     @project = Project.find_by(id: params[:project_id])
     @projects = Project.get_related_projects(project_id: @project.id, limit: 5)
