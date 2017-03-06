@@ -5,8 +5,8 @@ function EmoDetails(details) {
 }
 
 function EmoBlock(block) {
-	this.started_at = block.started_at;
-	this.ended_at = block.ended_at;
+	this.started_at = new Date(block.started_at);
+	this.ended_at = new Date(block.ended_at);
 	this.records = block.records.map(function(record) {
 		return new EmoRecord(record);
 	});
@@ -60,3 +60,23 @@ EmoDetails.prototype.getMin = function(emo_id = null, dim_id = null, started_at 
     }
   }, 100000)
 }
+
+EmoDetails.prototype.getBlocksAve = function() {
+  return this.blocks.map(function(block) {
+    return block.getAve();
+  });
+}
+
+EmoDetails.prototype.getBlocksDate = function() {
+  return this.blocks.map(function(block) {
+    return block.started_at.getMonth() + "/" + block.started_at.getDay();
+  });
+}
+
+EmoBlock.prototype.getAve = function() {
+  return this.records.reduce(function(sum, record) {
+    return sum + record.value;
+  }, 0);
+}
+
+
