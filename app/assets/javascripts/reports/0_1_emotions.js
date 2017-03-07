@@ -9,3 +9,9 @@ Emotions.prototype.functor = function(func){
     return func(emotion);
   });
 }
+
+Emotions.prototype.getEmotinosByName = function(names) {
+	return this.emotions.filter(function(emotion, index) {
+		return names.indexOf(emotion.name) >= 0;
+	});
+}

@@ -23,4 +23,6 @@ report.emo_tip_asset.map(function(asset){
 	/* set date span change button*/
 	dateSpanChangeButton.onClick();
 
+  /* set emotions checkbox */
+  graphOptionCheckbox.onChange();
 }());

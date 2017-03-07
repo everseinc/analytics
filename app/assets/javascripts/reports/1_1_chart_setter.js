@@ -10,5 +10,9 @@ var chartSetter = {
 	setSpan: function(start, end) {
 		this.chart_renderer.setSpan(start, end);
 		this.reload();
+	},
+	setEmotions: function(names) {
+		this.chart_renderer.setEmotions(names);
+		this.reload();
 	}
 };
