@@ -32,3 +32,7 @@ EmoTip.create(name: "最小値")
 # Authority.create(name: 'Write')
 # Authority.create(name: 'Read')
 
+DimStore.create(key: 'sex', project_id: 1)
+
+Dimension.create(id: 1, project_id: 1, name: 'man', dim_store_id: 1)
+Dimension.create(id: 2, project_id: 1, name: 'woman', dim_store_id: 1)

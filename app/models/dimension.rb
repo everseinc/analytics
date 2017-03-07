@@ -1,5 +1,7 @@
 class Dimension < ApplicationRecord
 
+  belongs_to :dim_store
+
 
 
 
