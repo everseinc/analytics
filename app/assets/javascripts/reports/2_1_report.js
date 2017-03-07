@@ -14,3 +14,14 @@ report.emo_tip_asset.map(function(asset){
 report.emo_tip_asset.map(function(asset){
   asset.showScore();
 });
+
+(function() {
+
+	/* set default chart */
+	chartSetter.new(report);
+	chartSetter.reload();
+
+	/* set date span change button*/
+	dateSpanChangeButton.onClick();
+
+}());

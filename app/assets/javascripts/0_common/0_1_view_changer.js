@@ -13,7 +13,8 @@ function viewChanger(element) {
   proto.setHtml = function(html) {
 		this.html = html;
 		_changeView.call(this);
-		setDefaultChart();
+		chartSetter.new(report);
+		chartSetter.reload();
 	}
 
 }(viewChanger.prototype));
