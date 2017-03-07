@@ -14,7 +14,6 @@ function viewChanger(element) {
 		this.html = html;
 		_changeView.call(this);
 		chartSetter.new(report);
-		chartSetter.reload();
 	}
 
 }(viewChanger.prototype));

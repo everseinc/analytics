@@ -19,7 +19,6 @@ report.emo_tip_asset.map(function(asset){
 
 	/* set default chart */
 	chartSetter.new(report);
-	chartSetter.reload();
 
 	/* set date span change button*/
 	dateSpanChangeButton.onClick();
