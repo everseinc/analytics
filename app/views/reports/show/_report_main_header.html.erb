@@ -1,9 +1,9 @@
 <div id= "report_main_header">
-  <div id ="report_project_name"><%= @project[:project_name] %></div>
+  <div id ="report_project_name"><%= @report.project[:project_name] %></div>
 
   <div id="report_selects">
     <input type="text" id="date-span-input" class="auto-kal" data-kal="format: 'YYYY/MM/DD', months: 2, mode: 'range', direction: 'past', side: 'bottom right'">
     <button id="date-span-change-button">Apply</button>
   </div>
-  
+
 </div>

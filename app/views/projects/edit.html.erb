@@ -15,8 +15,8 @@
 		<% end %>
 
 		<h2 class="form-sub-title">プロジェクト名を変更</h2>
-		<%= form_for @project do |f| %>
-			<%= f.hidden_field :id, :value => @project.id %>
+		<%= form_for @report.project do |f| %>
+			<%= f.hidden_field :id, :value => @report.project.id %>
 			<table class="layer1">
 				<tbody>
 					<tr>
