@@ -2,7 +2,7 @@
   <div id="emotion_option">
     <label class="indicater-optin-label">感情の選択</label>
     <% @emotions.each do |ek| %>
-      <input class="graph-option-check" type="checkbox" name="任意" value="<%=ek[:name]%>" id="emo_<%= ek[:name] %>_option" />
+      <input class="graph-option-check" type="checkbox" name="任意" value="<%=ek[:name]%>" id="emo_<%= ek[:name] %>_option" checked="checked" />
       <label for="emo_<%= ek[:name] %>_option" class="graph-option-label"><%=ek[:name]%></label>
     <% end %>
   </div>

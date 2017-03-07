@@ -68,6 +68,11 @@ chartRenderer.prototype.getData = function() {
   });
 }
 
+chartRenderer.prototype.setEmotions = function(names) {
+  this.emotions = this.report.emotions.getEmotinosByName(names);
+  this.getData();
+}
+
 chartRenderer.prototype.setSpan = function(start, end) {
   this.options.span = {
     start: start,
