@@ -3,6 +3,11 @@ function chartRenderer(report) {
   this.canvas = document.getElementById("report_main_graph");
   this.chart = null;
   this.type = "line";
+  this.emotions = report.emotions.emotions;
+  this.options = {
+    span: {},
+    dimension: {},
+  }
   this.labels = report.emo_details.getBlocksDate();
   this.datasets = report.emotions.emotions.map(function(emotion) {
     return {
@@ -47,12 +52,13 @@ chartRenderer.prototype.reload = function() {
   });
 }
 
-chartRenderer.prototype.setSpan = function(options) {
-  this.labels = report.emo_details.getBlocksDate(options);
-  this.datasets = this.report.emotions.emotions.map(function(emotion) {
+chartRenderer.prototype.getData = function() {
+  var self = this;
+  this.labels = this.report.emo_details.getBlocksDate(this.options);
+  this.datasets = this.emotions.map(function(emotion) {
     return {
       label: emotion.name,
-      data: this.report.emo_details.getBlocksAve(emotion.id, options),
+      data: self.report.emo_details.getBlocksAve(emotion.id, self.options),
       borderColor: emotion.color,
       backgroundColor: emotion.backgroundColor,
       lineTension: 0,
@@ -60,4 +66,12 @@ chartRenderer.prototype.setSpan = function(options) {
       borderWidth: 1
     };
   });
+}
+
+chartRenderer.prototype.setSpan = function(start, end) {
+  this.options.span = {
+    start: start,
+    end: end
+  }
+  this.getData();
 }
