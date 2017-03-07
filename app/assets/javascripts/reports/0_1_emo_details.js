@@ -72,26 +72,46 @@ EmoDetails.prototype.getMin = function(emo_id = null, dim_id = null, started_at 
   }, 100000)
 }
 
-EmoDetails.prototype.getBlocksAve = function(emo_id = null) {
-  return this.blocks.map(function(block) {
+EmoDetails.prototype.getBlocksAve = function(emo_id = null, options = {}) {
+  var valid_blocks = this.blocks;
+
+  /* option filter */
+  if (options.span && options.span.start && options.span.end) {
+    valid_blocks = valid_blocks.filter(function(block, index) {
+      if (options.span.start < block.started_at && block.started_at < options.span.end) return true;
+    });
+  }
+
+  return valid_blocks.map(function(block) {
     return block.getAve(emo_id);
   });
 }
 
-EmoDetails.prototype.getBlocksDate = function() {
-  return this.blocks.map(function(block) {
-    return block.started_at.getMonth() + "/" + block.started_at.getDay();
+EmoDetails.prototype.getBlocksDate = function(options = {}) {
+  var valid_blocks = this.blocks;
+
+  /* option filter */
+  if (options.span && options.span.start && options.span.end) {
+    valid_blocks = valid_blocks.filter(function(block, index) {
+      return (options.span.start < block.started_at && block.started_at < options.span.end);
+    });
+  }
+
+  return valid_blocks.map(function(block) {
+    return block.started_at.getMonth() + 1
+    + "/" + block.started_at.getDate()
+    + " " + block.started_at.getHours()
+    + ":" + block.started_at.getMinutes()
+    + ":" + block.started_at.getSeconds();
   });
 }
 
 EmoBlock.prototype.getAve = function(emo_id = null) {
-  return this.records.reduce(function(sum, record) {
-    if (emo_id == record.emotion_id || emo_id == null) {
+  var filtered = this.records.filter(function(record, index) {
+    if (emo_id == record.emotion_id || emo_id == null) return true;
+  });
+  return filtered.reduce(function(sum, record) {
       return sum + record.value;
-    } else {
-      return sum;
-    }
-  }, 0);
+  }, 0) / filtered.length;
 }
-
 
