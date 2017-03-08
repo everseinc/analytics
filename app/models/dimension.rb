@@ -1,5 +1,6 @@
 class Dimension < ApplicationRecord
 
+  has_many :emo_blocks
   belongs_to :dim_store
 
 
