@@ -1,9 +1,9 @@
 <%=
 new_somethings = {
-	title: @report.project.project_name,
-	edit: edit_project_path(@report.project),
+	title: @project.project_name,
+	edit: edit_project_path(@project),
 	value: [
-		[ link_to("レポート", :controller => "reports", :action => "show", project_id: @report.project.id) ]
+		[ link_to("レポート", :controller => "reports", :action => "show", project_id: @project.id) ]
 	]
 }
 
