@@ -12,7 +12,7 @@ TipsRenderer.prototype.setDimensions = function(dim_ids){
     asset.dim_ids = dim_ids;
     return asset;
   });
-  this.assets.setScore()
+  this.assets.setScore();
 }
 
 TipsRenderer.prototype.setSpan = function(started_at, ended_at){
@@ -21,5 +21,5 @@ TipsRenderer.prototype.setSpan = function(started_at, ended_at){
     asset.ended_at = ended_at;
     return asset;
   })
-  this.assets.setScore()
+  this.assets.setScore();
 }
