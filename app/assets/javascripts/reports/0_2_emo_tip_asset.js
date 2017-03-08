@@ -5,7 +5,7 @@ function EmoTipAsset(option){
     return new Tip(tip);
   }),
   this.emo_id = option.emo_id,
-  this.dim_id = option.dim_id,
+  this.dim_ids = option.dim_ids,
   this.started_at = option.started_at,
   this.ended_at = option.ended_at
 }
@@ -22,11 +22,11 @@ EmoTipAsset.prototype.setScore = function(){
   return this.tips.map(function(tip){
     switch (tip.name){
       case "平均値":
-        return emo_details.getAve(emo_id = that.emo_id, dim_id = that.dim_id, started_at = that.started_at, ended_at = that.ended_at);
+        return emo_details.getAve(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at);
       case "最大値":
-        return emo_details.getMax(emo_id = that.emo_id, dim_id = that.dim_id, started_at = that.started_at, ended_at = that.ended_at);
+        return emo_details.getMax(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at);
       case "最小値":
-        return emo_details.getMin(emo_id = that.emo_id, dim_id = that.dim_id, started_at = that.started_at, ended_at = that.ended_at);
+        return emo_details.getMin(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at);
     }
   });
 

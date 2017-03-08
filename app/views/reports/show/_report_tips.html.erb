@@ -1,9 +1,9 @@
-<% @emotions.each do |e| %>
+<% @report.emotions.each do |e| %>
   <div class="report_tips <%= e.id%>_tips">
     <div class="tip_emo_kind_box">
       <span><%= e.name %></span>
     </div>
-    <% @tips.each do |t| %>
+    <% @report.tips.each do |t| %>
       <%= render partial: "reports/show/report_tip" , locals: { tip: t, emo: e }%>
     <% end %>
   </div>
