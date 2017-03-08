@@ -19,12 +19,12 @@ function EmoRecord(record) {
 }
 
 
-EmoDetails.prototype.getAve = function(emo_id = null, dim_id = null, started_at = null, ended_at = null) {
+EmoDetails.prototype.getAve = function(emo_id = null, dim_ids = null, started_at = null, ended_at = null) {
   var count = 0;
   var sum = this.blocks.reduce(function(sum, block, index, array){
     if ((started_at == null || started_at <= block.started_at) && (ended_at == null || ended_at >= block.ended_at)){
       return sum + block.records.reduce(function(sum, record, index, array){
-        if ((emo_id == record.emotion_id || emo_id == null) && (dim_id == record.dimension_id || dim_id == null)){
+        if ((emo_id == record.emotion_id || emo_id == null) && (dim_ids == null || dim_ids.indexOf(record.dimension_id) != -1)){
           count += 1;
           return sum + record.value;
         }else{
@@ -35,14 +35,14 @@ EmoDetails.prototype.getAve = function(emo_id = null, dim_id = null, started_at 
       return sum;
     }
   }, 0)
-  return sum / count;
+  return sum == 0 ? 0 : sum / count;
 }
 
-EmoDetails.prototype.getMax = function(emo_id = null, dim_id = null, started_at = null, ended_at = null) {
+EmoDetails.prototype.getMax = function(emo_id = null, dim_ids = null, started_at = null, ended_at = null) {
   return this.blocks.reduce(function(max, block, index, array){
     if ((started_at == null || started_at <= block.started_at) && (ended_at == null || ended_at >= block.ended_at)){
       var new_max = block.records.reduce(function(max, record, index, array){
-        if ((emo_id == record.emotion_id || emo_id == null) && (dim_id == record.dimension_id || dim_id == null)){
+        if ((emo_id == record.emotion_id || emo_id == null) && (dim_ids == null || dim_ids.indexOf(record.dimension_id) != -1)){
           return max > record.value ? max : record.value;
         }else{
           return max;
@@ -55,11 +55,11 @@ EmoDetails.prototype.getMax = function(emo_id = null, dim_id = null, started_at 
   }, 0)
 }
 
-EmoDetails.prototype.getMin = function(emo_id = null, dim_id = null, started_at = null, ended_at = null) {
-  return this.blocks.reduce(function(min, block, index, array){
+EmoDetails.prototype.getMin = function(emo_id = null, dim_ids = null, started_at = null, ended_at = null) {
+  var min =  this.blocks.reduce(function(min, block, index, array){
     if ((started_at == null || started_at <= block.started_at) && (ended_at == null || ended_at >= block.ended_at)){
       var new_min = block.records.reduce(function(min, record, index, array){
-        if ((emo_id == record.emotion_id || emo_id == null) && (dim_id == record.dimension_id || dim_id == null)){
+        if ((emo_id == record.emotion_id || emo_id == null) && (dim_ids == null || dim_ids.indexOf(record.dimension_id) != -1)){
           return min > record.value ? record.value : min;
         }else{
           return min;
@@ -69,7 +69,9 @@ EmoDetails.prototype.getMin = function(emo_id = null, dim_id = null, started_at 
     }else{
       return min;
     }
-  }, 100000)
+  }, 100000);
+
+  return min == 100000 ? 0 : min;
 }
 
 EmoDetails.prototype.getBlocksAve = function(emo_id = null, options = {}) {
