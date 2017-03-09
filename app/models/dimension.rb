@@ -1,7 +1,13 @@
 class Dimension < ApplicationRecord
 
-  has_many :emo_blocks
+  ###
+  ## associaton
+  #
+
   belongs_to :dim_store
+
+  has_many :emo_blocks_dimensions, dependent: :destroy
+  has_many :emo_blocks, through: :emo_blocks_dimensions
 
 
 
