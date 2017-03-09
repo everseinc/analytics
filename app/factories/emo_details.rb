@@ -22,6 +22,7 @@ class EmoDetails < ApplicationDetails
             json.array!(emo_blocks) do |eb|
               json.started_at eb.started_at
               json.ended_at eb.ended_at
+              json.dimension_ids eb.dimensions.map { |d| d.id }
               json.records do
                 json.array!(eb.emo_records) do |er|
                   json.emotion_id er.emotion_id

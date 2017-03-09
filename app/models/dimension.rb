@@ -11,6 +11,9 @@ class Dimension < ApplicationRecord
 
 
 
+  ###
+  ## class methods
+  #
 
   class << self
 

@@ -7,6 +7,7 @@ function EmoDetails(details) {
 function EmoBlock(block) {
 	this.started_at = new Date(block.started_at);
 	this.ended_at = new Date(block.ended_at);
+  this.dimension_ids = block.dimension_ids;
 	this.records = block.records.map(function(record) {
 		return new EmoRecord(record);
 	});
