@@ -27,7 +27,6 @@ class EmoDetails < ApplicationDetails
                 json.array!(eb.emo_records) do |er|
                   json.emotion_id er.emotion_id
                   json.value er.value
-                  json.dimension_id eb.dimensions[0].id
                 end
               end
             end
