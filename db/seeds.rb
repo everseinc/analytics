@@ -32,3 +32,14 @@ EmoTip.create(name: "最小値")
 # Authority.create(name: 'Write')
 # Authority.create(name: 'Read')
 
+DimStore.create(key: 'sex', project_id: 1)
+
+Dimension.create(id: 1, project_id: 1, name: 'man', dim_store_id: 1)
+Dimension.create(id: 2, project_id: 1, name: 'woman', dim_store_id: 1)
+
+
+EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 3, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 4, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 5, dimension_id: 1)

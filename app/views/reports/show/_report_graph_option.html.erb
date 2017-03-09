@@ -6,15 +6,4 @@
       <label for="emo_<%= ek[:name] %>_option" class="graph-option-label"><%=ek[:name]%></label>
     <% end %>
   </div>
-
-
-  <div id="dimension_option">
-    <label class="indicater-optin-label">要素の選択</label>
-    <% @report.dimensions.each do |d| %>
-    <input class="graph-option-check" type="checkbox" name="任意" value="<%= d[:name] %>" id="dimension_<%= d[:name] %>_option" />
-    <label for="dimension_<%= d[:name] %>_option" class="graph-option-label"><%= d[:name] %></label>
-    <% end %>
-
-  </div>
-
 </div>

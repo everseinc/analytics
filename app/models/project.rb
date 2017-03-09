@@ -6,6 +6,7 @@ class Project < ApplicationRecord
 
   has_many :apps_projects, dependent: :destroy
   has_many :apps, through: :apps_projects
+  has_many :dim_store
 
 
   ###
