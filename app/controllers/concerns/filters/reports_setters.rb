@@ -13,6 +13,7 @@ module Concerns::Filters::ReportsSetters
 		#
 
     before_action :set_page, only: [:load]
+    before_action :set_report
 
 
     ###
@@ -21,6 +22,10 @@ module Concerns::Filters::ReportsSetters
 
 		def set_page
 			@page_partial = "#{params[:i1]}/#{params[:i2]}"
+		end
+
+		def set_report
+			@report = ReportDetails.new(project_id: params[:id])
 		end
 	end
 end
