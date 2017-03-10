@@ -8,38 +8,51 @@
 require "csv"
 
 
-CSV.foreach('db/csv/emotions.csv') do |row|
-  Emotion.create(:name => row[1])
-end
+# CSV.foreach('db/csv/emotions.csv') do |row|
+#   Emotion.create(:name => row[1])
+# end
 
-CSV.foreach('db/csv/dimensions.csv') do |row|
-  Dimension.create(:project_id => row[1], :name => row[2])
-end
+# CSV.foreach('db/csv/dimensions.csv') do |row|
+#   Dimension.create(:project_id => row[1], :name => row[2])
+# end
 
 CSV.foreach('db/csv/emo_blocks.csv') do |row|
-  EmoBlock.create(:project_id => row[1], :dimension_id => row[2], :started_at => row[3], :ended_at => row[4])
+  EmoBlock.create(:project_id => row[1], :started_at => row[2], :ended_at => row[3])
+end
+
+CSV.foreach('db/csv/emo_blocks2.csv') do |row|
+  EmoBlock.create(:project_id => row[1], :started_at => row[2], :ended_at => row[3])
 end
 
 CSV.foreach('db/csv/emo_records.csv') do |row|
   EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
 end
 
-EmoTip.create(name: "平均値")
-EmoTip.create(name: "最大値")
-EmoTip.create(name: "最小値")
+CSV.foreach('db/csv/emo_records2.csv') do |row|
+  EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
+end
 
-# Authority.create(name: 'Admin')
-# Authority.create(name: 'Write')
-# Authority.create(name: 'Read')
+# EmoTip.create(name: "平均値")
+# EmoTip.create(name: "最大値")
+# EmoTip.create(name: "最小値")
 
-DimStore.create(key: 'sex', project_id: 1)
+# # Authority.create(name: 'Admin')
+# # Authority.create(name: 'Write')
+# # Authority.create(name: 'Read')
 
-Dimension.create(id: 1, project_id: 1, name: 'man', dim_store_id: 1)
-Dimension.create(id: 2, project_id: 1, name: 'woman', dim_store_id: 1)
+# DimStore.create(key: 'sex', project_id: 1)
+
+# Dimension.create(id: 1, project_id: 1, name: 'man', dim_store_id: 1)
+# Dimension.create(id: 2, project_id: 1, name: 'woman', dim_store_id: 1)
 
 
-EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 3, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 4, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 5, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 3, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 4, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 5, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 6, dimension_id: 2)
+EmoBlocksDimension.create(emo_block_id: 7, dimension_id: 2)
+EmoBlocksDimension.create(emo_block_id: 8, dimension_id: 2)
+EmoBlocksDimension.create(emo_block_id: 9, dimension_id: 2)
+EmoBlocksDimension.create(emo_block_id: 10, dimension_id: 2)
