@@ -1,6 +1,6 @@
-function chartRenderer(report) {
+function chartRenderer(report, canvas) {
   this.report = report;
-  this.canvas = document.getElementById("report_main_graph");
+  this.canvas = canvas;
   this.chart = null;
   this.type = "line";
   this.emotions = report.emotions.emotions;
