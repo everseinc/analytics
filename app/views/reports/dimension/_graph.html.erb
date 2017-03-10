@@ -1,6 +1,6 @@
 <div id="report_graph">
 
-	<%= @emotions.each do |emotion| %>
+	<%= @report.emotions.each do |emotion| %>
 	<h1><%= emotion[:name] %></h1>
   <canvas class="dimension_graph" data-id="<%= emotion[:id] %>" width="1000px" height="400px"></canvas>
   <% end %>

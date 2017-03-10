@@ -25,7 +25,7 @@ module Analytics
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
   	config.autoload_paths += %W(#{config.root}/app/exceptions/)
 
-
+    config.assets.precompile = ['**/*.js']
 
   end
 end

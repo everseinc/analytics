@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   root :to => 'customers#new'
 
-  get "reports/:project_id", to: "reports#show"
-  get "reports/load", to: "reports#load"
-
-
+  resources :reports, :only => [:show] do
+    member do
+      get 'time'
+      get 'dimension'
+    end
+  end
 
   resources :customers, :only => [:new, :create, :edit, :update, :show] do
   	member do
