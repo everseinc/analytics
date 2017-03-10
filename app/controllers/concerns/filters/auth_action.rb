@@ -27,11 +27,7 @@ module Concerns::Filters::AuthAction
 
     before_action -> (controller) {
 
-    	if controller.controller_name == "reports"
-    		before(controller, params[:project_id])
-    	else
-    		before(controller, params[:id])
-    	end
+    	before(controller, params[:id])
 
     }, only: [:show]
 
