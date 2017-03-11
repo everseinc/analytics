@@ -1,0 +1,3 @@
+class CustomPoint < ApplicationRecord
+
+end

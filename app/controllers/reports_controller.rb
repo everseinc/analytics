@@ -12,4 +12,6 @@ class ReportsController < MainLayoutController
 
   def dimension
   end
+
+
 end
