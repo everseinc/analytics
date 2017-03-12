@@ -12,5 +12,5 @@
 //
 //= require turbolinks
 //= require Chart
+//= require_directory ./common/kalendae
 //= require_directory ./0_common
-//= require_directory ./common

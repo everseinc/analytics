@@ -10,7 +10,7 @@ Emotions.prototype.functor = function(func){
   });
 }
 
-Emotions.prototype.getEmotinosByName = function(names) {
+Emotions.prototype.getEmotionsByName = function(names) {
 	return this.emotions.filter(function(emotion, index) {
 		return names.indexOf(emotion.name) >= 0;
 	});

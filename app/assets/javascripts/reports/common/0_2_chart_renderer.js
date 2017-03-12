@@ -100,7 +100,7 @@ chartRenderer.prototype.setLabels = function() {
 }
 
 chartRenderer.prototype.setEmotions = function(names) {
-  this.emotions = this.report.emotions.getEmotinosByName(names);
+  this.emotions = this.report.emotions.getEmotionsByName(names);
   this.getData();
 }
 
