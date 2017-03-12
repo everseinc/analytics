@@ -46,11 +46,11 @@ end
 # Dimension.create(id: 2, project_id: 1, name: 'woman', dim_store_id: 1)
 
 
-# EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
-# EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
-# EmoBlocksDimension.create(emo_block_id: 3, dimension_id: 1)
-# EmoBlocksDimension.create(emo_block_id: 4, dimension_id: 1)
-# EmoBlocksDimension.create(emo_block_id: 5, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 3, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 4, dimension_id: 1)
+EmoBlocksDimension.create(emo_block_id: 5, dimension_id: 1)
 EmoBlocksDimension.create(emo_block_id: 6, dimension_id: 2)
 EmoBlocksDimension.create(emo_block_id: 7, dimension_id: 2)
 EmoBlocksDimension.create(emo_block_id: 8, dimension_id: 2)

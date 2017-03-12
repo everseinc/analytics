@@ -13,7 +13,7 @@ var chartSetter = {
 		this.chart_renderers = this.canvases(report).map(function(canvas) {
 			var renderer = new chartRenderer(report, canvas.canvas);
 			renderer.emotions = [canvas.emotion];
-			renderer.getData();
+			renderer.getDataFromDimension(canvas.emotion);
 			return renderer;
 		});
 		this.reload();

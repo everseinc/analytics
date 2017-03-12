@@ -8,7 +8,7 @@ function DimStore(dim_store) {
 	var self = this;
 	this.id = dim_store.id;
 	this.key = dim_store.key;
-	this.dimensions = dim_store.names.map(function(dimension) {
+	this.names = dim_store.names.map(function(dimension) {
     return new Dimension(dimension, self);
   });
 }
