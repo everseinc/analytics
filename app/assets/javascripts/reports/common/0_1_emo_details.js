@@ -88,7 +88,7 @@ EmoDetails.prototype.checkOptions = function(options = {}) {
     });
   }
 
-  if (options.dim_stores) {
+  if (options.dim_stores && options.dim_stores.length > 0) {
     valid_blocks = valid_blocks.filter(function(block, index) {
       return options.dim_stores.some(function(dim_store, index) {
         return (block.dimension_ids.indexOf(dim_store.value_id) >= 0);
@@ -100,13 +100,17 @@ EmoDetails.prototype.checkOptions = function(options = {}) {
 }
 
 EmoDetails.prototype.getBlocksAve = function(emo_id = null, options = {}) {
-  return this.checkOptions(options).map(function(block) {
+  return this.checkOptions(options).sort(function(a,b){
+    return (a.started_at > b.started_at) ? -1 : 1;
+  }).map(function(block) {
     return block.getAve(emo_id);
   });
 }
 
 EmoDetails.prototype.getBlocksDate = function(options = {}) {
-  return this.checkOptions(options).map(function(block) {
+  return this.checkOptions(options).sort(function(a,b){
+    return (a.started_at > b.started_at) ? -1 : 1;
+  }).map(function(block) {
     return block.started_at.getMonth() + 1
     + "/" + block.started_at.getDate()
     + " " + block.started_at.getHours()
