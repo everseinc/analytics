@@ -1,10 +1,11 @@
 var chartSetter = {
+	canvas: document.getElementById("report_main_graph"),
 	chart_renderer: null,
 	new: function(report) {
 		if (this.chart_renderer) {
 			this.chart_renderer.chart.destroy();
 		}
-		this.chart_renderer = new chartRenderer(report);
+		this.chart_renderer = new chartRenderer(report, this.canvas);
 		this.reload();
 	},
 	reload: function() {

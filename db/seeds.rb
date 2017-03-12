@@ -36,15 +36,14 @@ require "csv"
 # EmoTip.create(name: "最大値")
 # EmoTip.create(name: "最小値")
 
-# # Authority.create(name: 'Admin')
-# # Authority.create(name: 'Write')
-# # Authority.create(name: 'Read')
+Authority.create(name: 'Admin')
+Authority.create(name: 'Write')
+Authority.create(name: 'Read')
 
 # DimStore.create(key: 'sex', project_id: 1)
 
 # Dimension.create(id: 1, project_id: 1, name: 'man', dim_store_id: 1)
 # Dimension.create(id: 2, project_id: 1, name: 'woman', dim_store_id: 1)
-
 
 # EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
 # EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
@@ -60,5 +59,4 @@ require "csv"
 # Config.create(app_id: 1)
 # CustomPoint.create(formula: "1 + (好感度 - 3) * 5")
 # ConfigsCustomPoint.create(config_id: 1, custom_point_id: 1, formula_name: "テスト")
-
 

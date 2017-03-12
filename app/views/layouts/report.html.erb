@@ -15,7 +15,20 @@
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
-      <%= yield %>
+
+      <div id="report_container">
+        <div id="report_json">
+          <%= render partial: "reports/json" %>
+        </div>
+
+        <div id="report_sub" class="layer-side">
+          <%= render partial: "reports/sub_nav/report_sub_nav" %>
+        </div>
+
+        <div id="report_main" class="layer-lg-card">
+          <%= yield %>
+        </div>
+      </div>
     </div>
     <%= render partial: "shared/footer" %>
 
@@ -27,14 +40,14 @@
     if commons
       commons.each do |common|
     %>
-    <%= javascript_include_tag common, 'data-turbolinks-track': 'reload' if Analytics::Application.assets.find_asset(common) %>
+    <%= javascript_include_tag common if Analytics::Application.assets.find_asset(common) %>
     <%
       end
     end
     if scripts
       scripts.each do |script|
     %>
-    <%= javascript_include_tag script, 'data-turbolinks-track': 'reload' if Analytics::Application.assets.find_asset(script) %>
+    <%= javascript_include_tag script if Analytics::Application.assets.find_asset(script) %>
     <%
       end
     end

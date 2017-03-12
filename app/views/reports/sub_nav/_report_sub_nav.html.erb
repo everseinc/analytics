@@ -1,6 +1,7 @@
-<div id= "report_sub_nav">
+<div id="report_sub_nav_container">
+	<div id="report_sub_nav">
 
-	<h2 class="report_side_nav_title"><%= @report.project[:project_name] %></h2>
+		<h2 class="report_side_nav_title"><%= @report.project[:project_name] %></h2>
 
 	<dl>
 		<dt class="report_side_nav_group">標準分析</dt>
@@ -21,4 +22,23 @@
 			</dd>
 		</div>
 	</dl>
+		<dl class="<%= 'active' if check_accordion_activation == :default %>">
+			<dt class="report_side_nav_group">標準分析</dt>
+			<div class="report_side_nav_contents">
+				<dd>
+					<%= report_link_to "時間軸分析", :action => "time" %>
+					<%= report_link_to "ディメンション分析", :action => "dimension" %>
+				</dd>
+			</div>
+		</dl>
+		<dl class="<%= "active" if check_accordion_activation == :setting %>">
+			<dt class="report_side_nav_group">設定</dt>
+			<div class="report_side_nav_contents">
+				<dd>
+					<%= report_link_to "カスタムディメンション設定", :action => "dimension" %>
+					<%= link_to "カスタムポイント設定", :action => "index", :controller => "custom_points", :app_id => @report.app.id, :config_id => @report.config.id%>
+				</dd>
+			</div>
+		</dl>
+	</div>
 </div>

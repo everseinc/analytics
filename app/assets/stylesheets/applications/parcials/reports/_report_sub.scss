@@ -5,11 +5,19 @@
   background-color: $white;
 }
 
+#report_sub_nav_container {
+	position: fixed;
+  top: $header-height;
+  left: 0;
+  bottom: 0;
+}
+
 #report_sub_nav {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
   overflow-y: auto;
+  width: $reports-sub-nav-width;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -41,6 +49,10 @@
 				display: block;
 				padding: 10px 10px 10px 46px;
 		    text-overflow: ellipsis;
+			}
+
+			a.selected {
+				color: $material-orange-500;
 			}
 		}
 	}
