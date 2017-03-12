@@ -36,9 +36,9 @@ end
 # EmoTip.create(name: "最大値")
 # EmoTip.create(name: "最小値")
 
-# # Authority.create(name: 'Admin')
-# # Authority.create(name: 'Write')
-# # Authority.create(name: 'Read')
+Authority.create(name: 'Admin')
+Authority.create(name: 'Write')
+Authority.create(name: 'Read')
 
 # DimStore.create(key: 'sex', project_id: 1)
 
