@@ -42,6 +42,10 @@
 				padding: 10px 10px 10px 46px;
 		    text-overflow: ellipsis;
 			}
+
+			a.selected {
+				color: $material-orange-500;
+			}
 		}
 	}
 
