@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309041239) do
+ActiveRecord::Schema.define(version: 20170310123414) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_name",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "apps_custom_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "formula_name",    null: false
+    t.integer  "app_id",          null: false
+    t.integer  "custom_point_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["app_id", "formula_name"], name: "index_apps_custom_points_on_app_id_and_formula_name", unique: true, using: :btree
+    t.index ["custom_point_id"], name: "custom_point_id", using: :btree
   end
 
   create_table "apps_customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -39,6 +49,29 @@ ActiveRecord::Schema.define(version: 20170309041239) do
 
   create_table "authorities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "configs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "app_id",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_id"], name: "app_id", using: :btree
+  end
+
+  create_table "configs_custom_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "config_id",       null: false
+    t.integer  "custom_point_id", null: false
+    t.string   "formula_name",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["config_id", "formula_name"], name: "index_configs_custom_points_on_config_id_and_formula_name", unique: true, using: :btree
+    t.index ["custom_point_id"], name: "custom_point_id", using: :btree
+  end
+
+  create_table "custom_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "formula",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -158,10 +191,15 @@ ActiveRecord::Schema.define(version: 20170309041239) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "apps_custom_points", "apps", name: "apps_custom_points_ibfk_1", on_delete: :cascade
+  add_foreign_key "apps_custom_points", "custom_points", name: "apps_custom_points_ibfk_2", on_delete: :cascade
   add_foreign_key "apps_customers", "apps", name: "apps_customers_ibfk_2", on_delete: :cascade
   add_foreign_key "apps_customers", "customers", name: "apps_customers_ibfk_1", on_delete: :cascade
   add_foreign_key "apps_projects", "apps", name: "apps_projects_ibfk_1", on_delete: :cascade
   add_foreign_key "apps_projects", "projects", name: "apps_projects_ibfk_2", on_delete: :cascade
+  add_foreign_key "configs", "apps", name: "configs_ibfk_1", on_delete: :cascade
+  add_foreign_key "configs_custom_points", "configs", name: "configs_custom_points_ibfk_1", on_delete: :cascade
+  add_foreign_key "configs_custom_points", "custom_points", name: "configs_custom_points_ibfk_2", on_delete: :cascade
   add_foreign_key "customers_passwords", "customers", name: "customers_passwords_ibfk_1", on_delete: :cascade
   add_foreign_key "customers_passwords", "passwords", name: "customers_passwords_ibfk_2", on_delete: :cascade
   add_foreign_key "customers_projects", "customers", name: "customers_projects_ibfk_1", on_delete: :cascade
