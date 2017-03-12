@@ -1,5 +1,8 @@
 var graphOptionCheckbox = {
 	elements: Array.prototype.slice.call(document.getElementsByClassName("graph-option-check")),
+	elementsReload: function() {
+		this.elements = Array.prototype.slice.call(document.getElementsByClassName("graph-option-check"));
+	},
 	onChange: function() {
 		var self = this;
 		var setEmotions = function(e) {

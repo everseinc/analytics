@@ -1,6 +1,9 @@
 var chartSetter = {
 	chart_renderer: null,
 	new: function(report) {
+		if (this.chart_renderer) {
+			this.chart_renderer.chart.destroy();
+		}
 		this.chart_renderer = new chartRenderer(report);
 		this.reload();
 	},
