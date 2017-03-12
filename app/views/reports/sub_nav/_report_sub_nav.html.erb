@@ -2,20 +2,20 @@
 
 	<h2 class="report_side_nav_title"><%= @report.project[:project_name] %></h2>
 
-	<dl>
+	<dl class="<%= 'active' if check_accordion_activation == :default %>">
 		<dt class="report_side_nav_group">標準分析</dt>
 		<div class="report_side_nav_contents">
 			<dd>
-				<%= link_to "時間軸分析", :action => "time" %>
-				<%= link_to "ディメンション分析", :action => "dimension" %>
+				<%= report_link_to "時間軸分析", :action => "time" %>
+				<%= report_link_to "ディメンション分析", :action => "dimension" %>
 			</dd>
 		</div>
 	</dl>
-	<dl>
+	<dl class="<%= "active" if check_accordion_activation == :setting %>">
 		<dt class="report_side_nav_group">設定</dt>
 		<div class="report_side_nav_contents">
 			<dd>
-				<%= link_to "カスタムディメンション設定", "#" %>
+				<%= report_link_to "カスタムディメンション設定", :action => "dimension" %>
 			</dd>
 		</div>
 	</dl>

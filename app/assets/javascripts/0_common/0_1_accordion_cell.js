@@ -18,5 +18,10 @@ AccordionCell.prototype.enable = function() {
 	    this.contents.style.maxHeight = this.contents.scrollHeight + "px";
 	  }
 	}.bind(this);
+
+	if (this.contents.parentNode.hasClass("active")) {
+		this.contents.style.maxHeight = this.contents.scrollHeight + "px";
+	}
+	
 	this.trigger.addEventListener('click', callback);
 }
