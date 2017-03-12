@@ -21,7 +21,7 @@ report.prototype.setEmotions = function() {
 }
 
 report.prototype.setDimStores = function() {
-  this.dim_stores = getJsonFromServer("data-json", "json_dim_stores");
+  this.dim_stores = new DimStores(getJsonFromServer("data-json", "json_dim_stores"));
 }
 
 report.prototype.setEmoTipAssets = function() {
