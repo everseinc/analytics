@@ -10,11 +10,7 @@ class CustomPointsController < MainLayoutController
 
   def create
     res = postConnectTo(klass: self, func: "create_gateway", args: custom_points_form_params)
-    if res
-      redirect_to app_path(res)
-    else
-      redirect_to :action => 'new'
-    end
+    redirect_to app_config_custom_points_path()
 
   end
 
