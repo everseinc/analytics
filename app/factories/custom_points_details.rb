@@ -34,11 +34,15 @@ class CustomPointsDetails < ApplicationDetails
           ActiveRecord::Base.transaction do
             custom_point.save!
             configs_custom_point = ConfigsCustomPoint.new(formula_name: new_custom_point[:name], config_id: new_custom_point[:config_id], custom_point_id: custom_point.id)
-            configs_custom_point.save!
+            if configs_custom_point.valid?
+              configs_custom_point.save!
+            else
+              MissionFlow.instance.status = 0
+              MissionFlow.instance << {configs_custom_point_error: configs_custom_point.errors.full_messages}
+            end
           end
         else
           MissionFlow.instance.status = 0
-          MissionFlow.instance << {configs_custom_point_error: configs_custom_point.errors.full_messages}
           MissionFlow.instance << {custom_point_error: custom_point.errors.full_messages}
         end
 

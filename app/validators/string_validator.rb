@@ -26,6 +26,11 @@ class StringValidator < BaseValidator
 		either_validate(21006, &condition)
 	end
 
+
+	def self.emo_formula()
+		condition = -> (string) { RegularExpressionManager::is_emo_formula?(string) }
+		either_validate(21014, &condition)
+	end
 	# a string must be equal to given string
 	def self.equel_to(target)
 		condition = -> (string) { string == target }
