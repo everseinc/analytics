@@ -23,7 +23,7 @@ class CustomPointsController < MainLayoutController
   private
 
   def custom_points_form_params
-    params[:custom_points_form].permit(:name, :formula)
+    params[:custom_points_form].permit(:name, :formula, :config_id)
   end
 
 end

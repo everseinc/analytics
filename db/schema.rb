@@ -10,22 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310123414) do
+ActiveRecord::Schema.define(version: 20170313153842) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_name",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "apps_custom_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "formula_name",    null: false
-    t.integer  "app_id",          null: false
-    t.integer  "custom_point_id", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["app_id", "formula_name"], name: "index_apps_custom_points_on_app_id_and_formula_name", unique: true, using: :btree
-    t.index ["custom_point_id"], name: "custom_point_id", using: :btree
   end
 
   create_table "apps_customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -24,6 +24,7 @@
           </tr>
         </tbody>
         <tfoot>
+          <%= f.hidden_field :config_id  %>
           <tr>
             <td class="form-submit" colspan="2">
               <%= f.submit "ADD" %>
@@ -31,14 +32,15 @@
           </tr>
         </tfoot>
       </table>
+
 		<% end %>
   </div>
 
   <div id="show_custom_points_list">
     <% @custom_points.each do |c| %>
       <ul>
-        <li><%= c.formula %></li>
-        <li><%= c.name %></li>
+        <li><%= c[:formula] %></li>
+        <li><%= c[:name] %></li>
         <li>更新</li>
         <li>削除</li>
       </ul>

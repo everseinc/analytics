@@ -3,12 +3,15 @@ class CustomPointsDetails < ApplicationDetails
 
   class << self
 
-    def set(app_id:)
-      apps_custom_points = AppsCustomPoint.where(app_id: app_id)
+    def set(config_id:)
       custom_points = []
+      if  ConfigsCustomPoint.exists?(config_id: config_id)
+        configs_custom_points = ConfigsCustomPoint.where(config_id: config_id)
+        custom_points = []
 
-      apps_custom_points.each do |a|
-        custom_points << {formula: a.custom_point.formula, name: a.formula_name, app_id: app_id}
+        configs_custom_points.each do |a|
+          custom_points << {name: a.formula_name, config_id: config_id, formula: a.custom_point.formula}
+        end
       end
 
       custom_points
@@ -18,30 +21,30 @@ class CustomPointsDetails < ApplicationDetails
       formula = new_custom_point[:formula].gsub(" ", "")
       if CustomPoint.exists?(:formula => formula)
         custom_point = CustomPoint.find_by(:formula => formula)
-        app_customs_point = AppCustomPoint.new(formula_name: new_custom_point[:name], app_id: new_custom_point[:app_id], custom_point_id: custom_point.id)
-        if app_customs_point.valid?
-          app_customs_point.save!
+        configs_custom_point = ConfigsCustomPoint.new(formula_name: new_custom_point[:name], config_id: new_custom_point[:config_id], custom_point_id: custom_point.id)
+        if configs_custom_point.valid?
+          configs_custom_point.save!
         else
           MissionFlow.instance.status = 0
-          MissionFlow.instance << {app_customs_point_error: app_customs_point.errors.full_messages}
+          MissionFlow.instance << {configs_custom_point_error: configs_custom_point.errors.full_messages}
         end
       else
         custom_point = CustomPoint.new(:formula => formula)
-        app_customs_point = AppCustomPoint.new(formula_name: new_custom_point[:name], app_id: new_custom_point[:app_id], custom_point_id: custom_point.id)
-        if app_customs_point.valid? && custom_point.valid?
+        if custom_point.valid?
           ActiveRecord::Base.transaction do
             custom_point.save!
-            app_customs_point.save!
+            configs_custom_point = ConfigsCustomPoint.new(formula_name: new_custom_point[:name], config_id: new_custom_point[:config_id], custom_point_id: custom_point.id)
+            configs_custom_point.save!
           end
         else
           MissionFlow.instance.status = 0
-          MissionFlow.instance << {app_customs_point_error: app_customs_point.errors.full_messages}
-          MissionFlow.instance << {custom_point_error: custom_point.errors.full_message}
+          MissionFlow.instance << {configs_custom_point_error: configs_custom_point.errors.full_messages}
+          MissionFlow.instance << {custom_point_error: custom_point.errors.full_messages}
         end
 
       end
 
-      app_custom_point
+      configs_custom_point
     end
 
   end
