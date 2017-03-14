@@ -16,21 +16,21 @@ require "csv"
 #   Dimension.create(:project_id => row[1], :name => row[2])
 # end
 
-CSV.foreach('db/csv/emo_blocks.csv') do |row|
-  EmoBlock.create(:project_id => row[1], :started_at => row[2], :ended_at => row[3])
-end
-
-CSV.foreach('db/csv/emo_blocks2.csv') do |row|
-  EmoBlock.create(:project_id => row[1], :started_at => row[2], :ended_at => row[3])
-end
-
-CSV.foreach('db/csv/emo_records.csv') do |row|
-  EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
-end
-
-CSV.foreach('db/csv/emo_records2.csv') do |row|
-  EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
-end
+# CSV.foreach('db/csv/emo_blocks.csv') do |row|
+#   EmoBlock.create(:project_id => row[1], :started_at => row[2], :ended_at => row[3])
+# end
+#
+# CSV.foreach('db/csv/emo_blocks2.csv') do |row|
+#   EmoBlock.create(:project_id => row[1], :started_at => row[2], :ended_at => row[3])
+# end
+#
+# CSV.foreach('db/csv/emo_records.csv') do |row|
+#   EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
+# end
+#
+# CSV.foreach('db/csv/emo_records2.csv') do |row|
+#   EmoRecord.create(:emo_block_id => row[1], :emotion_id => row[2], :value => row[3])
+# end
 
 # EmoTip.create(name: "平均値")
 # EmoTip.create(name: "最大値")
@@ -45,14 +45,18 @@ Authority.create(name: 'Read')
 # Dimension.create(id: 1, project_id: 1, name: 'man', dim_store_id: 1)
 # Dimension.create(id: 2, project_id: 1, name: 'woman', dim_store_id: 1)
 
+# EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 3, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 4, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 5, dimension_id: 1)
+# EmoBlocksDimension.create(emo_block_id: 6, dimension_id: 2)
+# EmoBlocksDimension.create(emo_block_id: 7, dimension_id: 2)
+# EmoBlocksDimension.create(emo_block_id: 8, dimension_id: 2)
+# EmoBlocksDimension.create(emo_block_id: 9, dimension_id: 2)
+# EmoBlocksDimension.create(emo_block_id: 10, dimension_id: 2)
 
-EmoBlocksDimension.create(emo_block_id: 1, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 2, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 3, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 4, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 5, dimension_id: 1)
-EmoBlocksDimension.create(emo_block_id: 6, dimension_id: 2)
-EmoBlocksDimension.create(emo_block_id: 7, dimension_id: 2)
-EmoBlocksDimension.create(emo_block_id: 8, dimension_id: 2)
-EmoBlocksDimension.create(emo_block_id: 9, dimension_id: 2)
-EmoBlocksDimension.create(emo_block_id: 10, dimension_id: 2)
+# Config.create(app_id: 1)
+# CustomPoint.create(formula: "1 + (好感度 - 3) * 5")
+# ConfigsCustomPoint.create(config_id: 1, custom_point_id: 1, formula_name: "テスト")
+

@@ -2,13 +2,18 @@ Rails.application.routes.draw do
 
   root :to => 'customers#new'
 
+
   resources :reports, :only => [:show] do
     member do
       get 'time'
       get 'dimension'
       get 'key'
+      get 'custom_points'
     end
-  end
+
+end
+
+
 
   resources :customers, :only => [:new, :create, :edit, :update, :show] do
   	member do
@@ -23,6 +28,11 @@ Rails.application.routes.draw do
   resources :apps, :only => [:new, :create, :edit, :update, :index, :show] do
     collection do
       get 'join'
+    end
+
+    resources :configs do
+      resources :custom_points, :only => [:create, :index, :update, :edit] do
+      end
     end
   end
 

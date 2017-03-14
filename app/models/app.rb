@@ -10,6 +10,8 @@ class App < ApplicationRecord
   has_many :apps_projects, dependent: :destroy
   has_many :projects, through: :apps_projects
 
+  has_one :config, dependent: :destroy
+
 
   ###
   ## class methods
