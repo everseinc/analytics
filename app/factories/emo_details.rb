@@ -1,5 +1,5 @@
 class EmoDetails < ApplicationDetails
-  attr_accessor :project_name, :app_id
+  attr_accessor :project_name, :app_id, :emo_blocks
 
   ###
   ## class methods
@@ -7,10 +7,29 @@ class EmoDetails < ApplicationDetails
 
   class << self
 
-    def get_all_emo_detail_by(project_id:, arg_start_time:, arg_end_time:)
+    def get_emo_detail_json_by(project_id:, arg_start_time:, arg_end_time:)
       start_time, end_time = set_block_time_by(project_id: project_id, arg_start_time: arg_start_time, arg_end_time: arg_end_time)
 
       emo_details = set_emo_details_with_json_by(project_id: project_id, start_time: start_time, end_time: end_time)
+    end
+
+    def get_emo_detail_by(project_id:, arg_start_time:, arg_end_time:)
+      start_time, end_time = set_block_time_by(project_id: project_id, arg_start_time: arg_start_time, arg_end_time: arg_end_time)
+
+      get_emo_blocks(project_id: project_id, start_time: start_time, end_time: end_time)
+    end
+
+
+    ###
+    ## emo_blocks setter & getter
+    #
+
+    def set_emo_blocks(project_id:, start_time:, end_time:)
+      @emo_blocks = EmoBlock.where(["project_id = ? AND started_at >= ? AND ended_at <= ?", project_id, start_time, end_time]).select(:id, :started_at, :ended_at, :key)
+    end
+
+    def get_emo_blocks(project_id:, start_time:, end_time:)
+      EmoBlock.where(["project_id = ? AND started_at >= ? AND ended_at <= ?", project_id, start_time, end_time]).select(:id, :started_at, :ended_at, :key)
     end
 
     private
@@ -20,6 +39,7 @@ class EmoDetails < ApplicationDetails
           json.emo_details do
             emo_blocks = EmoBlock.where(["project_id = ? AND started_at >= ? AND ended_at <= ?", project_id, start_time, end_time]).select(:id, :started_at, :ended_at, :key)
             json.array!(emo_blocks) do |eb|
+              json.id eb.id
               json.started_at eb.started_at
               json.ended_at eb.ended_at
               json.key eb.key

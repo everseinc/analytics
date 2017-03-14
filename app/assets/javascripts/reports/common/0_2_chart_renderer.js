@@ -95,6 +95,22 @@ chartRenderer.prototype.getDataFromDimension = function(emotion) {
   });
 }
 
+chartRenderer.prototype.getRecordData = function(block_id) {
+  var self = this;
+  this.labels = this.report.emo_details.findBlock(block_id).getValues(this.emotions.first().id).map(function(v, i) { return i });
+  this.datasets = this.emotions.map(function(emotion) {
+    return {
+      label: emotion.name,
+      data: self.report.emo_details.findBlock(block_id).getValues(emotion.id),
+      borderColor: emotion.color(),
+      backgroundColor: emotion.backgroundColor(),
+      lineTension: 0,
+      fill: false,
+      borderWidth: 1,
+    }
+  });
+}
+
 chartRenderer.prototype.setLabels = function() {
 
 }

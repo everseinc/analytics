@@ -5,6 +5,7 @@ function EmoDetails(details) {
 }
 
 function EmoBlock(block) {
+  this.id = block.id
 	this.started_at = new Date(block.started_at);
 	this.ended_at = new Date(block.ended_at);
   this.key = block.key;
@@ -120,6 +121,12 @@ EmoDetails.prototype.getBlocksDate = function(options = {}) {
   });
 }
 
+EmoDetails.prototype.findBlock = function(block_id) {
+  return this.blocks.filter(function(block) {
+    return block.id == block_id
+  }).first();
+}
+
 
 
 // ------------------------------------------------------------
@@ -127,11 +134,26 @@ EmoDetails.prototype.getBlocksDate = function(options = {}) {
 // ------------------------------------------------------------
 
 EmoBlock.prototype.getAve = function(emo_id = null) {
-  var filtered = this.records.filter(function(record, index) {
-    if (emo_id == record.emotion_id || emo_id == null) return true;
-  });
+  var filtered = this.filterEmotion(emo_id);
   return filtered.reduce(function(sum, record) {
       return sum + record.value;
   }, 0) / filtered.length;
 }
 
+EmoBlock.prototype.getValues = function(emo_id = null) {
+  var filtered = this.filterEmotion(emo_id);
+  return filtered.map(function(record) {
+      return record.value;
+  });
+}
+
+EmoBlock.prototype.filterEmotion = function(emo_id = null) {
+  return this.records.filter(function(record, index) {
+    if (emo_id == record.emotion_id || emo_id == null) return true;
+  });
+}
+
+
+// ------------------------------------------------------------
+// EmoRecord prototype
+// ------------------------------------------------------------
