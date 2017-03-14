@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313153842) do
+ActiveRecord::Schema.define(version: 20170314050028) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_name",   null: false
@@ -181,8 +181,6 @@ ActiveRecord::Schema.define(version: 20170313153842) do
     t.datetime "updated_at",   null: false
   end
 
-  add_foreign_key "apps_custom_points", "apps", name: "apps_custom_points_ibfk_1", on_delete: :cascade
-  add_foreign_key "apps_custom_points", "custom_points", name: "apps_custom_points_ibfk_2", on_delete: :cascade
   add_foreign_key "apps_customers", "apps", name: "apps_customers_ibfk_2", on_delete: :cascade
   add_foreign_key "apps_customers", "customers", name: "apps_customers_ibfk_1", on_delete: :cascade
   add_foreign_key "apps_projects", "apps", name: "apps_projects_ibfk_1", on_delete: :cascade
