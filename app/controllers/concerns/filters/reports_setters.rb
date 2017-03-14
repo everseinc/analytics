@@ -1,5 +1,5 @@
 module Concerns::Filters::ReportsSetters
-	
+
 	extend ActiveSupport::Concern
 
 	###
@@ -27,5 +27,6 @@ module Concerns::Filters::ReportsSetters
 		def set_report
 			@report = ReportDetails.new(project_id: params[:id])
 		end
+
 	end
 end

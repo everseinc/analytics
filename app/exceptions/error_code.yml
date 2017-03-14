@@ -16,6 +16,7 @@
 21004: "Major Error (- Validation Error) : A given string must be a email_format"
 21005: "Major Error (- Validation Error) : A given string must be unique."
 21006: "Major Error (- Validation Error) : A given string should not be too short."
+21014: "Major Error (- Validation Error) : A given string should be emotion_name or operation."
 21007: "Major Error (- Save Error) : Save failed."
 21008: "Major Error (- Update Error) : Update failed."
 21009: "Major Error (- Update Error) : Old Password is wrong"

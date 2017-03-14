@@ -1,5 +1,5 @@
 module Concerns::Filters::AuthAction
-	
+
 	extend ActiveSupport::Concern
 
 	###
@@ -14,11 +14,15 @@ module Concerns::Filters::AuthAction
 
 		MUST = {
 			'show' => {
-				'customers' => 'customer_id',
-				'apps' => 'app_id',
-				'projects' => 'project_id',
-				'reports' => 'project_id',
+				'customers' => {'key' => 'customer_id', 'param' => 'id'},
+				'apps' => {'key' => 'app_id', 'param' => 'id'},
+				'projects' => {'key' => 'project_id', 'param' => 'id'},
+				'reports' => {'key' => 'project_id', 'param' => 'id'},
+			},
+			'index' => {
+				'custom_points' => {'key' => 'app_id', 'param' => 'app_id'}
 			}
+
 		}.freeze
 
 		###
@@ -27,7 +31,7 @@ module Concerns::Filters::AuthAction
 
     before_action -> (controller) {
 
-    	before(controller, params[:id])
+    	before(controller, params)
 
     }, only: [:show]
 
@@ -36,11 +40,11 @@ module Concerns::Filters::AuthAction
     ## filter method
     #
 
-    def before(controller, key)
+    def before(controller, params)
 			return unless MUST.include?(controller.action_name)
 
-			auth_key = MUST[controller.action_name][controller.controller_name]
-			res = AuthManager.send('authenticate_by_' + auth_key, key)
+			auth_key, key = MUST[controller.action_name][controller.controller_name]['key'] , MUST[controller.action_name][controller.controller_name]['param']
+			res = AuthManager.send('authenticate_by_' + auth_key, params[key])
 			if !res
 				redirect_to '/login' and return
 			end

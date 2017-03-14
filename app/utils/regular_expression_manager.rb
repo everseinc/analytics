@@ -62,4 +62,8 @@ class RegularExpressionManager
 	def self.is_url?(string)
 		/\A#{URI::regexp(%w(http https))}\z/ === string
 	end
+
+	def self.is_emo_formula?(string)
+ 		true
+	end
 end

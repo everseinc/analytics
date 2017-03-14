@@ -1,7 +1,9 @@
 class ReportDetails
   attr_reader :project, :dimensions, :emotions, :tips, :emo_details, :json_emotions,
-              :json_dim_stores, :json_emo_tips
+              :json_dim_stores, :json_emo_tips, :config, :app
   def initialize(project_id:)
+    @app = AppsProject.find_by(id: project_id).app
+    @config = @app.config
     @project = Project.find_by(id: project_id)
     @dim_stores = DimStore.where(project_id: project_id)
     @emotions = Emotion.all.select(:id ,:name)

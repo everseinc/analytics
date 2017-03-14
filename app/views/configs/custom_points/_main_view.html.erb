@@ -1,0 +1,49 @@
+<div id="config_custom_main_view">
+
+  <!--  デザインは要リファクタ!!-->
+
+  <div id="create_custom_points_box">
+    <%= form_for @custom_points_form, url: app_config_custom_points_path do |f| %>
+      <table class="layer1">
+        <tbody>
+          <tr>
+            <td class="input-label">
+              <%= f.label :name, 'ポイント名' %>
+            </td>
+            <td class="input-body">
+              <%= f.text_field :name, :placeholder => "ポイント名"%>
+            </td>
+          </tr>
+          <tr>
+            <td class="input-label">
+              <%= f.label :formula, '公式' %>
+            </td>
+            <td class="input-body">
+              <%= f.text_field :formula, :placeholder => "公式" %>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <%= f.hidden_field :config_id  %>
+          <tr>
+            <td class="form-submit" colspan="2">
+              <%= f.submit "ADD" %>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+		<% end %>
+  </div>
+
+  <div id="show_custom_points_list">
+    <% @custom_points.each do |c| %>
+      <ul>
+        <li><%= c[:formula] %></li>
+        <li><%= c[:name] %></li>
+        <li>更新</li>
+        <li>削除</li>
+      </ul>
+    <% end %>
+  </div>
+</div>

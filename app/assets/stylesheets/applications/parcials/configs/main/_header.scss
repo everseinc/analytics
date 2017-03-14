@@ -1,0 +1,17 @@
+#config_custom_header {
+	height: $reports-main-header-hight;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+
+	border-bottom: 1px solid $material_grey_500;
+
+	#config_custom_title {
+		font-size: 2.5rem;
+		margin-right: auto;
+		padding: 0 10px;
+	}
+
+
+}
