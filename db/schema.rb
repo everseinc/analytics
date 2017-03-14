@@ -109,11 +109,12 @@ ActiveRecord::Schema.define(version: 20170314050028) do
   end
 
   create_table "emo_blocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "project_id", null: false
+    t.integer  "project_id",                       null: false
     t.datetime "started_at"
     t.datetime "ended_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "key",        default: "undefined", null: false
     t.index ["project_id"], name: "project_id", using: :btree
   end
 

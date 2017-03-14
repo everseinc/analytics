@@ -13,5 +13,8 @@ class ReportsController < ReportLayoutController
   def dimension
   end
 
+  def key
+  end
+
 
 end

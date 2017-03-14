@@ -1,0 +1,19 @@
+<div style="margin-top: 56px;">
+<h1>blockに設定されたkey</h1>
+<%=
+blocks = @report.emo_details.group_by do |emo_block|
+	emo_block.key
+end
+
+keys = blocks.map do |key, blocks|
+	list_val = "#{key} (#{blocks.count})"
+	[list_val]
+end
+
+key_list = {
+	value: keys
+}
+
+render partial: "shared/partials/basic_table", locals: { table: key_list }
+%>
+</div>
