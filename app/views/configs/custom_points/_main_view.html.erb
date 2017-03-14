@@ -37,13 +37,20 @@
   </div>
 
   <div id="show_custom_points_list">
-    <% @custom_points.each do |c| %>
-      <ul>
-        <li><%= c[:formula] %></li>
-        <li><%= c[:name] %></li>
-        <li>更新</li>
-        <li>削除</li>
-      </ul>
+    <% @custom_points_forms.each do |custom_points_form| %>
+      <%= form_for custom_points_form, :url => "/apps/#{params[:app_id]}/configs/#{params[:config_id]}/custom_points/#{custom_points_form.custom_point_id}", :method => "PUT" do |f| %>
+        <ul>
+          <li><%= f.text_field :name, :placeholder => "ポイント名"%></li>
+          <li><%= f.text_field :formula, :placeholder => "公式" %></li>
+          <%= f.hidden_field :config_id  %>
+          <%= f.hidden_field :config_custom_point_id  %>
+          <%= f.hidden_field :custom_point_id  %>
+          <li><%= f.submit "update" %></li>
+          <%= form_for custom_points_form, :url => "/apps/#{params[:app_id]}/configs/#{params[:config_id]}/custom_points/#{custom_points_form.custom_point_id}", :method => "DELETE" do |f| %>
+            <li><%= f.submit "delete"  %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   </div>
 </div>
