@@ -18,10 +18,11 @@ class EmoDetails < ApplicationDetails
       def set_emo_details_with_json_by(project_id:, start_time:, end_time:)
         Jbuilder.encode do |json|
           json.emo_details do
-            emo_blocks = EmoBlock.where(["project_id = ? AND started_at >= ? AND ended_at <= ?", project_id, start_time, end_time]).select(:id, :started_at, :ended_at)
+            emo_blocks = EmoBlock.where(["project_id = ? AND started_at >= ? AND ended_at <= ?", project_id, start_time, end_time]).select(:id, :started_at, :ended_at, :key)
             json.array!(emo_blocks) do |eb|
               json.started_at eb.started_at
               json.ended_at eb.ended_at
+              json.key eb.key
               json.dimension_ids eb.dimensions.map { |d| d.id }
               json.records do
                 json.array!(eb.emo_records) do |er|

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get 'time'
       get 'dimension'
+      get 'key'
     end
   end
 
