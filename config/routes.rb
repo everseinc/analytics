@@ -31,7 +31,7 @@ end
     end
 
     resources :configs do
-      resources :custom_points, :only => [:create, :index, :update, :edit] do
+      resources :custom_points, :only => [:create, :index, :update, :destroy] do
       end
     end
   end
