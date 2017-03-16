@@ -6,7 +6,7 @@ var chartSetter = {
 			this.chart_renderer.chart.destroy();
 		}
 		this.chart_renderer = new chartRenderer(report, this.canvas);
-		this.chart_renderer.getRecordData(1);
+		this.chart_renderer.setRecordData(1);
 		this.reload();
 	},
 	reload: function() {

@@ -1,3 +1,7 @@
+// ------------------------------------------------------------
+// chartRenderer
+// ------------------------------------------------------------
+
 function chartRenderer(report, canvas) {
   this.report = report;
   this.canvas = canvas;
@@ -39,6 +43,10 @@ function chartRenderer(report, canvas) {
   };
 }
 
+
+
+/* ■■■■■■■■■■■ reload ■■■■■■■■■■■ */
+
 chartRenderer.prototype.reload = function() {
   if (this.chart) this.chart.destroy();
   this.canvas.height = 400;
@@ -53,20 +61,73 @@ chartRenderer.prototype.reload = function() {
   });
 }
 
-chartRenderer.prototype.getData = function() {
-  var self = this;
-  this.labels = this.report.emo_details.getBlocksDate(this.options);
-  this.datasets = this.emotions.map(function(emotion) {
+
+
+/* ■■■■■■■■■■■ setters with callbacks ■■■■■■■■■■■ */
+
+chartRenderer.prototype.setEmotions = function(names) {
+  this.emotions = this.report.emotions.getEmotionsByName(names);
+  this.setDefaultData();
+}
+
+chartRenderer.prototype.setSpan = function(start, end) {
+  this.options.span = {
+    start: start,
+    end: end
+  }
+  this.setDefaultData();
+}
+
+chartRenderer.prototype.setDimStore = function(key, value, value_id) {
+  this.options.dim_stores.push({
+    key: key,
+    value: value,
+    value_id: value_id,
+  });
+  this.setDefaultData();
+}
+
+
+
+/* ■■■■■■■■■■■ base data setter ■■■■■■■■■■■ */
+
+chartRenderer.prototype.setData = function(_data) {
+  this.labels = _data.labels;
+  this.datasets = _data.datasets.map(function(dataset) {
     return {
-      label: emotion.name,
-      data: self.report.emo_details.getBlocksAve(emotion.id, self.options),
-      borderColor: emotion.color(),
-      backgroundColor: emotion.backgroundColor(),
+      label: dataset.label,
+      data: dataset.data,
+      borderColor: dataset.color,
+      backgroundColor: dataset.backgroundColor,
       lineTension: 0,
       fill: false,
       borderWidth: 1,
     };
   });
+}
+
+
+
+/* ■■■■■■■■■■■ each setters ■■■■■■■■■■■ */
+
+chartRenderer.prototype.setDefaultData = function() {
+  var self = this;
+  var labels = this.report.emo_details.getBlocksDate(this.options);
+  var _data = chartFormatter().setLabels(labels)
+
+  this.emotions.map(function(emotion) {
+    var records = self.report.emo_details.getBlocksAve(emotion.id, self.options);
+
+    var data = chartDataFormatter().
+      setLabel(emotion.name).
+      setData(records).
+      setColor(emotion.color()).
+      setBackgroundColor(emotion.backgroundColor());
+
+    _data.appendDatasets(data);
+  });
+
+  this.setData(_data);
 }
 
 chartRenderer.prototype.getDataFromDimension = function(emotion) {
@@ -95,43 +156,27 @@ chartRenderer.prototype.getDataFromDimension = function(emotion) {
   });
 }
 
-chartRenderer.prototype.getRecordData = function(block_id) {
-  var self = this;
-  this.labels = this.report.emo_details.findBlock(block_id).getValues(this.emotions.first().id).map(function(v, i) { return i });
-  this.datasets = this.emotions.map(function(emotion) {
-    return {
-      label: emotion.name,
-      data: self.report.emo_details.findBlock(block_id).getValues(emotion.id),
-      borderColor: emotion.color(),
-      backgroundColor: emotion.backgroundColor(),
-      lineTension: 0,
-      fill: false,
-      borderWidth: 1,
-    }
+chartRenderer.prototype.setRecordData = function(block_id) {
+  var block = this.report.emo_details.findBlock(block_id);
+  var labels = block.getValues(this.emotions.first().id).map(function(v, i) {
+    return i;
   });
-}
+  labels[0] = block.started_at.default();
+  labels[labels.length - 1] = block.ended_at.default();
 
-chartRenderer.prototype.setLabels = function() {
+  var _data = chartFormatter().setLabels(labels)
 
-}
+  this.emotions.map(function(emotion) {
+    var records = block.getValues(emotion.id);
 
-chartRenderer.prototype.setEmotions = function(names) {
-  this.emotions = this.report.emotions.getEmotionsByName(names);
-  this.getData();
-}
+    var data = chartDataFormatter().
+      setLabel(emotion.name).
+      setData(records).
+      setColor(emotion.color()).
+      setBackgroundColor(emotion.backgroundColor());
 
-chartRenderer.prototype.setSpan = function(start, end) {
-  this.options.span = {
-    start: start,
-    end: end
-  }
-  this.getData();
-}
-
-chartRenderer.prototype.setDimStore = function(key, value, value_id) {
-  this.options.dim_stores.push({
-    key: key,
-    value: value,
-    value_id: value_id,
+    _data.appendDatasets(data);
   });
+
+  this.setData(_data);
 }

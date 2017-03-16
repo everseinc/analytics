@@ -113,11 +113,7 @@ EmoDetails.prototype.getBlocksDate = function(options = {}) {
   return this.checkOptions(options).sort(function(a,b){
     return (a.started_at > b.started_at) ? -1 : 1;
   }).map(function(block) {
-    return block.started_at.getMonth() + 1
-    + "/" + block.started_at.getDate()
-    + " " + block.started_at.getHours()
-    + ":" + block.started_at.getMinutes()
-    + ":" + block.started_at.getSeconds();
+    return block.started_at.default();
   });
 }
 
@@ -151,6 +147,21 @@ EmoBlock.prototype.filterEmotion = function(emo_id = null) {
   return this.records.filter(function(record, index) {
     if (emo_id == record.emotion_id || emo_id == null) return true;
   });
+}
+
+EmoBlock.prototype.dataTypedByRecord = function(option) {
+  var filtered = this.records;
+
+  if (option.labeling == "emotion" && option.type == "all") {}
+
+  if (option.emotion && option.emotion.id) {
+    filtered = this.filterEmotion(option.emotion.id);
+  }
+
+  var records = filtered.map(function(record) {
+    return record.value;
+  });
+  
 }
 
 
