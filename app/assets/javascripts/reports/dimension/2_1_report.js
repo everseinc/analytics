@@ -5,6 +5,10 @@ function reportReload() {
 	/* initialize chart */
 	chartSetter.new().initialize(initializeWith.EMOTIONS);
 
+	/* set date span change button*/
+	dateSpanChangeButton.elementReload();
+	dateSpanChangeButton.onClick();
+
 }
 
 

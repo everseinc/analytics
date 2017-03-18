@@ -19,9 +19,6 @@ var filterStore = {
 		valid_emotions: [],
 	},
 	dimensions: [],
-	emotion: {
-		id: null,
-	},
 	span: {
 		start: null,
 		end: null,

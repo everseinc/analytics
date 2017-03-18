@@ -33,7 +33,6 @@ Filter.prototype.setFilter = function() {
 	this.from = filterStore.from;
 	this.base = filterStore.base;
 	this.dimensions = filterStore.dimensions;
-	this.emotion = filterStore.emotion;
 	this.span = filterStore.span;
 
 	return this;
@@ -41,6 +40,10 @@ Filter.prototype.setFilter = function() {
 
 
 
+/**
+ * get search option
+ * @return {Object} [description]
+ */
 Filter.prototype.searchOption = function() {
 	return {
 		dimensions: this.dimensions,
@@ -69,7 +72,10 @@ Filter.prototype.get = function() {
 
 
 
+
+
 /* ■■■■■■■■■■■ private methods ■■■■■■■■■■■ */
+
 
 
 /**
