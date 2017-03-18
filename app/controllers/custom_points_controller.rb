@@ -1,4 +1,4 @@
-class CustomPointsController < MainLayoutController
+class CustomPointsController < CustomPointLayoutController
   include Concerns::Filters::CustomPointsSetters
   include Concerns::Filters::AuthAction
   include Concerns::Gateways::CustomPointsGateways
