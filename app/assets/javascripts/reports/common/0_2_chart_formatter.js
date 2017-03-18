@@ -11,8 +11,11 @@ function chartFormatter() {
 	this.datasets = [{
 		label: null,
 		data: [],
-		color: null,
-		backgroundColor: null
+		borderColor: null,
+		backgroundColor: null,
+		lineTension: 0,
+    fill: false,
+    borderWidth: 1,
 	}];
 	this.datasets = [];
 }
@@ -33,7 +36,16 @@ chartFormatter.prototype.appendDatasets = function(dataset) {
 	if (!(dataset.data instanceof Array)) { throw new Error("chartFormatter.appendDatasets() : dataset.data must Array") }
 	if (dataset.data.length <= 0) { throw new Error("chartFormatter.appendDatasets() : dataset.data has no value") }
 
-	this.datasets.push(dataset);
+	var _dataset = {};
+	_dataset.label = dataset.label;
+	_dataset.data = dataset.data;
+	_dataset.borderColor = dataset.color;
+	_dataset.backgroundColor = dataset.backgroundColor;
+	_dataset.lineTension = 0;
+  _dataset.fill = false;
+  _dataset.borderWidth = 1;
+
+	this.datasets.push(_dataset);
 	return this;
 }
 

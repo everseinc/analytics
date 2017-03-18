@@ -35,8 +35,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%
+    common_reports = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/common/report/*"]
     commons = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/common/*"]
     scripts = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/#{params[:action]}/*"]
+    if common_reports
+      common_reports.each do |common_report|
+    %>
+    <%= javascript_include_tag common_report if Analytics::Application.assets.find_asset(common_report) %>
+    <%
+      end
+    end
     if commons
       commons.each do |common|
     %>

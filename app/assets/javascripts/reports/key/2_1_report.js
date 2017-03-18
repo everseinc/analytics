@@ -1,12 +1,10 @@
-var report = new report();
-report.setReport();
-
 function reportReload() {
 
-	console.log(report);
+	/* set default filterStore */
+	filterStore.setters.key(1);
 
-	/* set default chart */
-	chartSetter.new(report);
+	/* initialize chart */
+	chartSetter.new().initialize(initializeWith.DEFAULT);
 
 }
 

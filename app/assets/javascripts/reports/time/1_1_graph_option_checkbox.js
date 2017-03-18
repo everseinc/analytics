@@ -13,7 +13,7 @@ var graphOptionCheckbox = {
 				return element.value;
 			});
 
-			chartSetter.setEmotions(valid_names);
+			chartSetter.setValidEmotions(valid_names);
 		}.bind(this);
 
 		this.elements.forEach(function(element) {

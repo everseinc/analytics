@@ -3,4 +3,9 @@
 	<h1 class="key_graph_titile">レコード</h1>
   <canvas id="key_graph" width="1000px" height="400px"></canvas>
 
+  <% @report.emotions.each do |emotion| %>
+	<h1 class="key_graph_titile"><%= emotion[:name] %></h1>
+  <canvas class="key_graph" data-id="<%= emotion[:id] %>" width="1000px" height="400px"></canvas>
+  <% end %>
+
 </div>
