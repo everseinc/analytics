@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => 'customers#new'
+  root :to => 'tops#top'
 
 
   resources :reports, :only => [:show] do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get 'custom_points'
     end
 
-end
+  end
 
 
 
@@ -43,5 +43,7 @@ end
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+
+  
 
 end
