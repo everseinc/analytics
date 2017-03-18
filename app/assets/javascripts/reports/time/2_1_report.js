@@ -1,10 +1,11 @@
-var report = new report();
-report.setReport();
-
 function reportReload() {
 
+	/* set default filterStore */
+	var valid_names = report.emotions.names();
+	filterStore.setters.time(valid_names);
+
 	/* set default chart */
-	chartSetter.new(report);
+	chartSetter.new().initialize(initializeWith.DEFAULT);
 
   /* set default tips */
   tipsSetter.new(report.emo_tip_assets);

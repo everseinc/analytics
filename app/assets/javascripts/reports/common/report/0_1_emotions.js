@@ -15,3 +15,9 @@ Emotions.prototype.getEmotionsByName = function(names) {
 		return names.indexOf(emotion.name) >= 0;
 	});
 }
+
+Emotions.prototype.names = function() {
+	return this.emotions.map(function(emotion) {
+		return emotion.name;
+	});
+}

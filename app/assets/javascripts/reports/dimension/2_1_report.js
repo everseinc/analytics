@@ -1,12 +1,13 @@
-var report = new report();
-report.setReport();
-
 function reportReload() {
 
-	console.log(report);
+	filterStore.setters.dim_store(report.dim_stores.dim_stores.first().id);
 
-	/* set default chart */
-	chartSetter.new(report);
+	/* initialize chart */
+	chartSetter.new().initialize(initializeWith.EMOTIONS);
+
+	/* set date span change button*/
+	dateSpanChangeButton.elementReload();
+	dateSpanChangeButton.onClick();
 
 }
 

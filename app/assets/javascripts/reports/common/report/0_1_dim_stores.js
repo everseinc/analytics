@@ -4,13 +4,19 @@ function DimStores(dim_stores) {
   });
 }
 
+DimStores.prototype.findDimStore = function(dim_store_id) {
+  return this.dim_stores.filter(function(dim_store) {
+    return dim_store.id == dim_store_id
+  }).first();
+}
+
+
 function DimStore(dim_store) {
-	var self = this;
 	this.id = dim_store.id;
 	this.key = dim_store.key;
 	this.names = dim_store.names.map(function(dimension) {
-    return new Dimension(dimension, self);
-  });
+    return new Dimension(dimension, this);
+  }.bind(this));
 }
 
 DimStore.prototype.allDimensions = function() {
