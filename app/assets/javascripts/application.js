@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require Chart
 //= require_directory ./common/kalendae
 //= require_directory ./0_common
