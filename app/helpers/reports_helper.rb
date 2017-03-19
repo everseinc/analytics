@@ -12,10 +12,18 @@ module ReportsHelper
 	end
 
 	def default
-		["time", "dimension"]
+		["time", "dimension", "key"]
 	end
 
 	def setting
 		[]
+	end
+
+	def key_list_test(key)
+		html = "<label class='key-option-label'>
+			<input class='key-option-check' type='checkbox' name='任意' value='#{key}' />
+			#{key}
+		</label>"
+		html.html_safe
 	end
 end

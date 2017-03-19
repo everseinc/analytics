@@ -1,5 +1,9 @@
-var canvases = [{
-	canvas: document.getElementById("key_graph"),
-}];
+var canvases = Array.prototype.slice.call(document.getElementsByClassName("key_graph")).map(function(canvas, index) {
+	return {
+		canvas: canvas,
+		emotion_id: report.emotions.emotions[index].id
+	}
+});
+
 
 var chartSetter = new chartSetter(canvases);

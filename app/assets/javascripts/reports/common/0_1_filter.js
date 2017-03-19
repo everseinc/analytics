@@ -59,8 +59,14 @@ Filter.prototype.searchOption = function() {
  */
 Filter.prototype.get = function() {
 	if (!this.from) { throw new Error("Filter.get() : this.from must be defined"); }
-	if (this.from.name == "record" && this.from.block_id) {
+	if (this.from.name == "record" && this.base.name == "single") {
 		return this._getRecord();
+	}
+	if (this.from.name == "record" && this.base.name == "emotion") {
+		return this._getRecordByEmotion();
+	}
+	if (this.from.name == "block" && this.base.name == "emotion") {
+		return this._getBlockByEmotion();
 	}
 	if (this.from.name == "block" && this.base.name == "emotion") {
 		return this._getBlockByEmotion();
@@ -79,10 +85,35 @@ Filter.prototype.get = function() {
 
 
 /**
- * get record based by block
+ * get record of blocks
  * @return {[type]} [description]
  */
 Filter.prototype._getRecord = function() {
+	var emotion = report.emotions.getEmotionById(this.emotion.id);
+	var blocks = this.from.block_ids.map(function(block_id) {
+		return report.emo_details.findBlock(block_id);
+	});
+
+	return blocks.map(function(block) {
+		return {
+			labels: block.getValues(emotion.id).map(function(v, i) {
+	    	return i;
+		  }),
+		  datasets: block.getValues(emotion.id),
+		  label: block.key,
+		  color: block.color(),
+		  backgroundColor: block.backgroundColor()
+		}
+	});
+}
+
+
+
+/**
+ * get record based by emotion
+ * @return {[type]} [description]
+ */
+Filter.prototype._getRecordByEmotion = function() {
 	var block = report.emo_details.findBlock(this.from.block_id);
 
 	return report.emotions.emotions.map(function(emotion) {
@@ -100,6 +131,10 @@ Filter.prototype._getRecord = function() {
 
 
 
+/**
+ * get block based by emotion
+ * @return {[type]} [description]
+ */
 Filter.prototype._getBlockByEmotion = function() {
 	return report.emotions.getEmotionsByName(this.base.valid_emotions).map(function(emotion) {
 		return {

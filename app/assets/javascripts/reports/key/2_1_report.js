@@ -4,7 +4,11 @@ function reportReload() {
 	filterStore.setters.key(1);
 
 	/* initialize chart */
-	chartSetter.new().initialize(initializeWith.DEFAULT);
+	chartSetter.new().initialize(initializeWith.EMOTION);
+
+	/* set emotions checkbox */
+  keyOptionCheckbox.elementsReload();
+  keyOptionCheckbox.onChange();
 
 }
 

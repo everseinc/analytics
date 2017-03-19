@@ -1,9 +1,9 @@
 function reportReload() {
 
-	filterStore.setters.dim_store(report.dim_stores.dim_stores.first().id);
+	filterStore.setters.dimStore(report.dim_stores.dim_stores.first().id);
 
 	/* initialize chart */
-	chartSetter.new().initialize(initializeWith.EMOTIONS);
+	chartSetter.new().initialize(initializeWith.EMOTION);
 
 	/* set date span change button*/
 	dateSpanChangeButton.elementReload();

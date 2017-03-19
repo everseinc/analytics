@@ -16,6 +16,12 @@ Emotions.prototype.getEmotionsByName = function(names) {
 	});
 }
 
+Emotions.prototype.getEmotionById = function(id) {
+	return this.emotions.filter(function(emotion, index) {
+		return id == emotion.id;
+	}).first();
+}
+
 Emotions.prototype.names = function() {
 	return this.emotions.map(function(emotion) {
 		return emotion.name;

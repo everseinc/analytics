@@ -6,12 +6,13 @@ var filterStoreFrom = {
 var filterStoreBase = {
 	EMOTION: "emotion",
 	DIMSTORE: "dim_store",
+	SINGLE: "single",
 }
 
 var filterStore = {
 	from: {
 		name: filterStoreFrom.RECORD,
-		block_id: null
+		block_ids: []
 	},
 	base: {
 		name: filterStoreBase.EMOTION,
@@ -31,7 +32,8 @@ var filterStore = {
  * for setting function
  */
 filterStore.setters = {
-	base: {}
+	base: {},
+	from: {}
 };
 
 
@@ -54,8 +56,8 @@ filterStore.setters.time = function(valid_emotions) {
  */
 filterStore.setters.key = function(id) {
 	filterStore.from.name = filterStoreFrom.RECORD;
-	filterStore.from.block_id = id
-	filterStore.base.name = filterStoreBase.EMOTION;
+	filterStore.from.block_ids = [];
+	filterStore.base.name = filterStoreBase.SINGLE;
 }
 
 
@@ -64,7 +66,7 @@ filterStore.setters.key = function(id) {
  * filter setting for dimension page
  * @param  {Int} id [description]
  */
-filterStore.setters.dim_store = function(id) {
+filterStore.setters.dimStore = function(id) {
 	filterStore.from.name = filterStoreFrom.BLOCK;
 	filterStore.base.name = filterStoreBase.DIMSTORE;
 	filterStore.base.dim_store_id = id;
@@ -77,7 +79,7 @@ filterStore.setters.dim_store = function(id) {
  * @param  {Array}    valid_emotions [description]
  * @param  {Function} callback       [description]
  */
-filterStore.setters.base.valid_emotions = function(valid_emotions, callback) {
+filterStore.setters.base.validEmotions = function(valid_emotions, callback) {
 	filterStore.base.valid_emotions = valid_emotions;
 
 	callback();
@@ -94,6 +96,32 @@ filterStore.setters.base.valid_emotions = function(valid_emotions, callback) {
 filterStore.setters.span = function(start, end, callback) {
 	filterStore.span.start = start;
 	filterStore.span.end = end;
+
+	callback();
+}
+
+
+
+/**
+ * append id to from.block_ids
+ * @param  {Int} id [description]
+ */
+filterStore.setters.from.appendBlockId = function(id, callback) {
+	filterStore.from.block_ids.push(id);
+
+	callback();
+}
+
+
+
+/**
+ * remove id from from.block_ids
+ * @param  {Int} id [description]
+ */
+filterStore.setters.from.removeBlockId = function(id, callback) {
+	filterStore.from.block_ids.some(function(block_id, i){
+	    if (block_id == id) filterStore.from.block_ids.splice(i, 1);    
+	});
 
 	callback();
 }
