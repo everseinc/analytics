@@ -86,9 +86,9 @@ chartData.prototype.getData = function() {
  * create labels from _labels
  */
 chartData.prototype.createLabels = function() {
-	this.labels = this._labels.reduce(function(x, y) {
-    return (x.length > y.length) ? x : y;
-  });
+	this.labels = (this._labels.length == 0) ? [] : this._labels.reduce(function(x, y) {
+	    return (x.length > y.length) ? x : y;
+	  });
 }
 
 

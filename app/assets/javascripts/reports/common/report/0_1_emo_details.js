@@ -119,7 +119,13 @@ EmoDetails.prototype.getBlocksDate = function(options = {}) {
 
 EmoDetails.prototype.findBlock = function(block_id) {
   return this.blocks.filter(function(block) {
-    return block.id == block_id
+    return block.id == block_id;
+  }).first();
+}
+
+EmoDetails.prototype.findBlockByKey = function(key) {
+  return this.blocks.filter(function(block) {
+    return block.key == key;
   }).first();
 }
 
@@ -162,6 +168,14 @@ EmoBlock.prototype.dataTypedByRecord = function(option) {
     return record.value;
   });
   
+}
+
+EmoBlock.prototype.color = function() {
+  return Color().setColor("priority", this.id % 7).color.toCSSValueRGBA();
+}
+
+EmoBlock.prototype.backgroundColor = function() {
+  return Color().setColor("priority", this.id % 7).lighten(0x88).color.toCSSValueRGBA();
 }
 
 

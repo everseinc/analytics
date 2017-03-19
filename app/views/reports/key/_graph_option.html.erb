@@ -6,7 +6,7 @@ blocks = @report.emo_details.group_by do |emo_block|
 end
 
 keys = blocks.map do |key, blocks|
-	list_val = "#{key} (#{blocks.count})"
+	list_val = key_list_test key
 	[list_val]
 end
 

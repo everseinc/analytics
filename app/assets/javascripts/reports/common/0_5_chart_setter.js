@@ -1,6 +1,6 @@
 var initializeWith = {
 	DEFAULT: "default",
-	EMOTIONS: "emotions",
+	EMOTION: "emotion",
 }
 
 
@@ -59,7 +59,7 @@ chartSetter.prototype.initialize = function(_with) {
 		this.renderers(function(renderer) {
 			renderer.setData();
 		});
-	} else if (_with == initializeWith.EMOTIONS) {
+	} else if (_with == initializeWith.EMOTION) {
 		this.renderers(function(renderer, i) {
 			renderer.setEmotion(canvases[i].emotion_id).setData();
 		});
@@ -93,12 +93,43 @@ chartSetter.prototype.setSpan = function(start, end) {
  * @param {Array} valid_emotions [description]
  */
 chartSetter.prototype.setValidEmotions = function(valid_emotions) {
-	filterStore.setters.base.valid_emotions(valid_emotions, function() {
+	filterStore.setters.base.validEmotions(valid_emotions, function() {
 		this.renderers(function(renderer) {
 			renderer.setData();
 		});
 		this.reload();
 	}.bind(this));		
 }
+
+
+
+/**
+ * append block_ids
+ * @param  {Int} id [description]
+ */
+chartSetter.prototype.appendBlockId = function(id) {
+	filterStore.setters.from.appendBlockId(id, function() {
+		this.renderers(function(renderer) {
+			renderer.setData();
+		});
+		this.reload();
+	}.bind(this));
+}
+
+
+
+/**
+ * remove block_ids
+ * @param  {Int} id [description]
+ */
+chartSetter.prototype.removeBlockId = function(id) {
+	filterStore.setters.from.removeBlockId(id, function() {
+		this.renderers(function(renderer) {
+			renderer.setData();
+		});
+		this.reload();
+	}.bind(this));
+}
+
 
 
