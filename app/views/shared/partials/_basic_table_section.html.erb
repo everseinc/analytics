@@ -2,7 +2,7 @@
 	<h1 class='section-title'><%= table_section[:title] %></h1>
 	<% if table_section.has_key?(:edit) %>
 		<% if @project.present?
-				if AuthManager.authenticate_by_write_project_customer_id(@project.id)
+				if AuthManager.authenticate_by_write_app_customer_id(@project.apps[0].id)
 		%>
 			<%= link_to table_section[:edit] do %>
 				<button class="icon-button section-icon" id="section-icon">
