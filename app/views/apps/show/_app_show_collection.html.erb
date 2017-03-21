@@ -1,9 +1,11 @@
 <section>
 	<h1 class='section-title'><%= @app.app_name %></h1>
-	<%= link_to edit_app_path(@app) do %>
-		<button class="icon-button section-icon" id="section-icon">
-	    <i class="material-icons">settings</i>
-	  </button>
+	<% if AuthManager.authenticate_by_write_app_customer_id(@app.id) %>
+		<%= link_to edit_app_path(@app) do %>
+			<button class="icon-button section-icon" id="section-icon">
+	    	<i class="material-icons">settings</i>
+	  	</button>
+		<% end %>
 	<% end %>
 	<div class='app-index-wrapper'>
 	  <h2 class="app-index-name">Info</h2>
@@ -20,7 +22,7 @@
 	</div>
 	<div class='app-index-wrapper'>
 	  <h2 class="app-index-name">プロジェクト</h2>
-		<%= 
+		<%=
 		projects = @app.projects.flat_map do |project|
 			{
 				cell_title: project.project_name,

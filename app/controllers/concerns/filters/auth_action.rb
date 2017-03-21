@@ -21,6 +21,10 @@ module Concerns::Filters::AuthAction
 			},
 			'index' => {
 				'custom_points' => {'key' => 'app_id', 'param' => 'app_id'}
+			},
+			'edit' => {
+				'projects' => {'key' => 'write_project_customer_id', 'param' => 'id'},
+				'apps' => {'key' => 'write_app_customer_id', 'param' => 'id'}
 			}
 
 		}.freeze
