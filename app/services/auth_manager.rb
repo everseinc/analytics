@@ -18,6 +18,29 @@ class AuthManager
 			end
 		end
 
+		def authenticate_by_write_app_customer_id(id)
+			apps_customer = AppsCustomer.find_by(app_id: id, customer_id: session[:customer_id])
+			return false if apps_customer.nil?
+			if apps_customer.authority.name == "Admin" || apps_customer.authority.name == "Write"
+				return true
+			else
+				return false
+			end
+		end
+
+		def authenticate_by_write_project_customer_id(id)
+		  apps_project = AppsProject.find_by(project_id: id)
+			apps_customer = AppsCustomer.find_by(app_id: apps_project.app_id, customer_id: session[:customer_id])
+			return false if apps_customer.nil?
+			if apps_customer.authority.name == "Admin" || apps_customer.authority.name== "Write"
+				return true
+			else
+				return false
+			end
+		end
+
+
+
 		def authenticate_by_app_id(id)
 			apps_customer = AppsCustomer.find_by(app_id: id, customer_id: session[:customer_id])
 			if apps_customer

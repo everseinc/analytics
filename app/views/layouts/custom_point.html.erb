@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Analytics</title>
+    <meta charset="UTF-8">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+  </head>
+
+  <body>
+    <%= render partial: "shared/header" %>
+    <div class="wrapper">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+
+      <div id="report_container">
+
+        <div id="report_sub" class="layer-side">
+          <%= render partial: "configs/custom_points/sub_nav/custom_point_sub_nav" %>
+        </div>
+
+        <div id="report_main" class="layer-lg-card">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render partial: "shared/footer" %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%
+    commons = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/common/*"]
+    scripts = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/#{params[:action]}/*"]
+    %>
+    <%
+    if commons
+      commons.each do |common|
+    %>
+    <%= javascript_include_tag common if Analytics::Application.assets.find_asset(common) %>
+    <%
+      end
+    end
+    if scripts
+      scripts.each do |script|
+    %>
+    <%= javascript_include_tag script if Analytics::Application.assets.find_asset(script) %>
+    <%
+      end
+    end
+    %>
+  </body>
+</html>

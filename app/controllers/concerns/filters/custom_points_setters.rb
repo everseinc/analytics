@@ -15,6 +15,7 @@ module Concerns::Filters::CustomPointsSetters
 
 		before_action :set_custom_point_form, only: :index
 		before_action :set_custom_point_forms, only: :index
+		before_action :set_app, only: :index
 
     ###
     ## filter method
@@ -27,6 +28,10 @@ module Concerns::Filters::CustomPointsSetters
 
 		def set_custom_point_forms
 			@custom_points_forms = CustomPointsForm.find_by(config_id: params[:config_id])
+		end
+
+		def set_app
+			@app = App.find_by(id: params[:app_id])
 		end
 
 
