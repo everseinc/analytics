@@ -1,4 +1,4 @@
-<section>
+<section class="pt-section">
 	<h1 class='section-title'><%= @app.app_name %></h1>
 	<% if AuthManager.authenticate_by_write_app_customer_id(@app.id) %>
 		<%= link_to edit_app_path(@app) do %>
@@ -8,7 +8,7 @@
 		<% end %>
 	<% end %>
 	<div class='app-index-wrapper'>
-	  <h2 class="app-index-name">Info</h2>
+	  <h2 class="md-title">Info</h2>
 	  <%=
 	  table = {
 	  	value: [
@@ -21,7 +21,7 @@
 	  %>
 	</div>
 	<div class='app-index-wrapper'>
-	  <h2 class="app-index-name">プロジェクト</h2>
+	  <h2 class="md-title">プロジェクト</h2>
 		<%=
 		projects = @app.projects.flat_map do |project|
 			{

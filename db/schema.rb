@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314050028) do
+ActiveRecord::Schema.define(version: 20170323083722) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_name",   null: false
@@ -177,9 +177,10 @@ ActiveRecord::Schema.define(version: 20170314050028) do
   end
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "project_name", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "project_name",                       null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "upid",         default: "undefined", null: false
   end
 
   add_foreign_key "apps_customers", "apps", name: "apps_customers_ibfk_2", on_delete: :cascade
