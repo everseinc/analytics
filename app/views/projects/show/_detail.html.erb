@@ -1,5 +1,6 @@
 <%=
 
+
 	new_somethings = {
 		title: @project.project_name,
 		edit: edit_project_path(@project),
@@ -8,7 +9,9 @@
 		]
 	}
 
-render partial: "shared/partials/basic_table_section", locals: { table_section: new_somethings }
+	new_somethings.delete(:edit) if !AuthManager.authenticate_by_write_app_customer_id(@project.apps[0].id)
+
+	render partial: "shared/partials/basic_table_section", locals: { table_section: new_somethings }
 
 
 %>
