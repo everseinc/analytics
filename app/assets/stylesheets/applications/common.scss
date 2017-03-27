@@ -24,7 +24,11 @@ body {
     width: 100%;
 
 
-    section {
+    section.section {
+      margin: auto;
+    }
+
+    section.pt-section {
       margin: auto;
       padding-top: 80px;
     }

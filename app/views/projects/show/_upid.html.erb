@@ -1,0 +1,17 @@
+<section class="section">
+	<div>
+	  <h2 class="md-title">UPID</h2>
+	  <%=
+	  table = {
+	  	value: [
+	  		['UPID', @project.upid]
+	  	]
+	  }
+	  render partial: "shared/partials/basic_table", locals: { table: table }
+	  %>
+	  <div class="white-block">
+	  	<div class="project-upid-discription">このプロジェクトのUPID</div>
+	  	<div class="project-upid"><%= @project.upid %></div>
+	  </div>
+	</div>
+</section>

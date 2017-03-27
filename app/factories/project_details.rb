@@ -8,7 +8,8 @@ class ProjectDetails < ApplicationDetails
   class << self
 
     def save(new_project)
-    	project = Project.new(project_name: new_project[:project_name])
+      upid = generate_upid(new_project[:project_name])
+    	project = Project.new(project_name: new_project[:project_name], upid: upid)
     	app = App.find(new_project[:app_id])
       if project.valid? && app.valid?
         ActiveRecord::Base.transaction do
@@ -22,6 +23,9 @@ class ProjectDetails < ApplicationDetails
 
       project
     end
-  end
 
+    def generate_upid(project_name)
+      "#{NameManager.initial_upper(project_name)}-#{SecureRandom.random_number(1 << 64)}"
+    end
+  end
 end
