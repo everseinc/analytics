@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root :to => 'tops#top'
 
-
   resources :reports, :only => [:show] do
     member do
       get 'time'
@@ -12,8 +11,6 @@ Rails.application.routes.draw do
     end
 
   end
-
-
 
   resources :customers, :only => [:new, :create, :edit, :update, :show] do
   	member do
@@ -38,12 +35,19 @@ Rails.application.routes.draw do
 
   resources :projects, :only => [:new, :create, :index, :edit, :update, :show]
 
-
   # login logout
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  
 
+
+  # API用
+  namespace :api, {format: 'json'} do
+    namespace :v1 do
+      namespace :emos do
+        match :/, :action => "push", via: [:get, :post]
+      end
+    end
+  end
 end
