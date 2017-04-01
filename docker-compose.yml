@@ -13,7 +13,7 @@ services:
       - "80:80"
     stdin_open: true
     environment:
-      MYSQL_ROOT_PASSWORD: everse20161030
-      MYSQL_HOST: prod-everse-analytics-db.cjymecd8uu6f.ap-northeast-1.rds.amazonaws.com
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_HOST
     depends_on:
       - db
