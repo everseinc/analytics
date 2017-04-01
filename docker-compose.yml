@@ -15,5 +15,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD
       - MYSQL_HOST
+      - RAILS_ENV
     depends_on:
       - db
