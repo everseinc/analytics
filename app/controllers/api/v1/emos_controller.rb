@@ -1,4 +1,4 @@
-class Api::V1::EmosController < ApplicationController
+class Api::V1::EmosController < ApiController
 
 	include Concerns::Gateways::Api::V1::EmosGateways
 

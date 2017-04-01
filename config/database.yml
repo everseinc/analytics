@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: analytics_production
-  username: root
-  password: test
+  username: everse
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>

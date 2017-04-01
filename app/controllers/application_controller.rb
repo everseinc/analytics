@@ -38,16 +38,19 @@ class ApplicationController < ActionController::Base
   	return false
   end
 
+
   ## ** Not Recommended **
   ## You can use session in Model and Other Classes on the same thread
   def set_request_filter
 	  Thread.current[:request] = request
 	end
 
+
   ## delete MissionFlow Singleton at the end of one request
   def delete_mission_flow
     MissionFlow.clear
   end
+
 
   ## Usage
   ## 
