@@ -5,7 +5,7 @@ function Color(color) {
 	this.color = color;
 }
 
-Color.prototype.setColor = function(type = "normal", index = null) {
+Color.prototype.setColor = function(type, index) {
 	if (type == "normal" && !index) { throw new Error("id must be setted"); }
 
 	if (type == "random") {
