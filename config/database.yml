@@ -13,9 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: test
-  host: db
+  url: <%= ENV['DEV_DATABASE_URL'] %>
 
 development:
   <<: *default
@@ -50,6 +48,4 @@ test:
 production:
   <<: *default
   database: analytics_production
-  username: everse
-  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
-  host: <%= ENV['MYSQL_HOST'] %>
+  url: <%= ENV['PROD_DATABASE_URL'] %>

@@ -1,19 +1,34 @@
-version: '2'
-services:
-  db:
-    image: everse/analytics-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: test
-  web:
-    build: .
-    command: bundle exec rails s -p 80 -b 0.0.0.0
-    volumes:
-      - .:/analytics
-    ports:
-      - "80:80"
-    stdin_open: true
-    environment:
-      - MYSQL_ROOT_PASSWORD
-      - MYSQL_HOST
-    depends_on:
-      - db
+db:
+  image: everse/analytics-mysql
+  container_name: 'db'
+  environment:
+    MYSQL_ROOT_PASSWORD: 'test'
+
+nginx:
+  build: containers/nginx
+  container_name: 'nginx'
+  ports:
+    - '80:80'
+  volumes_from:
+    - datastore
+  links:
+    - web
+
+datastore:
+  build: containers/datastore
+  container_name: 'datastore'
+
+web:
+  build: .
+  container_name: 'web'
+  ports:
+    - '3000:3000'
+  environment:
+    RAILS_ENV:
+    DEV_DATABASE_URL: mysql2://root:test@db:3306
+    PROD_DATABASE_URL:
+    SECRET_KEY_BASE: hogehoge
+  volumes_from:
+    - datastore
+  links:
+    - db
