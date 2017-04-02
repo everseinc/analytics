@@ -1,0 +1,25 @@
+nginx:
+  build: containers/nginx
+  container_name: 'nginx'
+  ports:
+    - '80:80'
+  volumes_from:
+    - datastore
+  links:
+    - web
+
+datastore:
+  build: containers/datastore
+  container_name: 'datastore'
+
+web:
+  build: .
+  container_name: 'web'
+  ports:
+    - '3000:3000'
+  environment:
+    RAILS_ENV: production
+    DATABASE_URL:
+    SECRET_KEY_BASE: hogehoge
+  volumes_from:
+    - datastore

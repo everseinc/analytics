@@ -6,14 +6,8 @@
 ## set env
 #
 
-echo "export RAILS_ENV=development" >> ~/.bashrc
-
-# if you want to set up on production, you should set under commands
-# 
-# echo "export RAILS_ENV=production" >> ~/.bashrc
-# echo "export PROD_DATABASE_URL=mysql2://everse:{{password}}@db:3306" >> ~/.bashrc
-
-
+echo 'export COMPOSE_FILE="docker-compose.development.yml"' >> ~/.bashrc
+echo 'Defaults    env_keep += "COMPOSE_FILE"' | sudo tee --append /etc/sudoers > /dev/null
 
 ###
 ## reset
