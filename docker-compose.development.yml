@@ -24,9 +24,8 @@ web:
   ports:
     - '3000:3000'
   environment:
-    RAILS_ENV:
-    DEV_DATABASE_URL: mysql2://root:test@db:3306
-    PROD_DATABASE_URL:
+    RAILS_ENV: development
+    DATABASE_URL: mysql2://root:test@db:3306
     SECRET_KEY_BASE: hogehoge
   volumes_from:
     - datastore
