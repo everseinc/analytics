@@ -10,8 +10,8 @@ RUN bundle install
 
 COPY . /usr/src/app
 
-RUN bundle exec rake tmp:create
-RUN bundle exec rake assets:precompile
+RUN bundle exec rake tmp:create RAILS_ENV=production
+RUN bundle exec rake assets:precompilen RAILS_ENV=production
 
 EXPOSE 3000
 CMD ["unicorn", "-c", "config/unicorn.rb"]
