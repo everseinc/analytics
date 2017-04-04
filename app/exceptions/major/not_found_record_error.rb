@@ -2,7 +2,7 @@
 ## if some models fail to delete records, this error will be thrown
 ##
 
-class MajorError::NotFoundRecordError < CustomError
+class Major::NotFoundRecordError < Major::BaseError
 
 	###
 	## public methods
