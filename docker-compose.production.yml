@@ -6,6 +6,8 @@ nginx:
     - '80:80'
   volumes_from:
     - datastore
+  volumes:
+    - ./public:/usr/src/app/public
   links:
     - web
 
