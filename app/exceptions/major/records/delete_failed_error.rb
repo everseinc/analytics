@@ -2,7 +2,7 @@
 ## if some models fail to delete records, this error will be thrown
 ##
 
-class MajorError::Validatoins::DeleteFailedError < CustomError
+class Major::Records::DeleteFailedError < Major::BaseError
 	
 	###
 	## public methods
