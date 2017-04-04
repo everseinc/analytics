@@ -1,5 +1,6 @@
 nginx:
   build: containers/nginx
+  dockerfile: Dockerfile.production
   container_name: 'nginx'
   ports:
     - '80:80'

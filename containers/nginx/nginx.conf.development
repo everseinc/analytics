@@ -54,15 +54,5 @@ http {
       proxy_redirect off;
       proxy_pass http://app_server;
     }
-
-    location ~ ^/assets/(.*) {
-        alias ${my_app}/public/assets/$1;
-    }
-
-    # Rails error pages
-    # error_page 500 502 503 504 /500.html;
-    # location = /500.html {
-    #   root /usr/src/app/public;
-    # }
   }
 }

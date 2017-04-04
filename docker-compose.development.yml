@@ -6,6 +6,7 @@ db:
 
 nginx:
   build: containers/nginx
+  dockerfile: Dockerfile.development
   container_name: 'nginx'
   ports:
     - '80:80'
@@ -30,5 +31,7 @@ web:
     SECRET_KEY_BASE: hogehoge
   volumes_from:
     - datastore
+  volumes:
+    - ./:/usr/src/app
   links:
     - db
