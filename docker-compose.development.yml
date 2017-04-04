@@ -31,7 +31,5 @@ web:
     SECRET_KEY_BASE: hogehoge
   volumes_from:
     - datastore
-  volumes:
-    - ./:/usr/src/app
   links:
     - db
