@@ -14,12 +14,13 @@ datastore:
 
 web:
   build: .
+  dockerfile: Dockerfile.production
   container_name: 'web'
   ports:
     - '3000:3000'
   environment:
-    - DATABASE_URL
     - RAILS_ENV=production
-    - SECRET_KEY_BASE=hogehoge
+    - DATABASE_URL
+    - SECRET_KEY_BASE
   volumes_from:
     - datastore

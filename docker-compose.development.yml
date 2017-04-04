@@ -20,6 +20,7 @@ datastore:
 
 web:
   build: .
+  dockerfile: Dockerfile.development
   container_name: 'web'
   ports:
     - '3000:3000'
