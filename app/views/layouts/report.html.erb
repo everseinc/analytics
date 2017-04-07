@@ -32,32 +32,10 @@
     </div>
     <%= render partial: "shared/footer" %>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <%
-    common_reports = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/common/report/*"]
-    commons = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/common/*"]
-    scripts = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/#{params[:action]}/*"]
-    if common_reports
-      common_reports.each do |common_report|
-    %>
-    <%= javascript_include_tag common_report if Analytics::Application.assets.find_asset(common_report) %>
-    <%
-      end
-    end
-    if commons
-      commons.each do |common|
-    %>
-    <%= javascript_include_tag common if Analytics::Application.assets.find_asset(common) %>
-    <%
-      end
-    end
-    if scripts
-      scripts.each do |script|
-    %>
-    <%= javascript_include_tag script if Analytics::Application.assets.find_asset(script) %>
-    <%
-      end
+    <%= javascript_include_tag 'reports', 'data-turbolinks-track': 'reload' %>
+    <%=
+    if File.exist?("#{Rails.root}/app/assets/javascripts/reports/#{params[:action]}.js")
+      javascript_include_tag "reports/#{params[:action]}", 'data-turbolinks-track': 'reload'
     end
     %>
   </body>
