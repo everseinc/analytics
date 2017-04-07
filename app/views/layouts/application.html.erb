@@ -20,23 +20,9 @@
     <%= render partial: "shared/footer" %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <%
-    commons = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/common/*"]
-    scripts = Dir["#{Rails.root}/app/assets/javascripts/#{params[:controller]}/#{params[:action]}/*"]
-    if commons
-      commons.each do |common|
-    %>
-    <%= javascript_include_tag common, 'data-turbolinks-track': 'reload' if Analytics::Application.assets.find_asset(common) %>
-    <%
-      end
-    end
-    if scripts
-      scripts.each do |script|
-    %>
-    <%= javascript_include_tag script, 'data-turbolinks-track': 'reload' if Analytics::Application.assets.find_asset(script) %>
-    <%
-      end
+    <%=
+    if File.exist?("#{Rails.root}/app/assets/javascripts/#{params[:controller]}.js")
+      javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload'
     end
     %>
   </body>

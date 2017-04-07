@@ -8,13 +8,13 @@
 require "csv"
 
 
-EmoTip.create(name: "平均値")
-EmoTip.create(name: "最大値")
-EmoTip.create(name: "最小値")
+# EmoTip.create(name: "平均値")
+# EmoTip.create(name: "最大値")
+# EmoTip.create(name: "最小値")
 
-Authority.create(name: 'Admin')
-Authority.create(name: 'Write')
-Authority.create(name: 'Read')
+# Authority.create(name: 'Admin')
+# Authority.create(name: 'Write')
+# Authority.create(name: 'Read')
 
 
 # CSV.foreach('db/csv/emotions.csv') do |row|

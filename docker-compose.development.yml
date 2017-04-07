@@ -3,33 +3,19 @@ db:
   container_name: 'db'
   environment:
     MYSQL_ROOT_PASSWORD: 'test'
-
-nginx:
-  build: containers/nginx
-  dockerfile: Dockerfile.development
-  container_name: 'nginx'
-  ports:
-    - '80:80'
-  volumes_from:
-    - datastore
-  links:
-    - web
-
-datastore:
-  build: containers/datastore
-  container_name: 'datastore'
-
+    
 web:
   build: .
   dockerfile: Dockerfile.development
   container_name: 'web'
+  command: bundle exec rails s -p 3000 -b '0.0.0.0'
   ports:
     - '3000:3000'
   environment:
     RAILS_ENV: development
     DATABASE_URL: mysql2://root:test@db:3306
     SECRET_KEY_BASE: hogehoge
-  volumes_from:
-    - datastore
+  volumes:
+      - .:/analytics
   links:
     - db

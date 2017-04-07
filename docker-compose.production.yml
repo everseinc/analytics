@@ -27,3 +27,4 @@ web:
     - SECRET_KEY_BASE
   volumes_from:
     - datastore
+  
