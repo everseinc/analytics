@@ -27,4 +27,5 @@ web:
     - SECRET_KEY_BASE
   volumes_from:
     - datastore
-  
+  volumes:
+    - ./public:/usr/src/app/public
