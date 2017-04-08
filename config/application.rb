@@ -19,12 +19,14 @@ module Analytics
   	###
   	## auto load settings
   	#
+    
+    # enable autoload 
+    # Autoload is disabled in Rails5 production 
+    config.enable_dependency_loading = true
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   	config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
   	config.autoload_paths += %W(#{config.root}/app/exceptions/)
-
-    config.assets.precompile += %w( *.js reports/*.js *application.css)
   end
 end
