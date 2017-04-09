@@ -35,5 +35,9 @@ class Project < ApplicationRecord
       project_ids = AppsProject.where(app_id: app_id).pluck(:project_id)
       projects =Project.where(id: project_ids).limit(limit)
     end
+
+    def get_id_from_ipid(upid)
+      self.find_by!(upid: upid).id
+    end
   end
 end

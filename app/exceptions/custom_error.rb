@@ -15,8 +15,8 @@ class CustomError < StandardError
 	## initializer
 	#
 
-  def initialize(code, message)
-    @code = code
+  def initialize(code = nil, message)
+    @code = code ? code : 00000
     super("[#{code}] - #{message}")
   end
 
