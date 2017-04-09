@@ -11,6 +11,7 @@ class Api::V1::EmosController < ApiController
   #
 
 
+  # /api/v1/emos/push
   def push
   	res = postConnectTo(klass: self, func: "push_gateway", args: push_params)
 
