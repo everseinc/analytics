@@ -16,6 +16,7 @@ module Concerns::Gateways::Api::V1::EmosGateways
   #
 
   def push_gateway(params)
+    params = EmoSaver.save(params)
     {
       "result": "success",
       "message": "save data !!",
