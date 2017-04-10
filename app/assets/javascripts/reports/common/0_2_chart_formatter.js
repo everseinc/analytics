@@ -16,6 +16,8 @@ function chartFormatter() {
 		lineTension: 0,
     fill: false,
     borderWidth: 1,
+		pointRadius: 0,
+		pointHoverRadius: 3,
 	}];
 	this.datasets = [];
 }
@@ -44,6 +46,8 @@ chartFormatter.prototype.appendDatasets = function(dataset) {
 	_dataset.lineTension = 0;
   _dataset.fill = false;
   _dataset.borderWidth = 1;
+  _dataset.pointRadius = 0;
+	_dataset.pointHoverRadius = 3;
 
 	this.datasets.push(_dataset);
 	return this;

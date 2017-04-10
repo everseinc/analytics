@@ -25,7 +25,8 @@ function chartRenderer(canvas) {
       labels: {
         boxWidth: 40
       }
-    }
+    },
+    animation: false
   };
 }
 
