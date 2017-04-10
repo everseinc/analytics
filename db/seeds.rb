@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "csv"
 
+# Emotion.create(name: "好感度")
+# Emotion.create(name: "嫌悪感")
+# Emotion.create(name: "興奮度")
+# Emotion.create(name: "冷静度")
+# Emotion.create(name: "集中度")
+
 
 # EmoTip.create(name: "平均値")
 # EmoTip.create(name: "最大値")

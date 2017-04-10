@@ -29,3 +29,4 @@ web:
     - datastore
   volumes:
     - ./public:/usr/src/app/public
+  command: sh /usr/src/app/start.sh
