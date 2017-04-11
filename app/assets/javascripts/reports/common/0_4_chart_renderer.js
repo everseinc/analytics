@@ -17,6 +17,17 @@ function chartRenderer(canvas) {
         ticks: {
           max: 100,
           beginAtZero: true
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, 0.05)",
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          callback: function(value) {return ((value % 10) == 0)? value : ''},
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, 0)",
         }
       }]
     },
@@ -26,7 +37,8 @@ function chartRenderer(canvas) {
         boxWidth: 40
       }
     },
-    animation: false
+    animation: false,
+    multiTooltipTemplate: "hihihi",
   };
 }
 
