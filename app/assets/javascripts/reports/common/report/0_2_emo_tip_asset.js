@@ -22,11 +22,11 @@ EmoTipAsset.prototype.setScore = function(){
   return this.tips.map(function(tip){
     switch (tip.name){
       case "平均値":
-        return emo_details.getAve(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at);
+        return Math.round(emo_details.getAve(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at) * 10) / 10;
       case "最大値":
-        return emo_details.getMax(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at);
+        return Math.round(emo_details.getMax(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at) * 10) / 10;
       case "最小値":
-        return emo_details.getMin(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at);
+        return Math.round(emo_details.getMin(emo_id = that.emo_id, dim_ids = that.dim_ids, started_at = that.started_at, ended_at = that.ended_at) * 10) / 10;
     }
   });
 
