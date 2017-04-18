@@ -20,6 +20,11 @@
     .base-color {
       color: $title;
     }
+
+    .filer.selected .filer-container {
+      background-color: $material_blue_grey_400;
+      color: $white;
+    }
   }
 
   & footer {

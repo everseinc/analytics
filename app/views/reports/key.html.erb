@@ -1,2 +1,9 @@
-<%= render partial: "reports/key/header" %>
-<%= render partial: "reports/key/view" %>
+<div id="report_main">
+	<%= render partial: "reports/key/view_option" %>
+	<div class="key_report_arrow">
+		<i class="material-icons key_report_arrow_icon">arrow_downward</i>
+	</div>
+	<div class="report_main_contents key_report_main layer-lg-card">
+		<%= render partial: "reports/key/view" %>
+	</div>
+</div>

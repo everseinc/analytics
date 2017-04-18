@@ -3,12 +3,20 @@
   height: auto;
   min-height: 620px;
   margin: 12px;
+}
+
+.report_main_contents {
+  margin: 12px 0;
   padding: 12px;
   background-color: $white;
 
   .graph_title {
-	  margin: 72px 0 12px 12px;
-		padding: 12px 0 8px 16px;
-		font-size: 20px;
+    margin: 0 0 12px 12px;
+    padding: 12px 0 8px 16px;
+    font-size: 20px;
   }
+}
+
+.graph_container {
+  padding: 32px 0 24px;
 }
