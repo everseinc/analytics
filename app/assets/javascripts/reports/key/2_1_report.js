@@ -6,9 +6,8 @@ function reportReload() {
 	/* initialize chart */
 	chartSetter.new().initialize(initializeWith.EMOTION);
 
-	/* set emotions checkbox */
-  keyOptionCheckbox.elementsReload();
-  keyOptionCheckbox.onChange();
+  /* set emotions filer */
+  keyOptionFiler.onClick();
 
 }
 

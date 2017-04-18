@@ -1,6 +1,6 @@
-<div style="margin-top: 56px;">
-<h1>blockに設定されたkey</h1>
-<%=
+<div class="key-select-container">
+<!-- <h1 class="graph_title">blockに設定されたkey</h1> -->
+<%
 blocks = @report.emo_details.group_by do |emo_block|
 	emo_block.key
 end
@@ -9,11 +9,22 @@ keys = blocks.map do |key, blocks|
 	list_val = key_list_test key
 	[list_val]
 end
-
-key_list = {
-	value: keys
-}
-
-render partial: "shared/partials/basic_table", locals: { table: key_list }
 %>
+
+	<div class="filer-wrapper">
+		<% blocks.map do |key, blocks| %>
+			<div class="filer key-option-filer" data-label="<%= key %>">
+				<div class="filer-container layer-cell">
+					<div class="filer-icon-area">
+						<i class="material-icons">timeline</i>
+					</div>
+					<div class="filer-name-area">
+						<div class="filer-name-container">
+							<span class="filer-name"><%= key %></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
 </div>

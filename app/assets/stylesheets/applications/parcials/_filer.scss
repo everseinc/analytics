@@ -1,0 +1,56 @@
+.filer-wrapper {
+
+	.filer {
+	  margin-top: 16px;
+	  margin-right: 20px;
+	  width: calc(25% - 20px);
+	  display: inline-block;
+
+	  .filer-container {
+	    -webkit-align-items: center;
+	    align-items: center;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	  	height: 48px;
+	  	width: 100%;
+	  	background-color: #fff;
+	  	border-radius: 2px;
+	  	cursor: default;
+
+	  	.filer-icon-area {
+		  	-webkit-flex: 0 0 auto;
+		    flex: 0 0 auto;
+		    background: transparent;
+		    -webkit-border-radius: 0;
+		    border-radius: 0;
+		    padding: 0 16px 0 16px;
+		    position: relative;
+		    float: left;
+	  	}
+
+	  	.filer-name-area {
+	  		-webkit-align-items: center;
+		    align-items: center;
+		    display: -ms-flexbox;
+		    display: -webkit-flex;
+		    display: flex;
+		    -webkit-flex: 1 1 auto;
+		    flex: 1 1 auto;
+		    height: 100%;
+
+		    .filer-name-container {
+		    	-webkit-flex: 1 1 auto;
+			    flex: 1 1 auto;
+			    padding-right: 12px;
+			    text-overflow: ellipsis;
+
+		    	.filer-name {
+				    padding-right: 12px;
+		    	}
+		    }
+	  	}
+	  }
+	}
+}

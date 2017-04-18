@@ -4,8 +4,10 @@
   <canvas id="key_graph" width="1000px" height="400px"></canvas> -->
 
   <% @report.emotions.each do |emotion| %>
-	<h1 class="graph_title"><%= emotion[:name] %></h1>
-  <canvas class="key_graph" data-id="<%= emotion[:id] %>" width="1000px" height="400px"></canvas>
+  <div class="graph_container">
+		<h1 class="graph_title"><%= emotion[:name] %></h1>
+	  <canvas class="key_graph" data-id="<%= emotion[:id] %>" width="1000px" height="400px"></canvas>
+	</div>
   <% end %>
 
 </div>
