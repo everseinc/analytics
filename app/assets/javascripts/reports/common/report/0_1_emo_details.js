@@ -167,7 +167,16 @@ EmoBlock.prototype.dataTypedByRecord = function(option) {
   var records = filtered.map(function(record) {
     return record.value;
   });
-  
+}
+
+EmoBlock.prototype.getDimensions = function() {
+  return Dimension().getDimensionsFromIds(this.dimension_ids);
+}
+
+EmoBlock.prototype.getDimensionsName = function() {
+  return this.getDimensions().map(function(dimension) {
+    return dimension.name;
+  });
 }
 
 EmoBlock.prototype.color = function() {

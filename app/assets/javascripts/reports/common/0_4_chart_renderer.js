@@ -31,7 +31,7 @@ function chartRenderer(canvas) {
         }
       }]
     },
-    responsive: false,
+    responsive: true,
     legend: {
       labels: {
         boxWidth: 40
