@@ -27,11 +27,16 @@ var BlockInfo = {
 	},
 
 	templete: function(block) {
+		var dimensions = block.getDimensionsName().reduce(function(pre, now) {
+			return pre + '<div class="sm-tag">' + now + '</div>';
+		}, '');
+
 		return '\
 			<td>' + block.key + '</td>\
 			<td>' + block.started_at.default() + '</td>\
 			<td>' + block.ended_at.default() + '</td>\
 			<td>' + block.records.length + '</td>\
+			<td>' + dimensions + '</td>\
 			<td><div style="background-color: ' + block.color() + '; width: 12px; height: 12px;"></div></td>\
 		';
 	},
