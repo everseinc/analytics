@@ -5,22 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require "csv"
+# require "csv"
 
-# Emotion.create(name: "好感度")
-# Emotion.create(name: "嫌悪感")
-# Emotion.create(name: "興奮度")
-# Emotion.create(name: "冷静度")
-# Emotion.create(name: "集中度")
+Emotion.create(name: "好感度")
+Emotion.create(name: "嫌悪感")
+Emotion.create(name: "興奮度")
+Emotion.create(name: "冷静度")
+Emotion.create(name: "集中度")
 
 
-# EmoTip.create(name: "平均値")
-# EmoTip.create(name: "最大値")
-# EmoTip.create(name: "最小値")
+EmoTip.create(name: "平均値")
+EmoTip.create(name: "最大値")
+EmoTip.create(name: "最小値")
 
-# Authority.create(name: 'Admin')
-# Authority.create(name: 'Write')
-# Authority.create(name: 'Read')
+Authority.create(name: 'Admin')
+Authority.create(name: 'Write')
+Authority.create(name: 'Read')
 
 
 # CSV.foreach('db/csv/emotions.csv') do |row|

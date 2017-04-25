@@ -1,22 +1,32 @@
-db:
-  image: everse/analytics-mysql
-  container_name: 'db'
-  environment:
-    MYSQL_ROOT_PASSWORD: 'test'
-    
-web:
-  build: .
-  dockerfile: Dockerfile.development
-  container_name: 'web'
-  stdin_open: true
-  command: bundle exec rails s -p 3000 -b '0.0.0.0'
-  ports:
-    - '3000:3000'
-  environment:
-    RAILS_ENV: development
-    DATABASE_URL: mysql2://root:test@db:3306
-    SECRET_KEY_BASE: hogehoge
-  volumes:
-      - .:/analytics
-  links:
-    - db
+version: '2'
+services:
+  db_data:
+    image: busybox
+    container_name: 'db_data'
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
+  db:
+    image: mysql:5.7
+    container_name: 'db'
+    volumes_from:
+      - db_data
+    environment:
+        MYSQL_ROOT_PASSWORD: 'test'
+      
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    container_name: 'web'
+    stdin_open: true
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - '3000:3000'
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: mysql2://root:test@db:3306
+      SECRET_KEY_BASE: hogehoge
+    volumes:
+        - .:/analytics
+    links:
+      - db

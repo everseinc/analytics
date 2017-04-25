@@ -2,10 +2,11 @@
 	<h1 class='section-title'><%= table_section[:title] %></h1>
 	<% if table_section.has_key?(:edit) %>
 
-			<%= link_to table_section[:edit] do %>
-				<button class="icon-button section-icon" id="section-icon">
-		    	<i class="material-icons">settings</i>
-		  	</button>
+			<%= link_to table_section[:edit], {:class => "section-button-link"} do %>
+				<button class="mdl-button mdl-js-button mdl-button--icon icon-button section-icon"
+								id="section-icon">
+				  <i class="material-icons">settings</i>
+				</button>
 	  	<% end %>
   <% end %>
 	<table class="layer1">
