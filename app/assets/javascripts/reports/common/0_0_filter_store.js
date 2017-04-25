@@ -1,6 +1,7 @@
 var filterStoreFrom = {
 	RECORD: "record",
 	BLOCK: "block",
+	DIMENSION: "dimension",
 }
 
 var filterStoreBase = {
@@ -71,6 +72,20 @@ filterStore.setters.dimStore = function(id) {
 	filterStore.base.name = filterStoreBase.DIMSTORE;
 	filterStore.base.dim_store_id = id;
 }
+
+
+
+
+filterStore.setters.dimensionAll = function() {
+	filterStore.from.name = filterStoreFrom.DIMENSION;
+	filterStore.base.name = filterStoreBase.SINGLE;
+}
+
+
+
+// ------------------------------------------------------------
+// setters with callbacks
+// ------------------------------------------------------------
 
 
 

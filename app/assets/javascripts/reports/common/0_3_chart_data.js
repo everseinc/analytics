@@ -42,11 +42,11 @@ chartData.prototype.updateData = function(_data) {
  * @param  {} _data
  */
 chartData.prototype.pushData = function(_data) {
-	this._labels.push(_data.labels);
-  this.datasets.push(_data.datasets);
- 	this.label.push(_data.label);
- 	this.color.push(_data.color);
-	this.backgroundColor.push(_data.backgroundColor);
+	if (_data.labels)          this._labels.push(_data.labels);
+  if (_data.datasets)        this.datasets.push(_data.datasets);
+ 	if (_data.label)           this.label.push(_data.label);
+ 	if (_data.color)           this.color.push(_data.color);
+	if (_data.backgroundColor) this.backgroundColor.push(_data.backgroundColor);
 }
 
 
@@ -112,6 +112,12 @@ chartData.prototype.fetchData = function() {
  */
 chartData.prototype.setEmotion = function(emotion_id) {
 	this.filter.emotion.id = emotion_id;
+}
+
+
+
+chartData.prototype.setDimStore = function(dim_store_id) {
+	this.filter.dim_store.id = dim_store_id;
 }
 
 

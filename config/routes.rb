@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'time'
       get 'dimension'
       get 'key'
+      get 'dimension_all'
       get 'custom_points'
     end
 

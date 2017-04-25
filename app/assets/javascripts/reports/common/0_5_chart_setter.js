@@ -1,6 +1,7 @@
 var initializeWith = {
 	DEFAULT: "default",
 	EMOTION: "emotion",
+	DIMSTORE: "dim_store",
 }
 
 
@@ -62,6 +63,10 @@ chartSetter.prototype.initialize = function(_with) {
 	} else if (_with == initializeWith.EMOTION) {
 		this.renderers(function(renderer, i) {
 			renderer.setEmotion(canvases[i].emotion_id).setData();
+		});
+	} else if (_with == initializeWith.DIMSTORE) {
+		this.renderers(function(renderer, i) {
+			renderer.setDimStore(canvases[i].dim_store_id).setData();
 		});
 	} else {
 		throw new Error("chartSetter.initialize() : unknown `with` status");
@@ -129,6 +134,17 @@ chartSetter.prototype.removeBlockId = function(id) {
 		});
 		this.reload();
 	}.bind(this));
+}
+
+
+
+chartSetter.prototype.typePie = function() {
+	this.renderers(function(renderer) {
+		renderer.setType("pie");
+		renderer.setCircleChart();
+	}.bind(this));
+
+	return this;
 }
 
 
