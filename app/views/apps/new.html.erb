@@ -1,31 +1,24 @@
 <section class="pt-section">
-	<div class="form-group">
-		<h1 class="form-title">Add a New Account</h1>
+	<div class="apps_new_section_inner">
+		<h1 class="section-title">Add a New Application</h1>
 
 		<% flash.each do |key, value| %>
 		  <%= content_tag(:div, value, class: "#{key}") %>
 		<% end %>
 
-		<%= form_for @app_form, url: apps_path do |f| %>
-			<table class="layer1">
-				<tbody>
-					<tr>
-						<td class="input-label">
-							<%= f.label :app_name, 'アプリケーション名' %>
-						</td>
-						<td class="input-body">
-							<%= f.text_field :app_name, :placeholder => "アプリケーション名" %>
-						</td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<td class="form-submit" colspan="2">
-							<%= f.submit "ADD" %>
-						</td>
-					</tr>
-				</tfoot>
-			</table>
-		<% end %>
+		<div class="create-form-card mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp">
+		  <div class="mdl-card__supporting-text">
+		  	<%= form_for @app_form, url: apps_path do |f| %>
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= f.text_field :app_name, class: 'mdl-textfield__input', pattern: "^[-0-9a-zA-Z_.]+$"%>
+			      <label class="mdl-textfield__label" for="Name">Application Name...</label>
+			      <span class="mdl-textfield__error">Letters and spaces only</span>
+			    </div>
+			    <p class="submit-area">
+          	<%= f.submit "ADD", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
+		    	</p>
+	    	<% end %>
+		  </div>
+		</div>
 	</div>
 </section>

@@ -7,7 +7,14 @@ section {
     margin-bottom: 30px;
 	}
 
-	.section-icon {
-		margin-left: 12px;
+	.section-button-link {
+    display: inline-block;
+    height: 40px;
+    vertical-align: top;
+
+  	.section-icon {
+  		margin-top: 4px;
+			margin-left: 12px;
+		}
 	}
 }

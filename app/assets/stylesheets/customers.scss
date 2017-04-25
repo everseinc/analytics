@@ -4,6 +4,7 @@
 
 @import 'applications/parcials/text';
 @import 'applications/parcials/tag';
+@import 'applications/parcials/create_form';
 @import 'applications/parcials/form';
 @import 'applications/parcials/table';
 @import 'applications/parcials/collection';
@@ -15,3 +16,6 @@
 @import 'applications/parcials/modal';
 @import 'applications/parcials/wall';
 @import 'applications/parcials/filer';
+
+
+@import 'applications/parcials/customers/*';

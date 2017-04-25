@@ -1,0 +1,21 @@
+.create-form-card {
+	margin: 56px auto 0;
+
+	.mdl-card__supporting-text {
+  	margin: auto;
+  }
+
+	form {
+		max-width: 1200px;
+	  margin: auto;
+
+	  .mdl-textfield {
+	  	width: 100%;
+	  }
+
+	  .submit-area {
+	  margin-top: 32px;
+	  float: right;
+	  }
+	}
+}

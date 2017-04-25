@@ -1,30 +1,31 @@
 <header class="header">
 	<div class="header-title">Everse</div>
 	<% if logged_in? %>
-	<button class="header-button header-customer-menu-button" id="header-customer-menu-button">
-		<span class="header-customer-name"><%= current_customer.name %></span>
-    <i class="material-icons">arrow_drop_down</i>
-  </button>
-	<% end %>	
-	<button class="header-button header-menu-button" id="header-menu-button">
-    <i class="material-icons">more_vert</i>
-  </button>
-</header>
-<% if logged_in? %>
-<div id='header-customer-menu' class="menu">
-	<ul>
-		<li><%= link_to "マイページ", customer_path(current_customer.id) %></li>
+  <button id="header-customer-menu-button"
+  			  class="header-button header-customer-menu-button mdl-button mdl-js-button">
+    <span class="header-customer-name"><%= current_customer.name %></span>
+	  <i class="material-icons">arrow_drop_down</i>
+	</button>
+
+	<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+	    for="header-customer-menu-button">
+		<%= link_to customer_path(current_customer.id) do %><li class="mdl-menu__item">マイページ</li><% end %>
+		<%= link_to apps_path do %><li class="mdl-menu__item">プロジェクト一覧</li><% end %>
 	</ul>
-</div>
-<% end %>
-<div id='header-menu' class="menu">
-	<ul>
-		<li><%= link_to  "新規ユーザー登録", new_customer_path %></li>
+	<% end %>
+
+  <button id="demo-menu-lower-right"
+        class="header-button header-menu-button mdl-button mdl-js-button mdl-button--icon">
+	  <i class="material-icons">more_vert</i>
+	</button>
+
+	<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+	    for="demo-menu-lower-right">
+		<%= link_to new_customer_path do %><li class="mdl-menu__item">新規ユーザー登録</li><% end %>
 		<% if logged_in? %>
-		<li><%= link_to "プロジェクト一覧", apps_path %></li>
-		<li><%= link_to "Log out", logout_path, method: "delete" %></li>
+		<%= link_to logout_path, method: "delete" do %><li class="mdl-menu__item">Log out</li><% end %>
 		<% else %>
-		<li><%= link_to "Log in", login_path(goto: "/customers/show") %></li>
+		<%= link_to login_path(goto: "/customers/show") do %><li class="mdl-menu__item">Log in</li><% end %>
 		<% end %>
 	</ul>
-</div>
+</header>

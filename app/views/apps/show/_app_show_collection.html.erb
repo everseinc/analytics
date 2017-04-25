@@ -1,10 +1,11 @@
 <section class="pt-section">
 	<h1 class='section-title'><%= @app.app_name %></h1>
 	<% if AuthManager.authenticate_by_write_app_customer_id(@app.id) %>
-		<%= link_to edit_app_path(@app) do %>
-			<button class="icon-button section-icon" id="section-icon">
-	    	<i class="material-icons">settings</i>
-	  	</button>
+		<%= link_to edit_app_path(@app), {:class => "section-button-link"} do %>
+			<button class="mdl-button mdl-js-button mdl-button--icon icon-button section-icon"
+								id="section-icon">
+				  <i class="material-icons">settings</i>
+				</button>
 		<% end %>
 	<% end %>
 	<div class='app-index-wrapper'>
