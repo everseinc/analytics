@@ -1,6 +1,7 @@
 module ReportsHelper
 	def check_accordion_activation
 		return :default if default.include? action_name
+		return :dimension if dimension.include? action_name
 		return :setting if setting.include? action_name
 	end
 
@@ -13,6 +14,10 @@ module ReportsHelper
 
 	def default
 		["time", "dimension", "key"]
+	end
+
+	def dimension
+		["dimension_all"]
 	end
 
 	def setting

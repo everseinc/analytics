@@ -38,7 +38,6 @@ function chartRenderer(canvas) {
       }
     },
     animation: false,
-    multiTooltipTemplate: "hihihi",
   };
 }
 
@@ -90,11 +89,35 @@ chartRenderer.prototype.setData = function() {
 
 
 /**
+ * [setType description]
+ * @param {String} type [description]
+ */
+chartRenderer.prototype.setType = function(type) {
+  this.type = type;
+
+  return this;
+}
+
+
+
+/**
  * set emotion_id to Filter through chartData
  * @param {Int} emotion_id [description]
  */
 chartRenderer.prototype.setEmotion = function(emotion_id) {
   this.chart_data.setEmotion(emotion_id);
+
+  return this;
+}
+
+
+
+/**
+ * set dim_store_id to Filter through chartData
+ * @param {Int} dim_store_id [description]
+ */
+chartRenderer.prototype.setDimStore = function(dim_store_id) {
+  this.chart_data.setDimStore(dim_store_id);
 
   return this;
 }
@@ -108,6 +131,20 @@ chartRenderer.prototype.setEmotion = function(emotion_id) {
  */
 chartRenderer.prototype.setSpan = function(start, end) {
   this.chart_data.setSpan(start, end);
+
+  return this;
+}
+
+
+
+chartRenderer.prototype.setCircleChart = function() {
+  this.option = {
+    responsive: true,
+    legend: {
+      display: true,
+      position: 'right',
+    }
+  }
 
   return this;
 }

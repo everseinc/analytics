@@ -12,6 +12,9 @@ function Filter() {
 		dim_store_id: null,
 		valid_emotions: [],
 	};
+	this.dim_store = {
+		id: null,
+	}
 	this.dimensions = [{
 		id: null,
 	}];
@@ -73,6 +76,9 @@ Filter.prototype.get = function() {
 	}
 	if (this.from.name == "block" && this.base.name == "dim_store") {
 		return this._getBlockByDimStore();
+	}
+	if (this.from.name == "dimension" && this.base.name == "single") {
+		return this._getDimension();
 	}
 }
 
@@ -169,4 +175,30 @@ Filter.prototype._getBlockByDimStore = function() {
 		return res;
 	}.bind(this));
 }
+
+
+
+Filter.prototype._getDimension = function() {
+	var dim_store = report.dim_stores.findDimStore(this.dim_store.id);
+
+	return [{
+		labels: dim_store.names.map(function(dimension) {
+			return dimension.name;
+		}),
+		datasets: dim_store.names.map(function(dimension) {
+			return dimension.allEmoBlocks().length;
+		}),
+		label: dim_store.key,
+		color: dim_store.names.map(function(dimension) {
+			return dimension.color();
+		}),
+		backgroundColor: dim_store.names.map(function(dimension) {
+			return dimension.color();
+		}),
+	}];
+}
+
+
+
+
 

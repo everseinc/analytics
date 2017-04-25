@@ -14,6 +14,14 @@
 				</dd>
 			</div>
 		</dl>
+		<dl class="<%= 'active' if check_accordion_activation == :dimension %>">
+			<dt class="report_side_nav_group">ディメンション</dt>
+			<div class="report_side_nav_contents">
+				<dd>
+					<%= report_link_to "全ディメンション", :action => "dimension_all" %>
+				</dd>
+			</div>
+		</dl>
 		<dl class="<%= "active" if check_accordion_activation == :setting %>">
 			<dt class="report_side_nav_group">設定</dt>
 			<div class="report_side_nav_contents">
