@@ -9,7 +9,8 @@
 
 	<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
 	    for="header-customer-menu-button">
-		<li class="mdl-menu__item"><%= link_to "マイページ", customer_path(current_customer.id) %></li>
+		<%= link_to customer_path(current_customer.id) do %><li class="mdl-menu__item">マイページ</li><% end %>
+		<%= link_to apps_path do %><li class="mdl-menu__item">プロジェクト一覧</li><% end %>
 	</ul>
 	<% end %>
 
@@ -20,12 +21,11 @@
 
 	<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
 	    for="demo-menu-lower-right">
-		<li class="mdl-menu__item"><%= link_to  "新規ユーザー登録", new_customer_path %></li>
+		<%= link_to new_customer_path do %><li class="mdl-menu__item">新規ユーザー登録</li><% end %>
 		<% if logged_in? %>
-		<li class="mdl-menu__item"><%= link_to "プロジェクト一覧", apps_path %></li>
-		<li class="mdl-menu__item"><%= link_to "Log out", logout_path, method: "delete" %></li>
+		<%= link_to logout_path, method: "delete" do %><li class="mdl-menu__item">Log out</li><% end %>
 		<% else %>
-		<li class="mdl-menu__item"><%= link_to "Log in", login_path(goto: "/customers/show") %></li>
+		<%= link_to login_path(goto: "/customers/show") do %><li class="mdl-menu__item">Log in</li><% end %>
 		<% end %>
 	</ul>
 </header>

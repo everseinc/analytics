@@ -1,6 +1,6 @@
 <section class="pt-section">
-	<div class="form-group">
-		<h1 class="form-title">Add a New Account</h1>
+	<div class="customers_new_section_inner">
+		<h1 class="section-title">Add a New Account</h1>
 
 		<% if @er_messages.present?  %>
   		<div id="error_explanation">
@@ -15,50 +15,31 @@
 		<% end %>
 
 
-		<%= form_for @customer_form, url: dynamic_signup_path_for_joinning do |f| %>
-			<table class="layer1">
-				<tbody>
-					<tr>
-						<td class="input-label">
-							<%= f.label :name, '姓名' %>
-						</td>
-						<td class="input-body">
-							<%= f.text_field :name, :placeholder => "山田 太郎" %>
-						</td>
-					</tr>
-					<tr>
-						<td class="input-label">
-							<%= f.label :email, 'メールアドレス' %>
-						</td>
-						<td class="input-body">
-							<%= f.text_field :email, :placeholder => "hello@example.com" %>
-						</td>
-					</tr>
-					<tr>
-						<td class="input-label">
-							<%= f.label :password, 'パスワード' %>
-						</td>
-						<td class="input-body">
-							<%= f.password_field :password, :placeholder => "pass" %>
-						</td>
-					</tr>
-					<tr>
-						<td class="input-label">
-							<%= f.label :password_confirmation, 'パスワードの確認' %>
-						</td>
-						<td class="input-body">
-							<%= f.password_field :password_confirmation, :placeholder => "pass" %>
-						</td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<td class="form-submit" colspan="2">
-							<%= f.submit "ADD" %>
-						</td>
-					</tr>
-				</tfoot>
-			</table>
-		<% end %>
+		<div class="create-form-card mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp">
+		  <div class="mdl-card__supporting-text">
+		  	<%= form_for @customer_form, url: dynamic_signup_path_for_joinning do |f| %>
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= f.text_field :name, class: 'mdl-textfield__input', pattern: "[A-Z,a-z, ]*"%>
+			      <label class="mdl-textfield__label" for="Name">Name...</label>
+			      <span class="mdl-textfield__error">Letters and spaces only</span>
+			    </div>
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= f.text_field :email, class: 'mdl-textfield__input'%>
+			      <label class="mdl-textfield__label" for="Name">Email...</label>
+			    </div>
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= f.password_field :password, class: 'mdl-textfield__input'%>
+			      <label class="mdl-textfield__label" for="Name">Password...</label>
+			    </div>
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<%= f.password_field :password_confirmation, class: 'mdl-textfield__input'%>
+			      <label class="mdl-textfield__label" for="Name">Password Confirmation...</label>
+			    </div>
+			    <p class="submit-area">
+          	<%= f.submit "ADD", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
+		    	</p>
+	    	<% end %>
+		  </div>
+		</div>
 	</div>
 </section>

@@ -9,7 +9,7 @@
 	</div>
 </div>
 <div class='modal-footer'>
-	<%= submit_tag("INVITE", :class => 'simple-button') %>
-	<%= simple_button('CANCEL', 'invite-cancel-button') %>
+	<%= button_tag("INVITE", class: "simple-button table-footer-button mdl-button mdl-js-button mdl-js-ripple-effect") %>
+	<%= button_tag("CANCEL", class: "simple-button table-footer-button mdl-button mdl-js-button mdl-js-ripple-effect", id: "invite-cancel-button", type: "button") %>
 </div>
 <% end %>

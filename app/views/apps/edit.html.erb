@@ -31,7 +31,7 @@
 				<tfoot>
 					<tr>
 						<td class="form-submit" colspan="2">
-							<%= f.submit "SAVE" %>
+							<%= button_tag "SAVE", class: "table-footer-button mdl-button mdl-js-button mdl-js-ripple-effect" %>
 						</td>
 					</tr>
 				</tfoot>
@@ -45,7 +45,7 @@
 		end
 	  table = {
 	  	value: customers,
-	  	foot: simple_button('ADD USER', 'invite-customer-button')
+	  	foot: button_tag("ADD USER", class: "table-footer-button mdl-button mdl-js-button mdl-js-ripple-effect", id: "invite-customer-button")
 	  }
 	  render partial: "shared/partials/basic_table", locals: { table: table }
 	  %>
