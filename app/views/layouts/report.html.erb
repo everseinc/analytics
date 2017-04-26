@@ -32,8 +32,8 @@
 
     <%= javascript_include_tag 'reports', 'data-turbolinks-track': 'reload' %>
     <%=
-    if File.exist?("#{Rails.root}/app/assets/javascripts/reports/#{params[:action]}.js")
-      javascript_include_tag "reports/#{params[:action]}", 'data-turbolinks-track': 'reload'
+    if File.exist?("#{Rails.root}/app/assets/javascripts/#{params[:controller]}/#{params[:action]}.js")
+      javascript_include_tag "#{params[:controller]}/#{params[:action]}", 'data-turbolinks-track': 'reload'
     end
     %>
   </body>
