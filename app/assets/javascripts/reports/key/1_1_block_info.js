@@ -1,6 +1,7 @@
 var BlockInfo = {
 	element: document.getElementById("block_info_container"),
 	tbody: document.getElementById("block_info_container_tbody"),
+	project_id: document.body.getAttribute("data-project-id"),
 	children: [],
 	append: function(block) {
 		var div = document.createElement('tr');
@@ -27,9 +28,9 @@ var BlockInfo = {
 	},
 
 	templete: function(block) {
-		var dimensions = block.getDimensionsName().reduce(function(pre, now) {
-			return pre + '<div class="sm-tag">' + now + '</div>';
-		}, '');
+		var dimensions = block.getDimensions().reduce(function(pre, now) {
+			return pre + '<a href="/reports/' + this.project_id + '/dimensions/' + now.key.id +'"><div class="sm-tag">' + now.name + '</div></a>';
+		}.bind(this), '');
 
 		return '\
 			<td>' + block.key + '</td>\

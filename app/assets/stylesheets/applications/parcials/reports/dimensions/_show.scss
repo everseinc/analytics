@@ -1,0 +1,64 @@
+#dimensions-back-button {
+	display: inline-block;
+}
+
+.reports-dimensions-title {
+	margin-top: 56px;
+
+	h1 {
+		font-size: 32px;
+		color: #666;
+	}
+}
+
+.reports-dimensions-cell {
+
+	.reports-dimensions-cell-title {
+		font-size: 24px;
+		font-weight: bold;
+	  line-height: 32px;
+		margin-top: 0;
+	  margin-bottom: 20px;
+	}
+
+	.reports-dimensions-cell-text {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.reports-dimensions-cell-wrapper {
+		margin-top: 72px;
+		margin-bottom: 56px;
+	}
+
+	.reports-dimensions-detail-cell-wrapper {
+		thead, tbody {
+			display: block;
+		}
+
+		tbody {
+			max-height: 200px;
+			overflow-y: scroll;
+		}
+
+		tr {
+			width: 100%;
+		}
+
+		td, th {
+			width: 33%;
+		}
+	}
+
+	.reports-dimensions-cell-graph-wrapper {
+		vertical-align: top;
+		display: inline-block;
+		width: 49%;
+	}
+
+	.reports-dimensions-cell-table-wrapper {
+		vertical-align: top;
+		display: inline-block;
+		width: 49%;
+	}
+}

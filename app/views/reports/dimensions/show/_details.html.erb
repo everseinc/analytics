@@ -1,0 +1,32 @@
+<div class="reports-dimensions-cell reports-dimensions-title mdl-cell mdl-cell--12-col">
+	<h1>Values Detail</h1>
+</div>
+
+<% @dim_store.dimensions.each do |dimension| %>
+	<div class="reports-dimensions-cell mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp">
+		<div class="mdl-card__supporting-text">
+			<h1 class="reports-dimensions-cell-title mdl-cell mdl-cell--12-col"><%= dimension.name %></h1>
+			<p class="reports-dimensions-cell-text">Block一覧</p>
+			<div class="reports-dimensions-cell-wrapper reports-dimensions-detail-cell-wrapper">
+				<table class="reports-dimensions-cell-table mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col">
+				  <thead>
+				    <tr>
+				      <th class="mdl-data-table__cell--non-numeric">Key</th>
+				      <th class="mdl-data-table__cell--non-numeric">Record Number</th>
+				      <th class="mdl-data-table__cell--non-numeric">Recorded Date</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	<% dimension.emo_blocks.each do |block| %>
+				    <tr>
+				      <td class="mdl-data-table__cell--non-numeric"><%= block.key %></td>
+				      <td class="mdl-data-table__cell--non-numeric"><%= block.emo_records.count %></td>
+				      <td class="mdl-data-table__cell--non-numeric"><%= block.started_at.strftime("%Y-%m-%d %H-%M-%S") %></td>
+				    </tr>
+				    <% end %>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+<% end %>
