@@ -12,6 +12,7 @@ module Concerns::Filters::AuthAction
 			'apps' => {'key' => 'app_id', 'param' => 'id'},
 			'projects' => {'key' => 'project_id', 'param' => 'id'},
 			'reports' => {'key' => 'project_id', 'param' => 'id'},
+			'reports/dimensions' => {'key' => 'project_id', 'param' => 'id'},
 		},
 		'index' => {
 			'custom_points' => {'key' => 'app_id', 'param' => 'app_id'}
@@ -49,9 +50,9 @@ module Concerns::Filters::AuthAction
     #
 
     def before(controller, params)
-			return unless MUST_KEYS.include?(controller.action_name)
+			return unless MUST_KEYS.include?(params[:action])
 
-			auth_key, key = MUST_KEYS[controller.action_name][controller.controller_name]['key'] , MUST_KEYS[controller.action_name][controller.controller_name]['param']
+			auth_key, key = MUST_KEYS[params[:action]][params[:controller]]['key'] , MUST_KEYS[params[:action]][params[:controller]]['param']
 			res = AuthManager.send('authenticate_by_' + auth_key, params[key])
 			if !res
 				redirect_to '/login' and return

@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
   </head>
 
-  <body>
+  <body data-project-id="<%= params[:id] %>">
     <%= render partial: "shared/header" %>
     <div class="wrapper">
         <% flash.each do |message_type, message| %>
@@ -32,8 +32,8 @@
 
     <%= javascript_include_tag 'reports', 'data-turbolinks-track': 'reload' %>
     <%=
-    if File.exist?("#{Rails.root}/app/assets/javascripts/reports/#{params[:action]}.js")
-      javascript_include_tag "reports/#{params[:action]}", 'data-turbolinks-track': 'reload'
+    if File.exist?("#{Rails.root}/app/assets/javascripts/#{params[:controller]}/#{params[:action]}.js")
+      javascript_include_tag "#{params[:controller]}/#{params[:action]}", 'data-turbolinks-track': 'reload'
     end
     %>
   </body>

@@ -8,17 +8,17 @@
 			<dt class="report_side_nav_group">標準分析</dt>
 			<div class="report_side_nav_contents">
 				<dd>
-					<%= report_link_to "時間軸分析", :action => "time" %>
-					<%= report_link_to "ディメンション分析", :action => "dimension" %>
-					<%= report_link_to "Key分析", :action => "key" %>
+					<%= report_link_to "時間軸分析", {:controller => "/reports", :action => "time"} %>
+					<%= report_link_to "ディメンション分析", :controller => "/reports", :action => "dimension" %>
+					<%= report_link_to "Key分析", :controller => "/reports", :action => "key" %>
 				</dd>
 			</div>
 		</dl>
-		<dl class="<%= 'active' if check_accordion_activation == :dimension %>">
+		<dl class="<%= 'active' if check_accordion_activation == :dimensions %>">
 			<dt class="report_side_nav_group">ディメンション</dt>
 			<div class="report_side_nav_contents">
 				<dd>
-					<%= report_link_to "全ディメンション", :action => "dimension_all" %>
+					<%= report_link_to "全ディメンション", :controller => "/reports/dimensions", :action => "index" %>
 				</dd>
 			</div>
 		</dl>
@@ -26,7 +26,7 @@
 			<dt class="report_side_nav_group">設定</dt>
 			<div class="report_side_nav_contents">
 				<dd>
-					<%= report_link_to "カスタムポイント設定", :action => "index", :controller => "custom_points", :app_id => @report.app.id, :config_id => @report.config.id%>
+					<%= report_link_to "カスタムポイント設定", :action => "index", :controller => "/custom_points", :app_id => @report.app.id, :config_id => @report.config.id%>
 				</dd>
 			</div>
 		</dl>

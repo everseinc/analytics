@@ -1,9 +1,0 @@
-<div id="ratio_graph">
-
-	<% @report.dim_stores.each do |dim_store| %>
-	<h1 class="graph_title"><%= dim_store.key %></h1>
-	<div class="ratio_graph_field">
-		<canvas class="ratio_graph" data-id="<%= dim_store[:id] %>"></canvas>
-	</div>
-	<% end %>
-</div>

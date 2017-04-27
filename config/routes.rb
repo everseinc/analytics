@@ -7,10 +7,14 @@ Rails.application.routes.draw do
       get 'time'
       get 'dimension'
       get 'key'
-      get 'dimension_all'
       get 'custom_points'
-    end
 
+      scope module: :reports do
+        resources :dimensions, :only => [:index, :destroy, :show] do
+          
+        end
+      end
+    end
   end
 
   resources :customers, :only => [:new, :create, :edit, :update, :show] do

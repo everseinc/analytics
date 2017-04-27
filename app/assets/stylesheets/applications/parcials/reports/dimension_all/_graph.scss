@@ -1,4 +1,13 @@
-.ratio_graph_field {
-	width: 500px;
-	height: 200px;
+.ratio_graph_card {
+	margin: 12px;
+
+	.ratio_graph_card_text {
+		width: 100%;
+		background-color: #f1f1f1;
+
+		.ratio_graph_field {
+			width: 100%;
+			height: 100%;
+		}
+	}
 }

@@ -1,0 +1,29 @@
+<div class="reports-dimensions-cell mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+	<div class="mdl-card__supporting-text">
+		<h1 class="reports-dimensions-cell-title mdl-cell mdl-cell--12-col"><%= @dim_store.key %></h1>
+		<p class="reports-dimensions-cell-text">このディメンションのキーに設定されたバリューの情報</p>
+		<div class="reports-dimensions-cell-wrapper">
+			<div class="reports-dimensions-cell-table-wrapper">
+				<table class="reports-dimensions-cell-table mdl-data-table mdl-js-data-table mdl-cell mdl-cell--10-col">
+				  <thead>
+				    <tr>
+				      <th class="mdl-data-table__cell--non-numeric">Name</th>
+				      <th class="mdl-data-table__cell--non-numeric">Block Number</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	<% @dim_store.dimensions.each do |dimension| %>
+				    <tr>
+				      <td class="mdl-data-table__cell--non-numeric"><%= dimension.name %></td>
+				      <td class="mdl-data-table__cell--non-numeric"><%= dimension.emo_blocks.count %></td>
+				    </tr>
+				    <% end %>
+				  </tbody>
+				</table>
+			</div>
+			<div class="reports-dimensions-cell-graph-wrapper">
+				<canvas class="ratio_graph" data-id="<%= @dim_store.id %>"></canvas>
+			</div>
+		</div>
+	</div>
+</div>
