@@ -29,6 +29,10 @@
 	.reports-dimensions-cell-wrapper {
 		margin-top: 72px;
 		margin-bottom: 56px;
+
+		.reports-dimensions-cell-table tbody tr:hover {
+			background-color: initial;
+		}
 	}
 
 	.reports-dimensions-detail-cell-wrapper {
