@@ -26,7 +26,7 @@
 				      <td class="mdl-data-table__cell--non-numeric">
 				      	<%= link_to key_report_path(@report.project.id, key_selected: block.key), id: "link_to_" + block.key do %>
 								<button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect">
-								  <i class="material-icons">redo</i>
+								  <i class="material-icons">show_chart</i>
 								</button>
 								<% end %>
 								<div class="mdl-tooltip mdl-tooltip--right" data-mdl-for="<%= 'link_to_' + block.key %>">See graph</div>
