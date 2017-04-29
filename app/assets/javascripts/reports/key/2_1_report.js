@@ -8,6 +8,7 @@ function reportReload() {
 
   /* set emotions filer */
   keyOptionFiler.onClick();
+  keyOptionFiler.init();
 
 }
 

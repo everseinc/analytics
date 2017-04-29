@@ -14,6 +14,7 @@
 				      <th class="mdl-data-table__cell--non-numeric">Key</th>
 				      <th class="mdl-data-table__cell--non-numeric">Record Number</th>
 				      <th class="mdl-data-table__cell--non-numeric">Recorded Date</th>
+				      <th class="mdl-data-table__cell--non-numeric">Action</th>
 				    </tr>
 				  </thead>
 				  <tbody>
@@ -22,6 +23,14 @@
 				      <td class="mdl-data-table__cell--non-numeric"><%= block.key %></td>
 				      <td class="mdl-data-table__cell--non-numeric"><%= block.emo_records.count %></td>
 				      <td class="mdl-data-table__cell--non-numeric"><%= block.started_at.strftime("%Y-%m-%d %H-%M-%S") %></td>
+				      <td class="mdl-data-table__cell--non-numeric">
+				      	<%= link_to key_report_path(@report.project.id, key_selected: block.key), id: "link_to_" + block.key do %>
+								<button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect">
+								  <i class="material-icons">show_chart</i>
+								</button>
+								<% end %>
+								<div class="mdl-tooltip mdl-tooltip--right" data-mdl-for="<%= 'link_to_' + block.key %>">See graph</div>
+				      </td>
 				    </tr>
 				    <% end %>
 				  </tbody>
