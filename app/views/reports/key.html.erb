@@ -1,9 +1,34 @@
 <div id="report_main">
+
+	<!-- filer view -->
 	<%= render partial: "reports/key/view_option" %>
+
+	<!-- arrow view -->
 	<div class="key_report_arrow">
 		<i class="material-icons key_report_arrow_icon">arrow_downward</i>
 	</div>
-	<div class="report_main_contents key_report_main layer-lg-card">
-		<%= render partial: "reports/key/view" %>
+
+	<!-- main view -->
+	<div class="report_main_contents key_report_main layer-lg-card mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+
+		<!-- tab bar header -->
+		<div class="mdl-tabs__tab-bar">
+      <a href="#graph-panel" class="mdl-tabs__tab is-active">
+      	<i class="vert-middle material-icons">show_chart</i>
+      	<span>Graph</span>
+      </a>
+      <a href="#details-panel" class="mdl-tabs__tab">
+	      <i class="vert-middle material-icons">info</i>
+	      <span>Details</span>
+      </a>
+	  </div>
+
+	  <!-- tab bar contents -->
+	  <div class="pannel-container mdl-tabs__panel is-active" id="graph-panel">
+			<%= render partial: "reports/key/view" %>
+		</div>
+		<div class="pannel-container mdl-tabs__panel" id="details-panel">
+			<%= render partial: "reports/key/details" %>
+		</div>
 	</div>
 </div>
