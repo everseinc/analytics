@@ -14,17 +14,7 @@
 	</div>
 
 	<!-- main view -->
-	<div class="key_report_main">
-
-		<!-- info about blocks -->
-		<h1 class="report_contents_title">block情報</h1>
-		<%= render partial: "reports/key/info" %>
-
-		<% @report.emotions.each do |emotion| %>
-			<h1 class="report_contents_title report_contents_title_emotion"><%= emotion.name %></h1>
-			<%= render partial: "reports/key/emotion_card", locals: {emotion: emotion}%>
-		<% end %>
-	</div>
+	<%= render partial: "reports/key/view" %>
 </div>
 
 <!-- ui controller_button -->

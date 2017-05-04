@@ -135,11 +135,32 @@ EmoDetails.prototype.findBlockByKey = function(key) {
 // EmoBlock prototype
 // ------------------------------------------------------------
 
+EmoBlock.prototype.getMax = function(emo_id) {
+  var filtered = this.filterEmotion(emo_id);
+  return filtered.reduce(function(max, record) {
+      return max > record.value ? max : record.value;
+  }, 0);
+}
+
+EmoBlock.prototype.getMin = function(emo_id) {
+  var filtered = this.filterEmotion(emo_id);
+  return filtered.reduce(function(min, record) {
+      return min > record.value ? record.value : min;
+  }, 100000);
+}
+
 EmoBlock.prototype.getAve = function(emo_id) {
   var filtered = this.filterEmotion(emo_id);
   return filtered.reduce(function(sum, record) {
       return sum + record.value;
   }, 0) / filtered.length;
+}
+
+EmoBlock.prototype.getMedian = function(emo_id) {
+  var filtered = this.filterEmotion(emo_id);
+  var sorted = filtered.sort(function(a, b) { return (a.value < b.value) ? -1 : (a.value > b.value) ? 1 : 0; });
+  var mid = Math.floor(filtered.length / 2);
+  return (filtered.length % 2) ? sorted[mid].value : (sorted[mid - 1].value + sorted[mid].value) / 2;
 }
 
 EmoBlock.prototype.getValues = function(emo_id) {

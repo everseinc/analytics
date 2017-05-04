@@ -26,12 +26,14 @@ var keyOptionFiler = {
 						chartSetterHistogram.append(target_block.id);
 					}, 300);
 					BlockInfo.append(target_block);
+					detailsTableHistogram.append(target_block);
 				} else {
 					chartSetterMain.removeBlockId(target_block.id);
 					setTimeout(function() {
 						chartSetterHistogram.remove(target_block.id);
 					}, 300);
 					BlockInfo.remove(target_block);
+					detailsTableHistogram.remove(target_block);
 				}
 
 				// hide loader more after 1000 ms

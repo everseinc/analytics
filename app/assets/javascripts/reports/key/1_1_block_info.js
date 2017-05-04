@@ -5,13 +5,10 @@ var BlockInfo = {
 	children: [],
 	append: function(block) {
 		var div = document.createElement('tr');
-		// div.classList.add('info_block');
-		// div.classList.add('layer-cell');
 		div.innerHTML = this.templete(block);
 
 		this.tbody.appendChild(div);
 		this.children.push({ id: block.id, dom: div});
-		// this.sort();
 	},
 	remove: function(block) {
 		var dom = this.children.filter(function(v) { return v.id == block.id }).first().dom;

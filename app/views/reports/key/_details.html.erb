@@ -1,8 +1,34 @@
-<div>
-	<% @report.emotions.each do |emotion| %>
-	<h1 class="graph_title"><%= emotion[:name] %></h1>
-	<div class="key_histogram_graph_area" data-emotion-id="<%= emotion[:id] %>">
-		
-  </div>
-  <% end %>
+<% #require emotion %>
+
+<div class="details_container">
+	<div class="mdl-grid">
+
+		<!-- title and discription -->
+		<div class="details-cell--description mdl-cell mdl-cell--2-col">
+			<h1 class="details-cell--description-title">Histogram</h1>
+			<p class="details-cell--description-paragraph">感情値の分布を示すヒストグラムです。</p>
+		</div>
+
+		<!-- table info -->
+		<div class="details-cell--table mdl-cell mdl-cell--5-col">
+			<table class="mdl-data-table mdl-js-data-table">
+			  <thead>
+			    <tr>
+			      <th class="mdl-data-table__cell--non-numeric">Key</th>
+			      <th class="mdl-data-table__cell--non-numeric">最大値</th>
+			      <th class="mdl-data-table__cell--non-numeric">最小値</th>
+			      <th class="mdl-data-table__cell--non-numeric">平均値</th>
+			      <th class="mdl-data-table__cell--non-numeric">中央値</th>
+			    </tr>
+			  </thead>
+			  <tbody class="details-cell--table-tbody" data-emotion-id="<%= emotion[:id] %>">
+			  </tbody>
+			</table>
+		</div>
+
+		<!-- histogram graph -->
+		<div class="details-cell--histgram mdl-cell mdl-cell--5-col">
+			<div class="key_histogram_graph_area" data-emotion-id="<%= emotion[:id] %>"></div>
+		</div>
+	</div>
 </div>
