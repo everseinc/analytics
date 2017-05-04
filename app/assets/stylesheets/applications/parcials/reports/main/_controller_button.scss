@@ -1,16 +1,18 @@
 @import "../../../variables/variables";
 
 .controller-button--children-contents {
+	font-size: 12px;
+}
+
+.controller-button--children-contents-scroll {
+	width: 210px;
+
 	ul {
 		padding: 16px;
 
-		li {
-			line-height: 48px;
-			cursor: pointer;
-		}
-
-		li:hover {
-			background-color: $gray-field;
+		li button {
+			height: 48px;
+			width: 100%;
 		}
 	}
 }

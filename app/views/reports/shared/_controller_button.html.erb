@@ -17,11 +17,11 @@
 				  <i class="material-icons">swap_vert</i>
 				</button>
 
-				<div class="controller-button--children-contents fab-button--children-contents mdl-card mdl-shadow--6dp" for="controller-button--children-scroll">
+				<div class="controller-button--children-contents controller-button--children-contents-scroll fab-button--children-contents mdl-card mdl-shadow--4dp" for="controller-button--children-scroll">
 			    <ul>
-			    	<li class="scroll-to">Top</li>
+			    	<li class="scroll-to"><button class="mdl-button mdl-js-button mdl-js-ripple-effect">Top</button></li>
 			    	<% @report.emotions.each do |emotion| %>
-			    	<li class="scroll-to"><%= emotion.name %></li>
+			    	<li class="scroll-to"><button class="mdl-button mdl-js-button mdl-js-ripple-effect"><%= emotion.name %></button></li>
 			    	<% end %>
 			    </ul>
 				</div>

@@ -12,6 +12,7 @@
 	}
 
 	.fab-button--parent {
+		margin-bottom: 16px;
 		background-color: $material_indigo_700;
 	}
 
@@ -28,7 +29,7 @@
 	}
 
 	.fab-button--children-wrapper {
-		margin: 32px 0;
+		padding: 16px 0;
 
 		.fab-button--children {
 			opacity: 0;
