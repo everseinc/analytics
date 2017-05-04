@@ -1,0 +1,36 @@
+<div class="controller_button_wrapper fab-button--wrapper">
+
+	<!-- parent button -->
+	<div>
+		<button id="controller-button--parent"
+						class="fab-button fab-button--parent mdl-list__item mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-shadow--4dp">
+		  <i class="material-icons">expand_more</i>
+		</button>
+
+		<!-- children buttons -->
+		<ul>
+
+			<!-- jump to button -->
+		  <li class="fab-button--children-wrapper">
+		    <button id="controller-button--children-scroll"
+		    			  class="controller-button--children fab-button fab-button--children mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-shadow--2dp">
+				  <i class="material-icons">swap_vert</i>
+				</button>
+
+				<div class="controller-button--children-contents controller-button--children-contents-scroll fab-button--children-contents mdl-card mdl-shadow--4dp" for="controller-button--children-scroll">
+			    <ul>
+			    	<li class="scroll-to"><button class="mdl-button mdl-js-button mdl-js-ripple-effect">Top</button></li>
+			    	<% @report.emotions.each do |emotion| %>
+			    	<li class="scroll-to"><button class="mdl-button mdl-js-button mdl-js-ripple-effect"><%= emotion.name %></button></li>
+			    	<% end %>
+			    </ul>
+				</div>
+		  </li>
+		</ul>
+	</div>
+</div>
+
+
+<!-- tool tip -->
+<div class="mdl-tooltip mdl-tooltip--left" data-mdl-for="controller-button--parent">Controll</div>
+<div class="mdl-tooltip mdl-tooltip--left" data-mdl-for="controller-button--children-scroll">Scroll To</div>

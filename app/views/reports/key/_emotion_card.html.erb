@@ -1,0 +1,25 @@
+<div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+
+	<!-- tab bar header -->
+	<div class="mdl-tabs__tab-bar">
+    <a href="#graph-panel" class="mdl-tabs__tab is-active">
+    	<i class="mdl-tabs__tab_icon material-icons">show_chart</i>
+    	<span class="mdl-tabs__tab_text">Graph</span>
+    </a>
+    <a href="#details-panel" class="mdl-tabs__tab">
+      <i class="mdl-tabs__tab_icon material-icons">info</i>
+      <span class="mdl-tabs__tab_text">Details</span>
+    </a>
+  </div>
+
+  <!-- tab bar contents -->
+  <!-- main graph -->
+  <div class="pannel-container mdl-tabs__panel is-active" id="graph-panel">
+	  <%= render partial: "reports/key/graph", locals: { emotion: emotion } %>
+	</div>
+
+	<!-- details -->
+	<div class="pannel-container mdl-tabs__panel" id="details-panel">
+		<%= render partial: "reports/key/details", locals: { emotion: emotion } %>
+	</div>
+</div>

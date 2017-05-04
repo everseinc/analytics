@@ -1,9 +1,21 @@
 <div id="report_main">
+
+	<!-- filer view -->
 	<%= render partial: "reports/key/view_option" %>
+
+	<!-- arrow view -->
 	<div class="key_report_arrow">
 		<i class="material-icons key_report_arrow_icon">arrow_downward</i>
 	</div>
-	<div class="report_main_contents key_report_main layer-lg-card">
-		<%= render partial: "reports/key/view" %>
+
+	<!-- loading indicator -->
+	<div id="key_report_loader" class="key_report_loader">
+		<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
 	</div>
+
+	<!-- main view -->
+	<%= render partial: "reports/key/view" %>
 </div>
+
+<!-- ui controller_button -->
+<%= render partial: "reports/shared/controller_button" %>

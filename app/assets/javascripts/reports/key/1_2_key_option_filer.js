@@ -2,26 +2,49 @@ var keyOptionFiler = {
 	elements: Array.prototype.slice.call(document.getElementsByClassName("key-option-filer")).map(function(element) {
 		return new Filer(element);
 	}),
+	loader: document.getElementById("key_report_loader"),
 	isNull: function() {
 		return this.elements.every(function(filer) {
 			return !filer.selected();
 		});
 	},
 	onClick: function() {
+		var self = this;
 		var setEmotions = function(e, filer) {
-			var target_block = report.emo_details.findBlockByKey(filer.getLabel());
 
-			if (filer.selected()) {
-				chartSetter.appendBlockId(target_block.id);
-				BlockInfo.append(target_block);
-			} else {
-				chartSetter.removeBlockId(target_block.id);
-				BlockInfo.remove(target_block);
-			}
+			// start loading
+			self.loader.addClass("show");
+			keyReportMain.toggle("hide");
 
-			keyReportMain.toggle(this.isNull());
-		}.bind(this);
+			// start main process after 1000 ms
+			setTimeout(function() {
+				var target_block = report.emo_details.findBlockByKey(filer.getLabel());
 
+				if (filer.selected()) {
+					chartSetterMain.appendBlockId(target_block.id);
+					setTimeout(function() {
+						chartSetterHistogram.append(target_block.id);
+					}, 300);
+					BlockInfo.append(target_block);
+					detailsTableHistogram.append(target_block);
+				} else {
+					chartSetterMain.removeBlockId(target_block.id);
+					setTimeout(function() {
+						chartSetterHistogram.remove(target_block.id);
+					}, 300);
+					BlockInfo.remove(target_block);
+					detailsTableHistogram.remove(target_block);
+				}
+
+				// hide loader more after 1000 ms
+				setTimeout(function() {
+					self.loader.removeClass("show");
+					keyReportMain.toggle("show");
+				}, 1000);
+			}, 1000);
+		};
+
+		// set event listener
 		this.elements.forEach(function(filer) {
 			filer.onClick(setEmotions);
 		});

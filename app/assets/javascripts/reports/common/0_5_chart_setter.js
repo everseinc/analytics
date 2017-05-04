@@ -2,6 +2,7 @@ var initializeWith = {
 	DEFAULT: "default",
 	EMOTION: "emotion",
 	DIMSTORE: "dim_store",
+	BLOCK: "block",
 }
 
 
@@ -22,7 +23,7 @@ function chartSetter(canvases) {
  * @return {Array}      [description]
  */
 chartSetter.prototype.renderers = function(f) {
-	return this.chart_renderers.map(f);
+	return this.chart_renderers.map(f.bind(this));
 }
 
 
@@ -56,21 +57,31 @@ chartSetter.prototype.reload = function() {
  * @param  {String} with [description]
  */
 chartSetter.prototype.initialize = function(_with) {
-	if (_with == initializeWith.DEFAULT) {
-		this.renderers(function(renderer) {
-			renderer.setData();
-		});
-	} else if (_with == initializeWith.EMOTION) {
-		this.renderers(function(renderer, i) {
-			renderer.setEmotion(canvases[i].emotion_id).setData();
-		});
-	} else if (_with == initializeWith.DIMSTORE) {
-		this.renderers(function(renderer, i) {
-			renderer.setDimStore(canvases[i].dim_store_id).setData();
-		});
-	} else {
-		throw new Error("chartSetter.initialize() : unknown `with` status");
-	}
+	_with = (isArray(_with)) ? _with : [_with];
+
+	_with.map(function(_initializer) {
+		if (_initializer == initializeWith.DEFAULT) {
+			return;
+		} else if (_initializer == initializeWith.EMOTION) {
+			this.renderers(function(renderer, i) {
+				renderer.setEmotion(this.canvases[i].emotion_id);
+			});
+		} else if (_initializer == initializeWith.DIMSTORE) {
+			this.renderers(function(renderer, i) {
+				renderer.setDimStore(this.canvases[i].dim_store_id);
+			});
+		} else if (_initializer == initializeWith.BLOCK) {
+			this.renderers(function(renderer, i) {
+				renderer.setBlock(this.canvases[i].block_id);
+			});
+		} else {
+			throw new Error("chartSetter.initialize() : unknown `with` status");
+		}
+	}.bind(this));
+
+	this.renderers(function(renderer, i) {
+		renderer.setData();
+	});
 	
 	this.reload();
 }
@@ -138,6 +149,10 @@ chartSetter.prototype.removeBlockId = function(id) {
 
 
 
+/**
+ * [typePie description]
+ * @return {ChartSetter} [description]
+ */
 chartSetter.prototype.typePie = function() {
 	this.renderers(function(renderer) {
 		renderer.setType("pie");
@@ -147,5 +162,32 @@ chartSetter.prototype.typePie = function() {
 	return this;
 }
 
+
+
+/**
+ * [typeBar description]
+ * @return {ChartSetter} [description]
+ */
+chartSetter.prototype.typeBar = function() {
+	this.renderers(function(renderer) {
+		renderer.setType("bar");
+	}.bind(this));
+
+	return this;
+}
+
+
+
+/**
+ * create histgram data from base data getted by base filters
+ * @return {ChartSetter} [description]
+ */
+chartSetter.prototype.histogram = function() {
+	this.renderers(function(renderer) {
+		renderer.histogram();
+	});
+
+	return this;
+}
 
 

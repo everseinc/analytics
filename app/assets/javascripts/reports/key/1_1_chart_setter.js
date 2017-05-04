@@ -6,4 +6,4 @@ var canvases = Array.prototype.slice.call(document.getElementsByClassName("key_g
 });
 
 
-var chartSetter = new chartSetter(canvases);
+var chartSetterMain = new chartSetter(canvases);

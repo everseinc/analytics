@@ -1,0 +1,20 @@
+.details_container {
+	
+	.mdl-grid .mdl-cell {
+		padding: 16px;
+	}
+
+	.details-cell--description {
+
+		.details-cell--description-title {
+			font-size: 18px;
+			font-weight: bold;
+			padding: 0 0 6px 8px;
+		}
+
+		.details-cell--description-paragraph {
+			font-size: 12px;
+			line-height: 18px;
+		}
+	}
+}

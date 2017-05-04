@@ -90,7 +90,8 @@ chartRenderer.prototype.setData = function() {
 
 /**
  * [setType description]
- * @param {String} type [description]
+ * @param  {String}        type [description]
+ * @return {ChartRenderer}      [description]
  */
 chartRenderer.prototype.setType = function(type) {
   this.type = type;
@@ -102,7 +103,8 @@ chartRenderer.prototype.setType = function(type) {
 
 /**
  * set emotion_id to Filter through chartData
- * @param {Int} emotion_id [description]
+ * @param  {Int}           emotion_id [description]
+ * @return {ChartRenderer}            [description]
  */
 chartRenderer.prototype.setEmotion = function(emotion_id) {
   this.chart_data.setEmotion(emotion_id);
@@ -114,7 +116,8 @@ chartRenderer.prototype.setEmotion = function(emotion_id) {
 
 /**
  * set dim_store_id to Filter through chartData
- * @param {Int} dim_store_id [description]
+ * @param  {Int}           dim_store_id [description]
+ * @return {ChartRenderer}              [description]
  */
 chartRenderer.prototype.setDimStore = function(dim_store_id) {
   this.chart_data.setDimStore(dim_store_id);
@@ -125,9 +128,22 @@ chartRenderer.prototype.setDimStore = function(dim_store_id) {
 
 
 /**
+ * set block_id to Filter through chartData
+ * @param {Int} block_id [description]
+ */
+chartRenderer.prototype.setBlock = function(block_id) {
+  this.chart_data.setBlock(block_id);
+
+  return this;
+}
+
+
+
+/**
  * set span to Filter through chartData
- * @param {Date} start [description]
- * @param {Date} end   [description]
+ * @param  {Date}          start [description]
+ * @param  {Date}          end   [description]
+ * @return {ChartRenderer}       [description]
  */
 chartRenderer.prototype.setSpan = function(start, end) {
   this.chart_data.setSpan(start, end);
@@ -137,6 +153,10 @@ chartRenderer.prototype.setSpan = function(start, end) {
 
 
 
+/**
+ * set option for circle chart (like pie or doughnut)
+ * @return {ChartRenderer} [description]
+ */
 chartRenderer.prototype.setCircleChart = function() {
   this.option = {
     responsive: true,
@@ -148,6 +168,21 @@ chartRenderer.prototype.setCircleChart = function() {
 
   return this;
 }
+
+
+
+chartRenderer.prototype.histogram = function() {
+  this.chart_data.histogram();
+  delete this.option.scales.yAxes[0].ticks.max
+
+  return this;
+}
+
+
+
+
+
+
 
 
 
