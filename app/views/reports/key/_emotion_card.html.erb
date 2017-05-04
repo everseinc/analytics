@@ -1,0 +1,27 @@
+<div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+	<!-- tab bar header -->
+	<div class="mdl-tabs__tab-bar">
+    <a href="#graph-panel" class="mdl-tabs__tab is-active">
+    	<i class="mdl-tabs__tab_icon material-icons">show_chart</i>
+    	<span class="mdl-tabs__tab_text">Graph</span>
+    </a>
+    <a href="#details-panel" class="mdl-tabs__tab">
+      <i class="mdl-tabs__tab_icon material-icons">info</i>
+      <span class="mdl-tabs__tab_text">Details</span>
+    </a>
+  </div>
+
+  <!-- tab bar contents -->
+  <div class="pannel-container mdl-tabs__panel is-active" id="graph-panel">
+		<div id="report_graph">
+		  <div class="graph_container">
+			 	<canvas class="graph key_graph" data-id="<%= emotion[:id] %>"></canvas>
+			</div>
+		</div>
+	</div>
+	<div class="pannel-container mdl-tabs__panel" id="details-panel">
+		<div class="key_histogram_graph_area" data-emotion-id="<%= emotion[:id] %>">
+			
+	  </div>
+	</div>
+</div>

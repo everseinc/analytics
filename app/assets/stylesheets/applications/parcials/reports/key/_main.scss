@@ -2,9 +2,34 @@
 	padding: 0;
 	display: none;
 
-	.mdl-tabs__tab-bar .mdl-tabs__tab {
-		width: 50%;
-		color: #333;
+	.mdl-tabs__tab-bar {
+		height: 56px;
+
+		.mdl-tabs__tab.is-active {
+			color: #5C6BC0;
+		}
+
+		.mdl-tabs__tab {
+			width: 50%;
+			height: 56px;
+			color: #333;
+
+			.mdl-tabs__tab_icon {
+				margin-top: 6px;
+				height: 26px;
+				line-height: 26px;
+				font-size: 30px;
+				display: block;
+			}
+
+			.mdl-tabs__tab_text {
+				margin-bottom: 4px;
+				height: 20px;
+				line-height: 20px;
+				font-size: 12px;
+				display: block;
+			}
+		}
 	}
 
 	.pannel-container {
@@ -12,3 +37,13 @@
 		padding: 12px;
 	}
 }
+
+.key_report_loader {
+	width: 100%;
+	margin-top: 56px;
+	display: none;
+
+	.mdl-progress {
+		margin: auto;
+	}
+}	

@@ -8,27 +8,24 @@
 		<i class="material-icons key_report_arrow_icon">arrow_downward</i>
 	</div>
 
+	<!-- loading indicator -->
+	<div id="key_report_loader" class="key_report_loader">
+		<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+	</div>
+
 	<!-- main view -->
-	<div class="report_main_contents key_report_main layer-lg-card mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+	<div class="key_report_main">
 
-		<!-- tab bar header -->
-		<div class="mdl-tabs__tab-bar">
-      <a href="#graph-panel" class="mdl-tabs__tab is-active">
-      	<i class="vert-middle material-icons">show_chart</i>
-      	<span>Graph</span>
-      </a>
-      <a href="#details-panel" class="mdl-tabs__tab">
-	      <i class="vert-middle material-icons">info</i>
-	      <span>Details</span>
-      </a>
-	  </div>
+		<!-- info about blocks -->
+		<h1 class="report_contents_title">block情報</h1>
+		<%= render partial: "reports/key/info" %>
 
-	  <!-- tab bar contents -->
-	  <div class="pannel-container mdl-tabs__panel is-active" id="graph-panel">
-			<%= render partial: "reports/key/view" %>
-		</div>
-		<div class="pannel-container mdl-tabs__panel" id="details-panel">
-			<%= render partial: "reports/key/details" %>
-		</div>
+		<% @report.emotions.each do |emotion| %>
+			<h1 class="report_contents_title report_contents_title_emotion"><%= emotion.name %></h1>
+			<%= render partial: "reports/key/emotion_card", locals: {emotion: emotion}%>
+		<% end %>
 	</div>
 </div>
+
+<!-- ui controller_button -->
+<%= render partial: "reports/shared/controller_button" %>

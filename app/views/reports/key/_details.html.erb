@@ -1,8 +1,8 @@
 <div>
 	<% @report.emotions.each do |emotion| %>
 	<h1 class="graph_title"><%= emotion[:name] %></h1>
-	<div>
- 	 <h1>test</h1>
+	<div class="key_histogram_graph_area" data-emotion-id="<%= emotion[:id] %>">
+		
   </div>
   <% end %>
 </div>

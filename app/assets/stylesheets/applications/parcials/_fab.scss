@@ -1,0 +1,106 @@
+@import "../variables/variables";
+
+.fab-button--wrapper {
+	position: fixed;
+	top: $header-height + 36px;
+	right: 36px;
+	z-index: 4;
+	text-align: center;
+
+	.fab-button {
+		color: $white;
+	}
+
+	.fab-button--parent {
+		background-color: $material_indigo_700;
+	}
+
+	@for $i from 1 through 10 {
+	  .fab-button--children-wrapper:nth-child(#{$i}) {
+
+	  	.fab-button--children {
+				-moz-transform: translateY(-75% * $i);
+				-webkit-transform: translateY(-75% * $i);
+				-o-transform: translateY(-75% * $i);
+				transform: translateY(-75% * $i);
+			}
+	  }
+	}
+
+	.fab-button--children-wrapper {
+		margin: 32px 0;
+
+		.fab-button--children {
+			opacity: 0;
+			visibility: hidden;
+			background-color: $material_pink_600;
+
+			/* trainsition */
+			-moz-transition: .5s;
+			-webkit-transition: .5s;
+			-o-transition: .5s;
+			transition: .5s;
+		}
+
+		.fab-button--children-contents {
+			visibility: hidden;
+			position: fixed;
+			right: 92px;
+			font-size: 14px;
+			line-height: 36px;
+
+			/* trainsition */
+			-moz-transform: scale(0.1, 0.1);
+			-webkit-transform: scale(0.1, 0.1);
+			-o-transform: scale(0.1, 0.1);
+			transform: scale(0, 0);
+			-moz-transform-origin: 100% 0;
+      -webkit-transform-origin: 100% 0;
+      -o-transform-origin: 100% 0;
+      transform-origin: 100% 0;
+			-moz-transition: all .3s cubic-bezier(0.55, 0, 0.1, 1);
+			-webkit-transition: all .3s cubic-bezier(0.55, 0, 0.1, 1);
+			-o-transition: all .3s cubic-bezier(0.55, 0, 0.1, 1);
+			transition: all .3s cubic-bezier(0.55, 0, 0.1, 1);
+		}
+	}
+}
+
+.fab-button--mask {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.fab-button--wrapper:hover {
+
+	.fab-button--mask {
+		display: block;
+	}
+
+	.fab-button--mask:hover {
+		display: none;
+	}
+
+	.fab-button--children-wrapper {
+
+		.fab-button--children {
+			transform: translateY(0);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.fab-button--children-wrapper:hover {
+
+		.fab-button--children-contents {
+			transform: scale(1, 1);
+			visibility: visible;
+		}
+	}
+}

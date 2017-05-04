@@ -21,6 +21,9 @@ function Filter() {
 	this.emotion = {
 		id: null,
 	}
+	this.block = {
+		id: null,
+	}
 	this.span = {
 		start: null,
 		end: null
@@ -96,7 +99,8 @@ Filter.prototype.get = function() {
  */
 Filter.prototype._getRecord = function() {
 	var emotion = report.emotions.getEmotionById(this.emotion.id);
-	var blocks = this.from.block_ids.map(function(block_id) {
+	var targets = (this.block.id) ? [this.block.id] : this.from.block_ids;
+	var blocks = targets.map(function(block_id) {
 		return report.emo_details.findBlock(block_id);
 	});
 

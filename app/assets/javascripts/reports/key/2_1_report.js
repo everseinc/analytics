@@ -4,7 +4,10 @@ function reportReload() {
 	filterStore.setters.key(1);
 
 	/* initialize chart */
-	chartSetter.new().initialize(initializeWith.EMOTION);
+	chartSetterMain.new().initialize(initializeWith.EMOTION);
+
+	/* initialize histogram chart */
+	// chartSetterHistogram.
 
   /* set emotions filer */
   keyOptionFiler.onClick();
