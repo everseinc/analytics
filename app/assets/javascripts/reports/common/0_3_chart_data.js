@@ -179,7 +179,7 @@ chartData.prototype.createHistogram = function() {
 		this.datasets[0][data] += 1;
 	}.bind(this));
 
-	this.labels = [...Array(100).keys()];
+	this.labels = Array.apply(null, Array(100)).map(function (_, i) {return i;});
 }
 
 
